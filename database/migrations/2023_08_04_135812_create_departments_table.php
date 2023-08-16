@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('name_ku')->charset('utf8mb4');
+
             $table->text('description');
+            $table->text('description_ku')->charset('utf8mb4');
+
             $table->string('image');
             $table->timestamps();
         });

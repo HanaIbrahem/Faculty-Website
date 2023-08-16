@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('name_ku')->charset('utf8mb4');
+
             $table->string('image')->nullable();
             $table->text('description')->nullable();
+            $table->text('description_ku')->nullable()->charset('utf8mb4');
+
             // $table->string('cv');
             $table->unsignedBigInteger('department_id');
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
