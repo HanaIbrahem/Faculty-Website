@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ use App\Http\Controllers\TeacherController;
 Route::get('/', function () {
     return view('welcome');
 })->name('index');
+Route::get('setlocale/{locale}', [LanguageController::class,'setLocale'])->name('setlocale');
+Route::get('language-change', [LanguageController::class, 'changeLanguage'])->name('changeLanguage');
+
 
 // dashbord 
 Route::get('/dashboard', function () {
