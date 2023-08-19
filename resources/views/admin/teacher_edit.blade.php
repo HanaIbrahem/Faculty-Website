@@ -30,12 +30,17 @@
                             @csrf
                             <input type="hidden" value="{{$teacher->id}}" name="id">
                             <div class="form-group mb-3 mt-3">
-                                <label for="">Name</label>
+                                <label for="">Name</label><span class="text-danger fs-4">*</span>
                                 <input class="form-control " value="{{$teacher->name}}" name="name" type="text" placeholder="">
                             </div>
 
+                            <div class="form-group mb-3 mt-3">
+                                <label for="">Name kurdish</label><span class="text-danger fs-4">*</span>
+                                <input class="form-control " dir="rtl" value="{{$teacher->name_ku}}" name="name_ku" type="text" placeholder="">
+                            </div>
+
                             <div class="form-group mb-3">
-                                <label for="">Image</label>
+                                <label for="">Image</label><span class="text-danger fs-4">*</span>
                                 <input class="form-control" type="file" name="image" placeholder="Default input"
                                     id="uploadInput" accept="image/*">
 
@@ -58,9 +63,15 @@
 
 
                             <div class="form-group mt-6 mb-3">
-                                <label for="">Description </label>
+                                <label for="">Description</label><span class="text-danger fs-4">*</span>
                                 <textarea id="elm1" name="description">
                                     {!! $teacher->description !!}
+                            </textarea>
+                            </div>
+                            <div class="form-group mt-6 mb-3">
+                                <label for="">Description Kurdish </label><span class="text-danger fs-4">*</span>
+                                <textarea id="elm1_ku" name="description_ku">
+                                    {!! $teacher->description_ku !!}
                             </textarea>
                             </div>
 

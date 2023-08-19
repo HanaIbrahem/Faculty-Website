@@ -11,12 +11,20 @@
                 <div class="card-body">
                     <div class="post-details">
                         <h3 class="mb-4 text-black">{{ $teacher->name }}</h3>
-                        <img src="{{ asset('images/teacher/' . $teacher->image) }}" alt=""
+                        <h3 class="mb-4 text-black">{{ $teacher->name_ku}}</h3>
+
+                        <img src="{{ asset('images/teacher/' . $teacher->image) }}" alt="{{ $teacher->name }}"
                             class="img-fluid mb-3 w-50 h-50">
 
                         <div class="m-3 ">
 
                             {!! $teacher->description !!}
+                        </div>
+
+
+                        <div class="m-3">
+
+                            {!! $teacher->description_ku!!}
                         </div>
                     </div>
                 </div>

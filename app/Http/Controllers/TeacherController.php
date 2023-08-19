@@ -40,8 +40,12 @@ class TeacherController extends Controller
         // Validate the input data
         $request->validate([
             'name' => 'required|string|max:255',
+            'name_ku' => 'required|string|max:255',
+
             'image' => ['required', File::image()],
             'description' => 'required|string',
+            'description_ku' => 'required|string',
+
             'department_id' => 'required|exists:departments,id', // Check if the department_id exists in the departments table
         ]);
 
@@ -49,6 +53,10 @@ class TeacherController extends Controller
         $teacher = new Teacher();
         $teacher->name = $request->input('name');
         $teacher->description = $request->input('description');
+
+        $teacher->name_ku = $request->input('name_ku');
+        $teacher->description_ku = $request->input('description_ku');
+
         $teacher->department_id = $request->input('department_id');
 
         // Upload and store the image (if provided)
@@ -105,10 +113,15 @@ class TeacherController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'name_ku' => 'required|string|max:255',
+            'description_ku' => 'required|string',
         ]);
 
         $teacher->name=$request->input('name');
         $teacher->description=$request->input('description');
+
+        $teacher->name_ku=$request->input('name_ku');
+        $teacher->description_ku=$request->input('description_ku');
 
         if ($request->hasFile('image')) {
 

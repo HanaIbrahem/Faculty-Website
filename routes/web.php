@@ -21,21 +21,30 @@ use App\Http\Controllers\LanguageController;
 Route::get('/', function () {
     return view('welcome');
 })->name('index');
+
+
+// Language routes 
 Route::get('setlocale/{locale}', [LanguageController::class,'setLocale'])->name('setlocale');
 Route::get('language-change', [LanguageController::class, 'changeLanguage'])->name('changeLanguage');
 
 
 // dashbord 
-Route::get('/dashboard', function () {
-    return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('admin.index');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+ //index pege of dashbord
+ Route::get('/dashboard',[WebsiteController::class,'Dashbord'])->name('dashboard')->middleware('auth');
 
 // admin dashbors
 Route::middleware('auth')->prefix('dashboard')->group(function () {
+    
+    //admin controller
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+   
     // website setup routes
     Route::get('/faculty',[WebsiteController::class,'edit'])->name('faculty');
     Route::post('/faculty/update',[WebsiteController::class,'update'])->name('faculty.update');

@@ -8,15 +8,26 @@
                 <h4 class="card-title">Faculty Information</h4>
             </div>
             <div class="card-body">
+                @if (count($errors))
+                <div class="div alert-danger text-danger p-3">
+                    <ul>
+                        @foreach ($errors->all() as $message)
+                            <li class="m-0 p-0">{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
                 <div class="basic-form">
                     <form method="POST" action="{{route('faculty.update')}}" enctype="multipart/form-data">
 
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="">Image</label>
+                            <label for="">Image</label><span class="text-danger fs-4">*</span>
                             <input class="form-control" type="file" name="image" placeholder="Default input" id="uploadInput" accept="image/*">
 
                         </div>
+
+                        
 
                         <div class="form-group mb-5">
 
@@ -33,9 +44,16 @@
 
                         
                         <div class="form-group mt-6 mb-3">
-                            <label for="">Description </label>
+                            <label for="">Description </label><span class="text-danger fs-4">*</span>
                             <textarea id="elm1" name="detail">
                                 {!! $faculty->description !!}
+                            </textarea>
+                        </div>
+
+                        <div class="form-group mt-6 mb-3">
+                            <label for="">Description Kurdish</label><span class="text-danger fs-4">*</span>
+                            <textarea id="elm1_ku" name="detail_ku">
+                                {!! $faculty->description_ku !!}
                             </textarea>
                         </div>
 

@@ -15,12 +15,20 @@
                 <div class="card-body">
                     <div class="post-details">
                         <h3 class="mb-4 text-black">{{ $department->name }}</h3>
+                        <h3 class="mb-4 text-black">{{ $department->name_ku }}</h3>
+
                         <img src="{{ asset('images/department/' . $department->image) }}" alt=""
                             class="img-fluid mb-3 w-50 h-50">
 
                         <div class="m-3 ">
 
                             {!! $department->description !!}
+                        </div>
+
+                        
+                        <div class="m-3">
+
+                            {!! $department->description_ku!!}
                         </div>
                     </div>
 
@@ -64,12 +72,15 @@
                                         @foreach ($teachers as $item)
                                             <tr>
                                                 <td>{{$i++}}</td>
-                                                <td><a href="{{route('teacher.show',$item->id)}}">{{$item->name}}</a></td>
+                                                <td><a href="{{route('teacher.show',$item->id)}}">{{$item->name}}</a>
+                                                <p><a href="{{route('teacher.show',$item->id)}}">{{$item->name_ku}}</a></p>
+                                                </td>
                                                 <td><img src="{{asset('images/teacher/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
-                                                <td>{!!$item->description!!}</td>
+                                                <td>{!!$item->description!!}
+                                                    <p>{!!$item->description_ku!!}</p></td>
                                                 <td>{{$department->name}}</td>
-                                                <td>{{$item->created_at}}</td>
-                                                <td>{{$item->updated_at}}</td>
+                                                <td ><small>{{$item->created_at}}</small></td>
+                                                <td><small>{{$item->updated_at}}</small></td>
             
                                                 <td>
                                                     <div class="d-flex">

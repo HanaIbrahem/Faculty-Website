@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Faculty;
+use App\Models\Department;
+use App\Models\Teacher;
+use App\Models\User;
+
+
 use Illuminate\Validation\Rules\File;
 
 class WebsiteController extends Controller
 {
+    public function Dashbord(){
+
+        return view('admin.index');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -39,6 +48,9 @@ class WebsiteController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
+
+            'name_ku' => 'required|string|max:255',
+            'title_ku' => 'required|string|max:255',
         ]);
 
         if ($request->hasFile('image')) {
@@ -58,7 +70,7 @@ class WebsiteController extends Controller
     
 
             $image = $request->file('image');
-            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $name_gen = $request->name.hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
             $save_url = $name_gen;
 
             $image->move(public_path('images/'), $name_gen);
@@ -69,6 +81,8 @@ class WebsiteController extends Controller
         $faculty->name=$request->input('name');
         $faculty->title=$request->input('title');
 
+        $faculty->name_ku=$request->input('name_ku');
+        $faculty->title_ku=$request->input('title_ku');
         // Save the changes
         $faculty->save();
 
@@ -105,12 +119,15 @@ class WebsiteController extends Controller
         // Validate the input data
         $request->validate([
             'detail' => 'required|string',
+            'detail_ku' => 'required|string',
+
         ]);
 
         // Find the faculty by ID
 
         // Update the faculty information
         $faculty->description = $request->input('detail');
+        $faculty->description_ku= $request->input('detail_ku');
 
         // Upload and store the image
         if ($request->hasFile('image')) {
@@ -130,7 +147,7 @@ class WebsiteController extends Controller
     
 
             $image = $request->file('image');
-            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $name_gen = $faculty->name.(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
             $save_url = $name_gen;
 
             $image->move(public_path('images/'), $name_gen);

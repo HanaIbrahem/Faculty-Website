@@ -2,7 +2,16 @@
 @php
     $website= App\Models\Faculty::find(1);
 @endphp
-<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary" >
+<style>
+/* 
+    .sidebar {
+      position: fixed;
+      left: 0;
+      height: 100%;
+    } */
+    
+</style>
+<div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
     <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu"
         aria-labelledby="sidebarMenuLabel">
         <div class="offcanvas-header">

@@ -32,9 +32,11 @@
                             @foreach ($teachers as $item)
                                 <tr>
                                     <td>{{$i++}}</td>
-                                    <td><a href="{{route('teacher.show',$item->id)}}">{{$item->name}}</a></td>
+                                    <td><a href="{{route('teacher.show',$item->id)}}">{{$item->name}}</a>
+                                    <p><a href="{{route('teacher.show',$item->id)}}">{{$item->name_ku}}</a></p></td>
                                     <td><img src="{{asset('images/teacher/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
-                                    <td>{!!$item->description!!}</td>
+                                    <td>{!!$item->description!!}
+                                    <p>{!!$item->description_ku!!}</p></td>
                                     <td>{{$item->department->name}}</td>
                                     <td>{{$item->created_at->format('d-m-y')}}</td>
                                     <td>{{$item->updated_at->format('d-m-y')}}</td>

@@ -8,22 +8,44 @@
                 <h4 class="card-title">Website Information</h4>
             </div>
             <div class="card-body">
+                @if (count($errors))
+                <div class="div alert-danger text-danger p-3">
+                    <ul>
+                        @foreach ($errors->all() as $message)
+                            <li class="m-0 p-0">{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
                 <div class="basic-form">
                     <form method="POST" action="{{route('website.update')}}" enctype="multipart/form-data">
 
                         @csrf
 
                         <div class="form-group mb-3 mt-3">
-                            <label for="">Name</label>
+                            <label for="">Name</label><span class="text-danger fs-4">*</span>
                             <input class="form-control " value="{{$faculty->name}}" name="name" type="text" placeholder="">
                         </div>
+
+                        
+                        <div class="form-group mb-3 mt-3">
+                            <label for="">Name Kurdish</label><span class="text-danger fs-4">*</span>
+                            <input class="form-control " value="{{$faculty->name_ku}}" dir="rtl" name="name_ku" type="text" placeholder="">
+                        </div>
+
                         <div class="form-group mb-3">
                             <label for="">Title</label>
                             <input class="form-control" value="{{$faculty->title}}" name="title" type="text" placeholder="">
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="">Logo</label>
+                            <label for="">Title Kurdish</label><span class="text-danger fs-4">*</span>
+                            <input class="form-control" value="{{$faculty->title_ku}}" name="title_ku" type="text" placeholder="">
+                        </div>
+
+
+                        <div class="form-group mb-3">
+                            <label for="">Logo</label><span class="text-danger fs-4">*</span>
                             <input class="form-control" type="file" name="image" placeholder="Default input" id="uploadInput" accept="image/*">
 
                         </div>

@@ -36,8 +36,12 @@ class DepartmentController extends Controller
         //
         $request->validate([
             'name' => 'required|string|max:255',
+            'name_ku' => 'required|string|max:255',
+
             'image' => ['required', File::image()],
             'detail' => 'required|string',
+            'detail_ku' => 'required|string',
+
         ]);
 
         // Create a new department instance
@@ -45,6 +49,10 @@ class DepartmentController extends Controller
         $department->name = $request->input('name');
         $department->description = $request->input('detail');
 
+        $department->name_ku = $request->input('name_ku');
+        $department->description_ku = $request->input('detail_ku');
+
+        
         $image = $request->file('image');
         $name_gen = $request->input('name').hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
 
@@ -99,6 +107,9 @@ class DepartmentController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'detail' => 'required|string',
+
+            'name_ku' => 'required|string|max:255',
+            'detail_ku' => 'required|string',
         ]);
 
         if ($request->hasFile('image')) {
@@ -126,6 +137,8 @@ class DepartmentController extends Controller
         $department->name = $request->input('name');
         $department->description = $request->input('detail');
 
+        $department->name_ku= $request->input('name_ku');
+        $department->description_ku= $request->input('detail_ku');
         // Save the changes
         $department->save();
 
