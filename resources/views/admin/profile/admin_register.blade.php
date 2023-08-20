@@ -41,7 +41,6 @@
                                             <div class="d-flex">
                                                 @if ($item->role =='admin')
                                                 <a href="{{route('User-delete',$item->id)}}" class="btn btn-danger shadow btn-xs sharp" id="delete"><i class="fa fa-trash"></i></a>
-
                                                 @endif
                                             </div>												
                                         </td>	

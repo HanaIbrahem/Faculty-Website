@@ -15,7 +15,19 @@ class WebsiteController extends Controller
 {
     public function Dashbord(){
 
-        return view('admin.index');
+        $department=Department::all()->count();
+        $teacher=Teacher::all()->count();
+        $user=User::all()->count();
+
+        $faculty=Faculty::find(1);
+
+        $info=[
+            'department'=>$department,
+            'teacher'=>$teacher,
+            'user'=>$user,
+        ];
+
+        return view('admin.index',compact('info','faculty'));
     }
     /**
      * Display a listing of the resource.

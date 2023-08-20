@@ -3,13 +3,21 @@
     $website= App\Models\Faculty::find(1);
 @endphp
 <style>
-/* 
-    .sidebar {
-      position: fixed;
-      left: 0;
-      height: 100%;
-    } */
-    
+   
+  
+@media not screen and (max-width: 768px) {
+  /* Styles for screens larger than 768px */
+  /* Add your desired styles here */
+  .sidebar{
+    position: fixed;
+    left: 0%;
+    height: 100%;
+  }
+}
+
+
+
+ 
 </style>
 <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
     <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu"

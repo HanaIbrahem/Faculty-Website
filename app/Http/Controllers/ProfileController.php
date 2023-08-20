@@ -49,8 +49,10 @@ class ProfileController extends Controller
     }
 
     public function UserDelete($id){
+
         if (auth()->user()->role=='superadmin') {
             $user=User::find($id);
+            
             $user->delete();
             return redirect()->back();
         }

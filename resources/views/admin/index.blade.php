@@ -16,7 +16,7 @@
                 <p class="card-text">Faculty of Scienece Departments</p>
                 <a href="{{route('department.index')}}" class="btn bg-white text-dark btn-card">Departments</a>
             </div>
-            <div class="card-footer bg-transparent border-0 text-white">Number of Departments: 12
+            <div class="card-footer bg-transparent border-0 text-white">Number of Departments: {{$info['department']}}
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
                 <p class="card-text">Faculty of Scienece Admins</p>
                 <a href="{{route('Users-list')}}" class="btn bg-white text-dark btn-card">Admins</a>
             </div>
-            <div class="card-footer bg-transparent border-0 text-white">Number of admins: 12
+            <div class="card-footer bg-transparent border-0 text-white">Number of admins: {{$info['user']}}
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
                 <p class="card-text text-primary">Faculty of Scienece Teachers</p>
                 <a href="{{route('teacher.index')}}" class="btn bg-primary text-white btn-card">Teachers</a>
             </div>
-            <div class="card-footer bg-transparent border-0 text-primary">Number of Teachers: 12
+            <div class="card-footer bg-transparent border-0 text-primary">Number of Teachers: {{$info['teacher']}}
             </div>
         </div>
     </div>

@@ -74,7 +74,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 // Supperadmin middleware
 Route::middleware('superadmin')->prefix('dashboard')->group(function () {
     Route::get('/Users',[ProfileController::class,'UsersList'])->name('Users-list');
-    Route::post('/user/{id}',[ProfileController::class,'UserDelete'])->name('User-delete');
+    Route::get('/user/{id}',[ProfileController::class,'UserDelete'])->name('User-delete');
 });
 
 
