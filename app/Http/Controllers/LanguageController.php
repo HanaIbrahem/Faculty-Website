@@ -11,6 +11,7 @@ class LanguageController extends Controller
     //
 
 
+
     public function setLocale($locale)
     {
         if (in_array($locale, config('app.locales'))) {
@@ -20,6 +21,9 @@ class LanguageController extends Controller
         return Redirect::back();
     }
 
+    public function index(){
+        return view('frontend.index');
+    }
     public function changeLanguage(Request $request)
     {
         // $validated = $request->validate([

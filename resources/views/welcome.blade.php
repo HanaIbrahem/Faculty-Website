@@ -156,3 +156,8 @@
     </li>
 </ul>
 <h1>{{ __('message.welcome') }}</h1>
+@if (Session::get('locale')=='ku')
+<p>شلاو من هانام</p>        
+@else
+<p>Hi i am Hana</p>
+@endif

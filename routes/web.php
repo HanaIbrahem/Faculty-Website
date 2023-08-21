@@ -6,6 +6,7 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\LanguageController;
+use app\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
-
+Route::get('index',function(){
+return view('frontend.index');
+});
 // Language routes 
 Route::get('setlocale/{locale}', [LanguageController::class,'setLocale'])->name('setlocale');
 Route::get('language-change', [LanguageController::class, 'changeLanguage'])->name('changeLanguage');
-
 
 // dashbord 
 // Route::get('/dashboard', function () {
@@ -82,5 +84,11 @@ Route::middleware('superadmin')->prefix('dashboard')->group(function () {
 
 });
 
+
+
+// Frontend controller
+// Route::get('index2', [FrontendController::class, 'index'])->name('frontend.home');
+
+Route::get('index3', [FrontendController::class, 'index'])->name('indexpage');
 
 require __DIR__.'/auth.php';
