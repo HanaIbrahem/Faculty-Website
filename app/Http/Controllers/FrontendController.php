@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Faculty;
 
 class FrontendController extends Controller
 {
@@ -12,50 +13,44 @@ class FrontendController extends Controller
     public function index()
     {
         //
+
+        return view('frontend.index');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show aboute page
      */
-    public function create()
+    public function about()
     {
         //
     }
 
     /**
-     * Store a newly created resource in storage.
+     * show department individualy
      */
-    public function store(Request $request)
+    public function department()
     {
         //
     }
 
     /**
-     * Display the specified resource.
+     * show teacher invidualy
      */
-    public function show(string $id)
+    public function teacher()
     {
         //
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show 
      */
-    public function edit(string $id)
+    public function t(string $id)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
+     * Show
      */
     public function destroy(string $id)
     {

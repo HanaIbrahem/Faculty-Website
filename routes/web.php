@@ -6,7 +6,9 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\LanguageController;
-use app\Http\Controllers\FrontendController;
+use App\Http\Controllers\FrontendController;
+
+// use app\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,9 @@ return view('frontend.index');
 // Language routes 
 Route::get('setlocale/{locale}', [LanguageController::class,'setLocale'])->name('setlocale');
 Route::get('language-change', [LanguageController::class, 'changeLanguage'])->name('changeLanguage');
+
+
+Route::get('/s',[FrontendController::class,'index'])->name('fs');
 
 // dashbord 
 // Route::get('/dashboard', function () {
@@ -71,6 +76,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::post('/teacher/update/',[TeacherController::class,'update'])->name('teacher.update');
     Route::get('/teacher/delete/{id}',[TeacherController::class,'destroy'])->name('teacher.destroy');
 
+
 });
 
 // Supperadmin middleware
@@ -83,12 +89,5 @@ Route::middleware('superadmin')->prefix('dashboard')->group(function () {
 
 
 });
-
-
-
-// Frontend controller
-// Route::get('index2', [FrontendController::class, 'index'])->name('frontend.home');
-
-Route::get('index3', [FrontendController::class, 'index'])->name('indexpage');
 
 require __DIR__.'/auth.php';

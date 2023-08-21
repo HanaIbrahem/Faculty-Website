@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'welcome' => 'Welcome یگگ گفئگح هگحهحه website!',
+    'welcome' => 'بەخێر بێن بۆ وێبسایتی فاکەڵتی',
     // Add more translation strings here
 ];
