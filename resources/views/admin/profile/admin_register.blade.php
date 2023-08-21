@@ -41,7 +41,7 @@
                                             <div class="d-flex">
                                                 @if ($item->role =='admin')
                                                 <a href="{{route('User-delete',$item->id)}}" class="btn btn-danger shadow btn-xs sharp" id="delete"><i class="fa fa-trash"></i></a>
-                                                {{-- <a href="{{route('User-edit',$item->id)}}" class="btn btn-info shadow btn-xs sharp ms-2" ><i class="fa fa-pen"></i></a> --}}
+                                                    {{-- <a href="{{route('User-edit',$item->id)}}" class="btn btn-info shadow btn-xs sharp ms-2" ><i class="fa fa-pen"></i></a> --}}
                                                 @endif
                                             </div>												
                                         </td>	
