@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class ProfileController extends Controller
@@ -39,33 +40,67 @@ class ProfileController extends Controller
     }
 
     // Users List function
-    public function UsersList(){
+    public function UsersList()
+    {
 
-        $alluser= User::all();
+        $alluser = User::all();
 
-        $i=1;
-        return view('admin.profile.admin_register',compact('alluser','i'));
-        
+        $i = 1;
+        return view('admin.profile.admin_register', compact('alluser', 'i'));
+
     }
 
-    public function UserDelete($id){
+    /**
+     * Delete users by admin 
+     */
+    public function UserDelete($id)
+    {
 
-        if (auth()->user()->role=='superadmin') {
-            $user=User::find($id);
-            
+        if (auth()->user()->role == 'superadmin') {
+            $user = User::find($id);
+
             $user->delete();
             return redirect()->back();
         }
-     
+
     }
 
+    public function UserEdit($id)
+    {
+
+        $user = User::find($id);
+        return view('admin.profile.admin_edit', compact('user'));
+    }
+
+    // public function UserUpdate(Request $request)
+    // {
+    //     dd($request->all());
+
+    //     $request->validate(
+    //         [
+    //             'name' => 'required|string|max:200',
+    //             'email' => 'required|string|email',
+    //         ]
+
+    //     );
+    //     $user = User::find($request->id);
+    //     $user->name = $request->input('name');
+    //     $user->email = $request->input('email');
+
+    //     $user->password = Hash::make($request->password);
+
+    //     $user->save();
+    //     return redirect()->back();
+
+
+    // }
     /**
      * Delete the user's account.
      */
     public function destroy(Request $request): RedirectResponse
     {
-        
-        
+
+
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);

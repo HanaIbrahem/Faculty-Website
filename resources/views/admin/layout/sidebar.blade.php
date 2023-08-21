@@ -59,9 +59,7 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="{{route('profile.edit')}}">
-                        <svg class="bi">
-                            <use xlink:href="#house-fill" />
-                        </svg>
+                        <i class="fa-solid fa-address-card"></i>
                         Profile
                     </a>
                 </li>
@@ -91,30 +89,25 @@
 
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('teacher.index')}}">
-                        <i class="bi bi-window-stack"></i>
-                        Teachers
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                                                Teachers
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('department.index')}}">
-                        <i class="bi bi-window-stack"></i>
-                        Department
+                        <i class="fa-solid fa-school"></i>                        Department
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('faculty')}}">
-                        <svg class="bi">
-                            <use xlink:href="#file-earmark-text" />
-                        </svg>
+                        <i class="fa-solid fa-home"></i>
                         Faculty of Science
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('website')}}">
-                        <svg class="bi">
-                            <use xlink:href="#file-earmark-text" />
-                        </svg>
+                        <i class="fa-solid fa-gear"></i>
                         Website
                     </a>
                 </li>

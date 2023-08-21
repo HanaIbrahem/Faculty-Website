@@ -2,7 +2,6 @@
 
 @section('datatablestyle')
 <link rel="stylesheet" href="{{ asset('backend/assets/vendor/datatables/css/jquery.dataTables.min.css') }}">
-
 @endsection
 
 @section('main')
@@ -99,6 +98,7 @@
         </div>
     </div>
 </section>
+
 @endsection
 
 
