@@ -21,19 +21,17 @@ use App\Http\Controllers\FrontendController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('index');
 
-Route::get('index',function(){
-return view('frontend.index');
-});
+
 // Language routes 
 Route::get('setlocale/{locale}', [LanguageController::class,'setLocale'])->name('setlocale');
 Route::get('language-change', [LanguageController::class, 'changeLanguage'])->name('changeLanguage');
 
 
-Route::get('/s',[FrontendController::class,'index'])->name('fs');
+// Route::get('/s',[FrontendController::class,'index'])->name('fs');
 
 // dashbord 
 // Route::get('/dashboard', function () {
@@ -87,6 +85,12 @@ Route::middleware('superadmin')->prefix('dashboard')->group(function () {
     // Route::get('/user/edit/{id}',[ProfileController::class,'UserEdit'])->name('User-edit');
     // Route::post('/user/update',[ProfileController::class,'UserUpdate'])->name('User-update');
 
+
+});
+
+Route::middleware('web')->group(function (){
+
+    Route::get('/',[FrontendController::class,'index'])->name('frontend.index');
 
 });
 
