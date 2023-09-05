@@ -6,6 +6,7 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ReserrchController;
 use App\Http\Controllers\FrontendController;
 
 // use app\Http\Controllers\FrontendController;
@@ -73,6 +74,18 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('/teacher/edit/{id}',[TeacherController::class,'edit'])->name('teacher.edit');
     Route::post('/teacher/update/',[TeacherController::class,'update'])->name('teacher.update');
     Route::get('/teacher/delete/{id}',[TeacherController::class,'destroy'])->name('teacher.destroy');
+
+    // research Controller
+
+    Route::get('research',[ReserrchController::class,'index'])->name('research.index');
+    Route::get('research/creat',[ReserrchController::class,'create'])->name('research.create');
+    Route::post('research/store',[ReserrchController::class,'store'])->name('research.store');
+
+    Route::get('research/edit/{id}',[ReserrchController::class,'edit'])->name('research.edit');
+    Route::post('research/update',[ReserrchController::class,'update'])->name('research.update');
+    Route::get('research/delete/{id}',[ReserrchController::class,'destroy'])->name('research.destroy');
+    Route::get('/download/{filename}', [ReserrchController::class,'download'])->name('research.download');
+
 
 
 });

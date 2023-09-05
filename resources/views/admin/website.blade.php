@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="">Title</label>
+                            <label for="">Title</label><span class="text-danger fs-4">*</span>
                             <input class="form-control" value="{{$faculty->title}}" name="title" type="text" placeholder="">
                         </div>
 

@@ -8,16 +8,12 @@
 @media not screen and (max-width: 768px) {
   /* Styles for screens larger than 768px */
   /* Add your desired styles here */
-  .sidebar{
+  /* .sidebar{
     position: fixed;
     left: 0%;
     height: 100%;
-  }
+  } */
 }
-
-
-
- 
 </style>
 <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
     <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu"
@@ -30,7 +26,7 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
             <div class="text-center m-2">
 
-                <a href="{{route('index')}}">                <img style="max-height: 100px;max-width:100px" src="{{asset('images/'.$website->logo)}}" class="img  ">
+                <a href="{{route('frontend.index')}}">                <img style="max-height: 100px;max-width:100px" src="{{asset('images/'.$website->logo)}}" class="img  ">
                 </a>
             </div>
             
@@ -68,8 +64,8 @@
             
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('Users-list')}}">
-                        <i class="bi bi-people-fill"></i>
 
+                        <i class="fa-solid fa-users"></i>
                         Admins
                     </a>
                 </li>
@@ -91,6 +87,14 @@
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('teacher.index')}}">
                         <i class="fa-solid fa-chalkboard-user"></i>
                                                 Teachers
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{route('research.index')}}">
+                        <i class="fa-solid fa-book"></i>
+                                                Researchs
                     </a>
                 </li>
 

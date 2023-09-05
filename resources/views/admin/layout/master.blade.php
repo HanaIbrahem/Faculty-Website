@@ -13,16 +13,17 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/dashboard.css') }}">
 
+    <link rel="stylesheet" href="{{asset('backend/assets/fonts/css/all.min.css')}}">
 
     @yield('datatablestyle')
     @yield('switalertcss')
     {{-- Dashbord collor mode --}}
     {{-- <script src="{{ asset('backend/assets/js/color-modes.js') }}"></script> --}}
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> --}}
 
     {{-- font awesome --}}
-    <script src="https://kit.fontawesome.com/8b87d80512.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/8b87d80512.js" crossorigin="anonymous"></script> --}}
     {{-- @php
         $id=Auth::user()->id;
         $userdata=App\Models\user::find($id);

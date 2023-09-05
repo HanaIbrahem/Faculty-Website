@@ -40,7 +40,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
 
     <!-- Font ausom link -->
-    <script src="https://kit.fontawesome.com/8b87d80512.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{asset('backend/assets/fonts/css/all.min.css')}}">
+    {{-- <script src="https://kit.fontawesome.com/8b87d80512.js" crossorigin="anonymous"></script> --}}
 
 
     <link rel="icon" type="image/x-icon" href="{{ asset('images/' . $faculty->logo) }}">
@@ -75,7 +76,8 @@
 
 
     {{-- required scrypts --}}
-
+    <script src="{{asset('frontend/assets/js/core/popper.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/js/core/bootstrap.min.js')}}"></script>
 </body>
 
 </html>
