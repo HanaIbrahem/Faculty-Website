@@ -32,6 +32,7 @@
     @if (Session::get('locale') == 'ku')
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
             integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+    
     @else
 
     @endif
@@ -48,29 +49,11 @@
     <title>{{ $info['name'] }}</title>
 </head>
 
-<body>
-
-    <header>
-        @include('frontend.layout.header')
-        <div class="page-header min-vh-75" style="background-image: url({{ asset('frontend/assets/img/cover.png') }})"
-            loading="lazy">
-            <span class="mask bg-gradient-dark opacity-2"></span>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-white text-center">
-                        <h2 class="text-white">Soran University Faculty of Scince</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, doloremque.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </header>
-
-    <main>
+<body class="index-page bg-gray-200">
+    @include('frontend.layout.header')
+ 
     @yield('main')
-    </main>
+
     @include('frontend.layout.footer')
 
 

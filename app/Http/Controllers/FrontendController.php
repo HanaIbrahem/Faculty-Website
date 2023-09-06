@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Faculty;
+use App\Models\Department;
+use Illuminate\Support\Facades\Session;
+use DB;
+use App\Models\User;
+
 
 class FrontendController extends Controller
 {
@@ -13,8 +18,8 @@ class FrontendController extends Controller
     public function index()
     {
         //
-        
-        return view('frontend.index');
+        $department = Department::all();
+        return view('frontend.index',compact('department'));
     }
 
     /**
@@ -28,9 +33,13 @@ class FrontendController extends Controller
     /**
      * show department individualy
      */
-    public function department()
+    public function department($id)
     {
         //
+        $department= Department::find($id);
+        $user = User::paginate(2);
+        return view('frontend.department', compact('department','user'));
+    
     }
 
     /**

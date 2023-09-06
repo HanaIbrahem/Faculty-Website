@@ -104,6 +104,9 @@ Route::middleware('superadmin')->prefix('dashboard')->group(function () {
 Route::middleware('web')->group(function (){
 
     Route::get('/',[FrontendController::class,'index'])->name('frontend.index');
+    Route::get('/department/{id}',[FrontendController::class,'department'])->name('frontend.department');
+    
+
 
 });
 
