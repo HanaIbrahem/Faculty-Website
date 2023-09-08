@@ -63,110 +63,45 @@
         <div class="container">
           <div class="row">
             <div class="col-9 text-center mx-auto">
-              <h3 class="mb-1">Computer  Scince Teachers</h3>
-              <p class="mb-6 px-md-6">Create a unique and beautiful blog posts. You can also connect your blog directly
-                to Google Analytics to have a more detailed look.</p>
+              <h3 class="mb-1">
+                @if ($loc=='_ku')
+                  مامۆستایانی بەشی 
+                  {{$department->name_ku}}
+                @else
+                {{$department->name}} Scince Teachers
+                @endif
+              </h3>
+              <p class="mb-6 px-md-6">{{__('message.department_teacher')}}</p>
             </div>
+            @foreach ( $teacher as $item)
             <div class="col-lg-4 mb-lg-0 mb-4">
               <div class="card">
                 <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
                   <a href="javascript:;" class="d-block blur-shadow-image">
-                    <img src="../../assets/img/examples/color2.jpg" class="img-fluid border-radius-md" alt="anastasia" loading="lazy">
+                    <img src="{{asset('images/teacher/'.$item->image)}}" class="img-fluid border-radius-md" alt="anastasia" loading="lazy">
                   </a>
-                  <div class="colored-shadow" style="background-image: url(&quot;../../assets/img/examples/color2.jpg&quot;);"></div>
                 </div>
                 <div class="card-body">
-                  <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">House</span>
+                  {{-- <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">House</span> --}}
                   <a href="javascript:;" class="card-title mt-3 h5 d-block text-darker">
-                    Shared Coworking
+                    {{ $item->{"name$loc"} }}
                   </a>
                   <p class="card-description mb-4">
-                    Use border utilities to quickly style the border and border-radius of an element. Great for images,
-                    buttons.
+                    {!! $item->{"description$loc"} !!}
                   </p>
-                  <div class="author align-items-center">
-                    <img src="../../assets/img/team-2.jpg" alt="..." class="avatar shadow" loading="lazy">
-                    <div class="name ps-2">
-                      <span>Mathew Glock</span>
-                      <div class="stats">
-                        <small>Posted on 28 February</small>
-                      </div>
-                    </div>
-                  </div>
+        
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 mb-lg-0 mb-4">
-              <div class="card">
-                <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
-                  <a href="javascript:;" class="d-block blur-shadow-image">
-                    <img src="../../assets/img/examples/color3.jpg" class="img-fluid border-radius-md" alt="nastuh" loading="lazy">
-                  </a>
-                  <div class="colored-shadow" style="background-image: url(&quot;../../assets/img/examples/color3.jpg&quot;);"></div>
-                </div>
-                <div class="card-body">
-                  <span class="text-gradient text-info text-uppercase text-xs font-weight-bold">House</span>
-                  <a href="javascript:;" class="text-darker card-title mt-3 h5 d-block">
-                    Really Housekeeping
-                  </a>
-                  <p class="card-description mb-4">
-                    Use border utilities to quickly style the border and border-radius of an element. Great for images,
-                    buttons.
-                  </p>
-                  <div class="author align-items-center">
-                    <img src="../../assets/img/ivana-squares.jpg" alt="ivana" class="avatar shadow" loading="lazy">
-                    <div class="name ps-2">
-                      <span>Mathew Glock</span>
-                      <div class="stats">
-                        <small>Posted on 28 February</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 mb-lg-0 mb-4">
-              <div class="card">
-                <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
-                  <a href="javascript:;" class="d-block blur-shadow-image">
-                    <img src="../../assets/img/examples/color1.jpg" class="img-fluid border-radius-md" alt="annie" loading="lazy">
-                  </a>
-                  <div class="colored-shadow" style="background-image: url(&quot;../../assets/img/examples/color1.jpg&quot;);"></div>
-                </div>
-                <div class="card-body">
-                  <span class="text-gradient text-warning text-uppercase text-xs font-weight-bold">House</span>
-                  <a href="javascript:;" class="text-darker card-title mt-3 h5 d-block">
-                    Shared Coworking
-                  </a>
-                  <p class="card-description mb-4">
-                    Use border utilities to quickly style the border and border-radius of an element. Great for images,
-                    buttons.
-                  </p>
-                  <div class="author align-items-center">
-                    <img src="../../assets/img/marie.jpg" alt="marie" class="avatar shadow" loading="lazy">
-                    <div class="name ps-2">
-                      <span>Mathew Glock</span>
-                      <div class="stats">
-                        <small>Posted on 28 February</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            @endforeach
+         
+            
           </div>
         </div>
       </section>
-
-
-      @foreach ($user as $item)
-          <p> {{ $item->id }}</p>
-
-          
-      @endforeach
        <!-- pagination start -->
        <div class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%">
-        {{ $user->links('vendor.pagination.custom') }}
+        {{ $teacher->links('vendor.pagination.custom') }}
        </div>
     <!-- pagination end -->
 

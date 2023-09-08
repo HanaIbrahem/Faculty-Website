@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('name_ku')->charset('utf8mb4');
-
+            
+            $table->unsignedBigInteger('department_id');
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+            
             $table->text('description');
             $table->text('description_ku')->charset('utf8mb4');
 

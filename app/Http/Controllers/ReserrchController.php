@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use DB;
@@ -27,7 +28,8 @@ class ReserrchController extends Controller
     public function create()
     {
         //
-        return view('admin.research_create');
+        $depart=Department::all();
+        return view('admin.research_create',compact('depart'));
     }
 
     /**
@@ -65,6 +67,7 @@ class ReserrchController extends Controller
             
             'image'=>['required',File::image()],
 
+            'department'=>'required|exists:departments,id',
         ]);
 
 
@@ -78,6 +81,7 @@ class ReserrchController extends Controller
 
         $research->auther=$request->input('auther');
         $research->auther_ku=$request->input('auther_ku');
+        $research->department_id=$request->input('department');
 
         // for image upload
         $image = $request->file('image');
@@ -114,7 +118,9 @@ class ReserrchController extends Controller
     {
         //
         $research = Research::find($id);
-        return view('admin.reserch_edit',compact('research'));
+        $depart=Department::all();
+
+        return view('admin.reserch_edit',compact('research','depart'));
     }
 
     /**
@@ -130,6 +136,8 @@ class ReserrchController extends Controller
             'auther_ku'=>'required|string',
             'description'=>'required|string',
             'description_ku'=>'required|string',
+            'department'=>'required|exists:departments,id',
+
         ]);
 
         $research=Research::find($request->id);
@@ -142,6 +150,8 @@ class ReserrchController extends Controller
 
         $research->auther=$request->input('auther');
         $research->auther_ku=$request->input('auther_ku');
+        $research->department_id=$request->input('department');
+
 
         // if request has image file 
         if ($request->hasFile('image')) {

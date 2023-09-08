@@ -44,6 +44,19 @@
                             <input class="form-control " dir="rtl" value="{{$research->auther_ku}}" name="auther_ku" type="text" placeholder="">
                         </div>
 
+                        <div class="form-group mb-3 mt-3 w-50">
+                            <label for="">Department</label><span class="text-danger fs-4">*</span>
+                            <select class="form-control" name="department" id="">
+                                @foreach ($depart as $item )
+                                  @if ($item->id == $research->department_id) <!-- Replace $currentDepartmentId with the actual variable containing the department id of the item being edited -->
+                                      <option class="mt-1" value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                                  @else
+                                      <option class="mt-1" value="{{ $item->id }}">{{ $item->name }}</option>
+                                  @endif
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="form-group mb-3">
                             <label for="">File</label><span class="text-danger fs-4">*</span>
                             <input class="form-control" type="file" name="file">

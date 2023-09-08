@@ -28,6 +28,7 @@
                                 <th>Description</th>
                                 <th>Auther</th>
                                 <th>File</th>
+                                <th>Department</th>
                                 <th>Created</th>
                                 <th>Updated</th>
                                 <th>Action</th>
@@ -48,8 +49,11 @@
                                     <td>{{$item->auther}}
                                     <p>{{$item->auther_ku}}</p>
                                     </td>
-                                    <td><a href="{{ route('research.download', ['filename' => $item->file]) }}" download>{{$item->name}}</a>
-
+                                    <td>
+                                        <a href="{{ route('research.download', ['filename' => $item->file]) }}" download>{{$item->name}}</a>
+                                    </td>
+                                    <td>
+                                        {{$item->department->name}}
                                     </td>
                                     <td>{{$item->created_at->format('d-m-y')}}</td>
                                     <td>{{$item->updated_at->format('d-m-y')}}</td>

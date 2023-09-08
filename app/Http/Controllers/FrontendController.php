@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Faculty;
+use App\Models\Research;
 use App\Models\Department;
+
 use Illuminate\Support\Facades\Session;
 use DB;
-use App\Models\User;
 
 
 class FrontendController extends Controller
@@ -37,8 +37,12 @@ class FrontendController extends Controller
     {
         //
         $department= Department::find($id);
-        $user = User::paginate(2);
-        return view('frontend.department', compact('department','user'));
+
+        $teacher = DB::table('teachers')
+        ->select('*')->orderBy('updated_at')
+        ->where('department_id', $department->id)->paginate(9);
+        
+        return view('frontend.department', compact('department','teacher'));
     
     }
 
@@ -51,13 +55,49 @@ class FrontendController extends Controller
     }
 
     /**
-     * Show 
+     * reserarch Method  
      */
-    public function t(string $id)
+    public function research()
     {
         //
+         
+        $research=Research::latest()->paginate(10);
+
+        // catigory news
+        $research_count = Research::select(DB::raw('department_id, COUNT(*) as count'))
+                           ->groupBy('department_id')
+                           ->get();
+
+        
+        return view('frontend.research',compact('research','research_count'));
+    }
+    /**
+     * show research
+     */
+    public function research_show ($id)
+    {
+        $research_count = Research::select(DB::raw('department_id, COUNT(*) as count'))
+        ->groupBy('department_id')
+        ->get();
+
+        $research=Research::find($id);
+        return view('frontend.research_show',compact('research','research_count'));
     }
 
+    /**
+     * download research
+     */
+
+     public function download($filename)
+     {
+         $file = storage_path("app/public/files/research/$filename");
+     
+         if (file_exists($file)) {
+             return response()->download($file);
+         } else {
+             abort(404, 'File not found');
+         }
+     }
     /**
      * Show
      */
