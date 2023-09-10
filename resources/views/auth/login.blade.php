@@ -1,14 +1,17 @@
+@php
+    $faculty = \App\Models\Faculty::find(1);
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="stylesheet" href="{{ asset('backend/assets/css/material-kit.css') }}">
-
-
     <script src="{{asset('backend/assets/js/bootstrap.bundle.min.js')}}"></script>
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/' . $faculty->logo) }}">
+    <title>{{ $faculty->title  }}</title>
 </head>
 <body>
   <section class="container d-flex flex-column ">
@@ -24,7 +27,10 @@
                     <div class="mb-4 ">
                         <div class="row">
                             <div class="col"></div>
-                            {{-- <div class="col"> <a href="{{route('/')}}"><img src="{{$websitesetup->logo}}" class="rounded mx-auto d-block" alt=""></a> --}}
+                            <div class="col">
+                                 <a href="{{route('frontend.index')}}">
+                                    <img style="max-width:100px;max-height:100px" src="{{asset('images/'.$faculty->logo)}}" class="rounded mx-auto d-block" alt="">
+                                 </a>
                             </div>
                             <div class="col"></div>
                         </div>
@@ -61,12 +67,12 @@
                         </div>
                         
                         @if (Route::has('password.request'))
-                       
+{{--                        
                         <div class="mb-3">
                             <a class="underline text-sm  " href="{{ route('password.request') }}">
                                 {{ __('Forgot your password?') }}
                             </a>
-                        </div>
+                        </div> --}}
                          @endif
                         
                         <div class="text-cente">

@@ -62,7 +62,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Mmessage</th>
                                 <th>Date</th>
@@ -70,15 +71,16 @@
                         </thead>
                         <tbody>
                             
-                            {{-- @foreach ($teachers as $item)
+                            @foreach ($contact as $item)
                                 <tr>
                                     <td>{{$i++}}</td>>
                                     <td>{{$item->name}}</td>
+                                    <td>{{$item->lname}}</td>
                                     <td>{{$item->email }}</td>
                                     <td>{{$item->message}}</td>
                                     <td>{{$item->created_at->format('d-m-y')}}</td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

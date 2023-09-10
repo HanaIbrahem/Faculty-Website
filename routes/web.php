@@ -45,7 +45,7 @@ Route::get('language-change', [LanguageController::class, 'changeLanguage'])->na
 // admin dashbors
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     
-    //admin controller
+    //admin controller   contactdelete
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -56,6 +56,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::post('/faculty/update',[WebsiteController::class,'update'])->name('faculty.update');
     Route::get('/website',[WebsiteController::class,'index'])->name('website');
     Route::post('/website/update',[WebsiteController::class,'store'])->name('website.update');
+
+    Route::get('/contact/{id}',[WebsiteController::class,'contactdelete'])->name('contact.destroy');
 
     // Department Controller
     Route::get('/department',[DepartmentController::class,'index'])->name('department.index');
@@ -108,6 +110,11 @@ Route::middleware('web')->group(function (){
     Route::get('/research',[FrontendController::class,'research'])->name('forntend.research');
     Route::get('/research/{id}',[FrontendController::class,'research_show'])->name('forntend.research_show');
     Route::get('/research/download/{id}',[FrontendController::class,'download'])->name('forntend.research_download');
+    Route::get('/contact',[FrontendController::class,'contact'])->name('forntend.contact');
+    Route::get('/about',[FrontendController::class,'about'])->name('forntend.about');
+
+    Route::post('/contact/store',[FrontendController::class,'contactstore'])->name('contact.store');
+
 
 
 });

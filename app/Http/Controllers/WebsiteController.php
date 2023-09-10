@@ -7,7 +7,7 @@ use App\Models\Faculty;
 use App\Models\Department;
 use App\Models\Teacher;
 use App\Models\User;
-
+use App\Models\Contact;
 
 use Illuminate\Validation\Rules\File;
 
@@ -26,8 +26,11 @@ class WebsiteController extends Controller
             'teacher'=>$teacher,
             'user'=>$user,
         ];
+        $contact=Contact::latest()->get();
 
-        return view('admin.index',compact('info','faculty'));
+
+        $i=1;
+        return view('admin.index',compact('i','info','faculty','contact'));
     }
     /**
      * Display a listing of the resource.
@@ -105,9 +108,13 @@ class WebsiteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function contactdelete(string $id)
     {
         //
+        $contact=Contact::find($id);
+        $contact->delete();
+        return redirect()->back();
+
     }
 
     /**

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Research;
 use App\Models\Department;
-
+use App\Models\Contact;
 use Illuminate\Support\Facades\Session;
 use DB;
 
@@ -28,7 +28,20 @@ class FrontendController extends Controller
     public function about()
     {
         //
+        return view('frontend.about');
+
     }
+
+    /**
+     * show contact page
+     */
+    public function contact()
+    {
+
+        return view('frontend.contact');
+    }
+
+   
 
     /**
      * show department individualy
@@ -61,7 +74,7 @@ class FrontendController extends Controller
     {
         //
          
-        $research=Research::latest()->paginate(10);
+        $research=Research::latest()->paginate(8);
 
         // catigory news
         $research_count = Research::select(DB::raw('department_id, COUNT(*) as count'))
@@ -105,4 +118,31 @@ class FrontendController extends Controller
     {
         //
     }
+
+     /**
+     * contact store
+     */
+    public function contactstore(Request $request)
+    {
+
+        $request->validate([
+            'name'=>'required|string|max:100',
+            'lname'=>'required|string|max:100',
+            'email'=>'required|email|max:100',
+            'message'=>'required|string',
+
+        ]);
+        $contact=new Contact();
+        $contact->name=$request->input('name');
+        $contact->lname=$request->input('lname');
+        $contact->email=$request->input('email');
+        $contact->messge=$request->input('message');
+        $contact->save();
+        return redirect()->back();
+    }
+    /**
+     * contact delete
+    */
+ 
 }
+

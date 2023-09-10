@@ -1,23 +1,14 @@
 @php
-    $info = [];
     $faculty = \App\Models\Faculty::find(1);
-    
+    $loc=''; 
     if (Session::get('locale') == 'ku') {
-        $info = [
-            'name' => $faculty->name_ku,
-            'title' => $faculty->title_ku,
-        ];
-    } else {
-        $info = [
-            'name' => $faculty->name,
-            'title' => $faculty->title,
-        ];
-    }
+      $loc='_ku';
+    } 
 @endphp
 
 <!DOCTYPE html>
 {{-- if language is kurdish --}}
-@if (Session::get('locale') == 'ku')
+@if ($loc=='_ku')
     <html lang="ku" dir="rtl">
 @else
     <html lang="en" dir="ltr">
@@ -29,10 +20,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     {{-- style for kurdish --}}
-    @if (Session::get('locale') == 'ku')
+    @if ($loc=='_ku')
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
             integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
     
+            <link rel="stylesheet" href="{{asset('frontend/assets/css/kurdish-style.css')}}">
     @else
 
     @endif
@@ -46,10 +38,10 @@
 
 
     <link rel="icon" type="image/x-icon" href="{{ asset('images/' . $faculty->logo) }}">
-    <title>{{ $info['name'] }}</title>
+    <title>{{ $faculty->{"title$loc"}  }}</title>
 </head>
 
-<body class="index-page bg-gray-200">
+<body class="index-page ">
     @include('frontend.layout.header')
  
     @yield('main')

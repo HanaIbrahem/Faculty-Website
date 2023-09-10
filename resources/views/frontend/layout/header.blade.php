@@ -97,13 +97,13 @@
 
                 <li class="nav-item ">
                     <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                        href="./index.html" role="button">
+                        href="{{route('forntend.about')}}" role="button">
                         {{ __('message.nav_about') }}
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
-                        href="./index.html" role="button">
+                        href="{{route('forntend.contact')}}" role="button">
                         {{ __('message.nav_contact') }}
                     </a>
                 </li>
