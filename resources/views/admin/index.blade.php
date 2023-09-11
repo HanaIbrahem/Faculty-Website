@@ -67,6 +67,7 @@
                                 <th>Email</th>
                                 <th>Mmessage</th>
                                 <th>Date</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,8 +78,15 @@
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->lname}}</td>
                                     <td>{{$item->email }}</td>
-                                    <td>{{$item->message}}</td>
+                                    <td>{{$item->messge}}</td>
                                     <td>{{$item->created_at->format('d-m-y')}}</td>
+                                    <td>
+                                        <div class="d-flex">  
+                                            <div style="margin-right: 4px">
+                                                <a href="{{route('contact.destroy',$item->id)}}" class="btn btn-danger shadow btn-xs sharp " id="delete"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>												
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -94,4 +102,9 @@
 @section('datatablejs')
 <script src="{{ asset('backend/assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/plugin/datatables.init.js') }}"></script>
+@endsection
+
+@section('switalertjs')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{asset('backend/assets/js/plugin/sweetalert.init.js')}}"></script>
 @endsection

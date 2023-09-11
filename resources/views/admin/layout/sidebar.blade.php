@@ -8,11 +8,14 @@
 @media not screen and (max-width: 768px) {
   /* Styles for screens larger than 768px */
   /* Add your desired styles here */
-  /* .sidebar{
+  .sidebar{
     position: fixed;
     left: 0%;
-    height: 100%;
-  } */
+    height:100%;
+    /* overflow-y: auto;  */
+
+    
+  }
 }
 </style>
 <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
@@ -26,7 +29,8 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
             <div class="text-center m-2">
 
-                <a href="{{route('frontend.index')}}">                <img style="max-height: 100px;max-width:100px" src="{{asset('images/'.$website->logo)}}" class="img  ">
+                <a href="{{route('frontend.index')}}">              
+                      <img style="max-height: 70px;max-width:70px" src="{{asset('images/'.$website->logo)}}" class="img  ">
                 </a>
             </div>
             
@@ -128,7 +132,7 @@
             </h6>
 
             <ul class="nav flex-column mb-auto">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="#">
                         <svg class="bi">
                             <use xlink:href="#gear-wide-connected" />
@@ -136,14 +140,7 @@
                         Settings
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                        <svg class="bi">
-                            <use xlink:href="#door-closed" />
-                        </svg>
-                        Sign out
-                    </a>
-                </li>
+                --}}
             </ul>
         </div>
     </div>

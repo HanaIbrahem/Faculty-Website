@@ -53,6 +53,10 @@
     {{-- required scrypts --}}
     <script src="{{asset('frontend/assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/core/bootstrap.min.js')}}"></script>
+
+    <script src="{{asset('backend/assets/js/validate.js')}}"></script>
+<script src="{{asset('backend/assets/vendor/jqury/jqury.js')}}"></script>
+
 </body>
 
 </html>

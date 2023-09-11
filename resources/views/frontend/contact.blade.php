@@ -42,16 +42,16 @@
                         </div>
                             
                         @endif
-                        <form action="{{route('contact.store')}}" dir="{{$loc=='_ku'?'rtl':'ltr'}}" id="contact-form" method="post" >
+                        <form action="{{route('contact.store')}}" dir="{{$loc=='_ku'?'rtl':'ltr'}}" id="myForm" method="post" >
                             @csrf
                             @method('POST')
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="input-group input-group-static mb-4">
+                                        <div class="form-group input-group input-group-static mb-4">
                                             <label>{{__('message.first_name')}}</label>
                                             <input class="form-control" placeholder="" aria-label="First Name..."
-                                                type="text" name="name">
+                                                type="text" id="name" name="name">
                                         </div>
                                     </div>
                                     <div class="col-md-6 ps-2">
@@ -93,4 +93,51 @@
     </div>
     
 </div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+        
+            rules: {
+                name: {
+                    required : true,
+                },
+                
+                
+            },
+            messages :{
+                name: {
+                    required : 'Please Enter Title    ',
+                },
+
+            },
+            errorElement : 'span', 
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+    
+</script>
+<script type="text/javascript">
+        
+    var loadFile = function(event) {
+var output = document.getElementById('output');
+output.src = URL.createObjectURL(event.target.files[0]);
+output.onload = function() {
+  URL.revokeObjectURL(output.src) // free memory
+}
+};
+
+</script>
+
 @endsection

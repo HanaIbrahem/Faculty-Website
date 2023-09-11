@@ -132,6 +132,7 @@ class FrontendController extends Controller
             'message'=>'required|string',
 
         ]);
+        
         $contact=new Contact();
         $contact->name=$request->input('name');
         $contact->lname=$request->input('lname');
