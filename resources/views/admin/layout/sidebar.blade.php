@@ -103,6 +103,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{route('course.index')}}">
+                        <i class="fa-brands fa-readme"></i>
+                        Course
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('department.index')}}">
                         <i class="fa-solid fa-school"></i>                        Department
                     </a>
@@ -121,15 +128,15 @@
                 </li>
             </ul>
 
-            <h6
+            {{-- <h6
                 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
                 <span>Pages</span>
-                {{-- <a class="link-secondary" href="#" aria-label="Add a new report">
+                <a class="link-secondary" href="#" aria-label="Add a new report">
                     <svg class="bi">
                         <use xlink:href="#plus-circle" />
                     </svg>
-                </a> --}}
-            </h6>
+                </a>
+            </h6> --}}
 
             <ul class="nav flex-column mb-auto">
                 {{-- <li class="nav-item">

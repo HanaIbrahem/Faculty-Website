@@ -45,6 +45,7 @@
             <div class="d-flex m-3">
                 <a href="{{route('teacher.create',$department->id)}}" class="btn btn-primary">Add Teacher </a>
             </div>
+
             @if (count($teachers)>0)
             <div class="row mt-8 mb-4">
                 <div class="col-12">
@@ -113,7 +114,81 @@
         </div>
     </section>
 
+    <section class="py-4">
+        <div class="container">
+            <h3>{{$department->name}} Siense Courses</h3>
 
+
+            <div class="d-flex m-3">
+                <a href="{{route('course.create',$department->id)}}" class="btn btn-primary">Add Course </a>
+            </div>
+            @if (count($teachers)>0)
+            <div class="row mt-8 mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">List of Courses</h4>
+                        </div>
+                       
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="example3" class="display" style="min-width: 845px">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Name</th>
+                                            <th>Image</th>
+                                            <th>Description</th>
+                                            <th>CTS</th>
+                                            <th>Level</th>
+                                            <th>Created</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        @foreach ($course as $item)
+                                            <tr>
+                                                <td>{{$i++}}</td>
+                                                <td><a href="{{route('course.show',$item->id)}}">{{$item->name}}</a>
+                                                <p><a href="{{route('course.show',$item->id)}}">{{$item->name_ku}}</a></p></td>
+                                                <td><img src="{{asset('images/course/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
+                                                <td>{!!$item->description!!}
+                                                <p>{!!$item->description_ku!!}</p></td>
+                                                <td>{{$item->cts}}</td>
+                                                <td>{{$item->type}}</td>
+                                                <td>{{$item->created_at}}</td>
+            
+                                                <td>
+                                                    <div class="d-flex">
+                                                    
+                                                        <div style="margin-right: 4px">
+                                                            <a href="{{route('course.destroy',$item->id)}}" class="btn btn-danger shadow btn-xs sharp " id="delete"><i class="fa fa-trash"></i></a>
+                                                        </div>
+            
+                                                        <div >
+                                                            <a href="{{route('course.edit',$item->id)}}" class="btn btn-warning shadow btn-xs sharp"><i class="fa fa-pen"></i></a>
+                                                        </div>
+                                                    </div>												
+                                                </td>	
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            @else
+            <div class="mb-10 py-3">
+                <h5 class=" text-danger">No Teachers</h5>
+
+            </div>
+            @endif
+        </div>
+    </section>
 
 @endsection
 @section('datatablejs')

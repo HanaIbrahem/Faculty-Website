@@ -23,6 +23,10 @@ class Department extends Model
         return $this->hasMany(Research::class);
     }
     
+    public function course()
+    {
+        return $this->hasMany(Course::class);
+    }
 
     protected static function boot()
     {

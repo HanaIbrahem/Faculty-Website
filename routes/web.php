@@ -8,7 +8,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ReserrchController;
 use App\Http\Controllers\FrontendController;
-
+use App\Http\Controllers\CourseController;
 // use app\Http\Controllers\FrontendController;
 
 /*
@@ -84,10 +84,18 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::post('research/store',[ReserrchController::class,'store'])->name('research.store');
 
     Route::get('research/edit/{id}',[ReserrchController::class,'edit'])->name('research.edit');
-    Route::post('research/update',[ReserrchController::class,'update'])->name('research.update');
     Route::get('research/delete/{id}',[ReserrchController::class,'destroy'])->name('research.destroy');
     Route::get('/download/{filename}', [ReserrchController::class,'download'])->name('research.download');
+    Route::post('research/update',[ReserrchController::class,'update'])->name('research.update');
 
+    //course controllers
+    Route::get('course',[CourseController::class,'index'])->name('course.index');
+    Route::get('course/show/{id}',[CourseController::class,'show'])->name('course.show');
+    Route::get('course/{id}',[CourseController::class,'create'])->name('course.create');
+    Route::post('course/store',[CourseController::class,'store'])->name('course.store');
+    Route::get('course/edit/{id}',[CourseController::class,'edit'])->name('course.edit');
+    Route::post('course/update',[CourseController::class,'update'])->name('course.update');
+    Route::get('course/destroy/{id}',[CourseController::class,'destroy'])->name('course.destroy');
 
 
 });
