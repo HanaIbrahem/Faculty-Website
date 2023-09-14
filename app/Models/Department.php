@@ -44,6 +44,40 @@ class Department extends Model
                     }
                 }
             });
+
+            // Delete related images of courses
+            $department->course->each(function ($course) {
+                // Assuming 'image' is the name of the image column in the courses table
+                if (!empty($course->image)) {
+                    $imagePath = public_path('images/course/' . $course->image);
+                    if (File::exists($imagePath)) {
+                        File::delete($imagePath);
+                    }
+                }
+            });
+
+            $department->research->each(function ($research) {
+                if (!empty($research->image)) {
+                    $imagePath = public_path('images/research/' . $research->image);
+                    if (File::exists($imagePath)) {
+                        File::delete($imagePath);
+                    }
+                }
+    
+                if (!empty($research->file)) {
+                    $filePath = public_path('storage/files/research/' . $research->file);
+                    if (File::exists($filePath)) {
+                        File::delete($filePath);
+                    }
+                }
+            });
+
+          
         });
+
+
+        
     }
+
+
 }

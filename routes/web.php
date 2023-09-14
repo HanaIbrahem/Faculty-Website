@@ -9,6 +9,8 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ReserrchController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\StaffController;
+
 // use app\Http\Controllers\FrontendController;
 
 /*
@@ -97,7 +99,14 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::post('course/update',[CourseController::class,'update'])->name('course.update');
     Route::get('course/destroy/{id}',[CourseController::class,'destroy'])->name('course.destroy');
 
-
+    //stuff Controller
+    Route::get('staff',[StaffController::class,'index'])->name('staff.index');
+    // Route::get('staff/show/{id}',[Staff::class,'show'])->name('staff.show');
+    Route::get('staff/{id}',[StaffController::class,'create'])->name('staff.create');
+    Route::post('staff/store',[StaffController::class,'store'])->name('staff.store');
+    Route::get('staff/edit/{id}',[StaffController::class,'edit'])->name('staff.edit');
+    Route::post('staff/update',[StaffController::class,'update'])->name('staff.update');
+    Route::get('staff/destroy/{id}',[StaffController::class,'destroy'])->name('staff.destroy');
 });
 
 // Supperadmin middleware

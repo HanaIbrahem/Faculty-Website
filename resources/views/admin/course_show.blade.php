@@ -15,7 +15,6 @@
                     <h3 class="mb-4 text-black">{{ $course->name_ku}}</h3>
                     <p>Level: <span class="text-primary">{{$course->type}}</span></p>
                     <p>CTS: <span class="text-primary">{{$course->cts}}</span></p>
-
                     <img src="{{ asset('images/course/' . $course->image) }}" alt="{{ $course->name }}"
                         class="img-fluid mb-3 w-50 h-50">
 

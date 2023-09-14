@@ -102,7 +102,18 @@
                                     <h3 class="fs-5 text-dark">
                                         <a href="{{route('forntend.research_show',$item->id)}}">{{$item->{"name$loc"} }}</a>
                                     </h3>
+                                    <div>
+                                        @if ($loc=='_ku')
+                                        بەشی
+                                        {{ $item->department->name_ku }}
+
+                                        @else
+                                        {{ $item->department->name }}
+                                        Department
+                                        @endif
+                                    </div>
                                 </div>
+                                
             
                                 <div class="card-body pt-1">
             

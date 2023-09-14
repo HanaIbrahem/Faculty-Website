@@ -259,8 +259,14 @@
     {{-- Required  --}}
     <script src="{{ asset('backend/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/dashboard.js') }}"></script>
-    <script src="{{asset('backend/assets/vendor/jqury/jqury.js')}}"></script>
+    <script src="{{asset('backend/assets/vendor/jqury/jquery-3.6.0.min.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            // Select all input fields and add the class
+            $('input:not([type="submit"])').addClass('bg-light');
+        });
 
+    </script>
     @yield('datatablejs')
     @yield('textare')
     @yield('switalertjs')

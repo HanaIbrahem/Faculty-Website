@@ -114,6 +114,13 @@
                         <i class="fa-solid fa-school"></i>                        Department
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{route('staff.index')}}">
+                        <i class="fa-solid fa-people-roof"></i>                     Staff
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('faculty')}}">
                         <i class="fa-solid fa-home"></i>
