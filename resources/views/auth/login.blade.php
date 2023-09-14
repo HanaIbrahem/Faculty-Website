@@ -41,7 +41,7 @@
 
                     {{-- Validation Errors --}}
                     @if (count($errors))
-                    <div class="div alert-danger text-white p-3">
+                    <div class="alert text-danger p-1">
                         @foreach ($errors->all() as $message )
                             <p class="m-0 p-0">{{ $message}}</p>
                         @endforeach
@@ -56,12 +56,12 @@
                         <!-- Username -->
                        
                         <!-- Email -->
-                        <div class="mb-3 input-group input-group-outline my-3">
+                        <div class="mb-3 input-group form-group input-group-outline my-3">
                             {{-- <label for="email" class="form-label">Email</label> --}}
                             <input type="email" id="email" class="form-control" name="email" placeholder="Email address here" >
                         </div>
                         <!-- Password -->
-                        <div class="mb-3 input-group input-group-outline my-3">
+                        <div class="mb-3 input-group form-group input-group-outline my-3">
                             {{-- <label for="password" class="form-label">Password</label> --}}
                             <input type="password" id="password" class="form-control" name="password" placeholder="Password" >
                         </div>
@@ -90,13 +90,11 @@
     </div>
 </section>    
 
-
-<script src="{{asset('backend/vendor/global/global.min.js')}}"></script>
 	<!-- Chart piety plugin files -->
-    <script src="{{asset('backend/vendor/peity/jquery.peity.min.js')}}"></script>
 
-    <script src="{{asset('backend/js/validate.min.js')}}"></script>
+    <script src="{{asset('backend/assets/vendor/jqury/jquery-3.6.0.min.js')}}"></script>
 
+    <script src="{{asset('backend/assets/js/validate.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function (){
             $('#myForm').validate({
@@ -138,6 +136,8 @@
         });
         
     </script>
+
+
 </body>
 </html>
 

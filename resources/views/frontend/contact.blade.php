@@ -35,7 +35,7 @@
                        
                         <h3 class="text-center">{{__('message.contact')}}</h3>
                         @if (count($errors))
-                        <div class="alert alert-danger text-white  ">
+                        <div class="alert text-danger">
                             @foreach ($errors->all() as $error )
                                 <p class="">{{$error}}</p>
                             @endforeach
@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 ps-2">
-                                        <div class="input-group input-group-static">
+                                        <div class="input-group form-group input-group-static">
                                             <label>{{__('message.last_name')}}</label>
                                             <input type="text" class="form-control" 
                                                 aria-label="Last Name..."  name="lname">
@@ -63,12 +63,12 @@
                                     </div>
                                 </div>
                                 <div class="mb-4">
-                                    <div class="input-group input-group-static">
+                                    <div class="input-group form-group input-group-static">
                                         <label>{{__('message.email')}}</label>
                                         <input type="email"  name="email" class="form-control">
                                     </div>
                                 </div>
-                                <div class="input-group input-group-static mb-4">
+                                <div class="input-group form-group input-group-static mb-4">
                                     <label>{{__('message.message')}}</label>
                                     <textarea name="message"  name="message" class="form-control" id="message" rows="4"></textarea>
                                 </div>
@@ -95,39 +95,62 @@
 </div>
 
 
+<script src="{{asset('backend/assets/vendor/jqury/jquery-3.6.0.min.js')}}"></script>
 
-<script type="text/javascript">
-    $(document).ready(function (){
-        $('#myForm').validate({
-        
-            rules: {
-                name: {
-                    required : true,
+    <script src="{{asset('backend/assets/js/validate.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $('#myForm').validate({
+                rules: {
+
+                name:{
+                     
+                      
+                      required : true,
+                    },email:{
+                        required : true,
+
+                    },message:{
+                        required : true,
+                    },lname:{
+                        required : true, 
+                    }
                 },
                 
-                
-            },
-            messages :{
-                name: {
-                    required : 'Please Enter Title    ',
-                },
-
-            },
-            errorElement : 'span', 
-            errorPlacement: function (error,element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight : function(element, errorClass, validClass){
-                $(element).addClass('is-invalid');
-            },
-            unhighlight : function(element, errorClass, validClass){
-                $(element).removeClass('is-invalid');
-            },
-        });
-    });
+                messages  :{
+                   
     
-</script>
+
+                    name:{
+                        required : 'Please Enter your Name',
+                    } 
+                    ,email:{
+                        required : 'Please Enter your Email',
+
+                    },message:{
+                        required : 'Please Enter your Message',
+
+                    },lname:{
+                        required : 'Please Enter your Last Name',
+
+                    }
+                },
+                errorElement : 'span', 
+                errorPlacement: function (error,element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight : function(element, errorClass, validClass){
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight : function(element, errorClass, validClass){
+                    $(element).removeClass('is-invalid');
+                },
+            });
+        });
+        
+    </script>
+
 <script type="text/javascript">
         
     var loadFile = function(event) {

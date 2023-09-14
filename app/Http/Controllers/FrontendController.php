@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Research;
 use App\Models\Department;
 use App\Models\Contact;
-use Illuminate\Support\Facades\Session;
+use App\Models\Staff;
+use App\Models\Course;
 use DB;
 
 
@@ -19,7 +20,8 @@ class FrontendController extends Controller
     {
         //
         $department = Department::all();
-        return view('frontend.index',compact('department'));
+        $staff=Staff::latest()->get();
+        return view('frontend.index',compact('department','staff'));
     }
 
     /**

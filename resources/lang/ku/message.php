@@ -18,7 +18,11 @@ return [
     'nav_about' => 'دەربارەی',
     'nav_news' => 'تویژینەوە',
     'nav_department' => 'بەشەکان',  
+    'd'=>'داشبۆرد',
     
+    //index page
+    'staff_header'=>'بنیاتنانی داهاتوو',
+    'staff_header-t'=>'ستافی فاکەڵتی',
     // Add more translation strings here
     'fuculty_info_h'=>'زانکۆی سۆران فاکەڵتی زانست',
     'updated_at'=>'نوێ کراوەتەوە لە',

@@ -64,7 +64,7 @@
           <h6 class="">{{__('message.page')}}</h6>
           <ul class="flex-column ms-n3 nav">
             <li class="nav-item">
-              <a class="nav-link text-secondary" href="#" target="_blank">
+              <a class="nav-link text-secondary" href="{{route('login')}}" target="_blank">
                 {{__('message.login')}}
               </a>
             </li>

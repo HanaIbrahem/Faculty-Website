@@ -107,6 +107,11 @@
                         {{ __('message.nav_contact') }}
                     </a>
                 </li>
+                @if(auth()->check())
+                    <li class="nav-item">
+                        <a  class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="{{ route('dashboard') }}">{{__('message.d')}}</a>
+                    </li>
+                @endif
 
                 
                   {{-- for languge selector for small screen --}}
