@@ -122,7 +122,7 @@
             <div class="d-flex m-3">
                 <a href="{{route('course.create',$department->id)}}" class="btn btn-primary">Add Course </a>
             </div>
-            @if (count($teachers)>0)
+            @if (count($course)>0)
             <div class="row mt-8 mb-4">
                 <div class="col-12">
                     <div class="card">
@@ -138,7 +138,6 @@
                                             <th>No</th>
                                             <th>Name</th>
                                             <th>Image</th>
-                                            <th>Description</th>
                                             <th>CTS</th>
                                             <th>Level</th>
                                             <th>Created</th>
@@ -153,8 +152,6 @@
                                                 <td><a href="{{route('course.show',$item->id)}}">{{$item->name}}</a>
                                                 <p><a href="{{route('course.show',$item->id)}}">{{$item->name_ku}}</a></p></td>
                                                 <td><img src="{{asset('images/course/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
-                                                <td>{!!$item->description!!}
-                                                <p>{!!$item->description_ku!!}</p></td>
                                                 <td>{{$item->cts}}</td>
                                                 <td>{{$item->type}}</td>
                                                 <td>{{$item->created_at}}</td>
@@ -183,7 +180,7 @@
         
             @else
             <div class="mb-10 py-3">
-                <h5 class=" text-danger">No Teachers</h5>
+                <h5 class=" text-danger">No Course</h5>
 
             </div>
             @endif

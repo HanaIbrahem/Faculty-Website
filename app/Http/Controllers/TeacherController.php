@@ -61,7 +61,7 @@ class TeacherController extends Controller
 
         // Upload and store the image (if provided)
         $image = $request->file('image');
-        $name_gen = $request->input('name').hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+        $name_gen =hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
         $image->move(public_path('images/teacher/'), $name_gen);
         $teacher->image =$name_gen;
 
@@ -138,7 +138,7 @@ class TeacherController extends Controller
             }
         
             $image = $request->file('image');
-            $name_gen = $request->input('name').hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $name_gen=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
             $image->move(public_path('images/teacher/'), $name_gen);
             $teacher->image=$name_gen;
         }

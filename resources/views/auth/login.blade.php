@@ -16,12 +16,12 @@
 <body>
   <section class="container d-flex flex-column ">
     <div class="row align-items-center justify-content-center g-0 min-vh-100">
-        <div class="col-lg-5 col-md-8 py-8 py-xl-0">
+        <div class="col-lg-5 col-md-8 py-6 py-xl-0">
             <!-- Card -->
             <div class="card shadow">
                
                 <!-- Card body -->
-                <div class="card-body p-6">
+                <div class="card-body p-4 text-center">
                   
                    
                     <div class="mb-4 ">
@@ -75,9 +75,9 @@
                         </div> --}}
                          @endif
                         
-                        <div class="text-cente">
+                        <div class="text-center">
                             <!-- Button -->
-                            <div class="d-grid " style="width: 30%">
+                            <div class="d-grid" style="width: 30%">
                                 <button type="submit" class="rounded btn btn-primary">Login
                                 </button>
                             </div>

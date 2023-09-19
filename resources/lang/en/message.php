@@ -33,8 +33,8 @@ return [
     'department_index_header'=>'Our Departments',
     'department_header'=>'faculty of Science',
     'department_teacher'=>'The teacher staff of our departments consists of',
-    
-
+    'course_header'=>'Unlock new skills and knowledge with our wide range of courses designed to help you succeed',
+    'course_header1'=>'Explore Our Courses',
     // research page
     'research_header'=>'Faculty of scinece researchs',
     'research_letter'=>'Explore cutting-edge studies and stay updated with the latest research findings in various fields',

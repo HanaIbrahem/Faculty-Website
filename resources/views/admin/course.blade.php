@@ -19,7 +19,6 @@
                                 <th>No</th>
                                 <th>Name</th>
                                 <th>Image</th>
-                                <th>Description</th>
                                 <th>Department</th>
                                 <th>CTS</th>
                                 <th>Level</th>
@@ -36,8 +35,7 @@
                                     <td><a href="{{route('course.show',$item->id)}}">{{$item->name}}</a>
                                     <p><a href="{{route('course.show',$item->id)}}">{{$item->name_ku}}</a></p></td>
                                     <td><img src="{{asset('images/course/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
-                                    <td>{!!$item->description!!}
-                                    <p>{!!$item->description_ku!!}</p></td>
+                                    
                                     <td>{{$item->department->name}}</td>
                                     <td>{{$item->cts}}</td>
                                     <td>{{$item->type}}</td>

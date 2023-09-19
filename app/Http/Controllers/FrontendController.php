@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Models\Research;
 use App\Models\Department;
@@ -54,19 +55,47 @@ class FrontendController extends Controller
         $department= Department::find($id);
 
         $teacher = DB::table('teachers')
-        ->select('*')->orderBy('updated_at')
-        ->where('department_id', $department->id)->paginate(9);
-        
-        return view('frontend.department', compact('department','teacher'));
+    ->select('*')
+    ->orderBy('updated_at')
+    ->where('department_id', $department->id)
+    ->paginate(4, ['*'], 'teacher_page'); // Added 'teacher_page' as the pagination name
+
+     $courses = DB::table('courses')
+    ->select('*')
+    ->orderBy('updated_at')
+    ->where('department_id', $department->id)
+    ->paginate(4, ['*'], 'course_page'); // Added 'course_page' as the pagination name
+
+     return view('frontend.department', compact('department', 'teacher', 'courses'));
+
     
     }
 
     /**
      * show teacher invidualy
      */
-    public function teacher()
+    public function teacher($id)
     {
         //
+        
+        $teacher=Teacher::find($id);
+        $departmentId=$teacher->department_id;
+        $relatedteacher=DB::table('teachers')->select('*')->where('department_id',$departmentId)->orderBy('updated_at')->get();
+        return view('frontend.teacher',compact('teacher','relatedteacher'));
+    }
+
+    /**
+    * course
+    */
+    public function course(string $id)
+    {
+        //
+
+        $course=Course::find($id);
+        $departmentId=$course->department_id;
+        $relatedcourse=DB::table('courses')->select('*')->where('department_id',$departmentId)->orderBy('updated_at')->get();
+        return view('frontend.course',compact('course','relatedcourse'));
+        
     }
 
     /**
@@ -113,13 +142,8 @@ class FrontendController extends Controller
              abort(404, 'File not found');
          }
      }
-    /**
-     * Show
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+
+  
 
      /**
      * contact store
@@ -141,7 +165,7 @@ class FrontendController extends Controller
         $contact->email=$request->input('email');
         $contact->messge=$request->input('message');
         $contact->save();
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Message Send successfully!');
     }
     /**
      * contact delete

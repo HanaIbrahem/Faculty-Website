@@ -14,7 +14,7 @@
                 <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
                    <a class="page-link" href="#">
                     <span aria-hidden="true">
-                        @if ($loc='ku')
+                        @if ($loc=='ku')
                         <i class="material-icons fa fa-angles-right" aria-hidden="true"></i>
                         @else
                         <i class="material-icons fa fa-angles-left" aria-hidden="true"></i>

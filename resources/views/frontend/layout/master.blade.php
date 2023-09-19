@@ -29,9 +29,8 @@
 
     @endif
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/material-kit.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/swiper-bundle.min.css') }}">
+    @yield('swiper-css')
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
-
     <!-- Font ausom link -->
     <link rel="stylesheet" href="{{asset('backend/assets/fonts/css/all.min.css')}}">
     {{-- <script src="https://kit.fontawesome.com/8b87d80512.js" crossorigin="anonymous"></script> --}}
@@ -53,10 +52,7 @@
     {{-- required scrypts --}}
     <script src="{{asset('frontend/assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/core/bootstrap.min.js')}}"></script>
-
-    <script src="{{asset('backend/assets/js/validate.js')}}"></script>
-<script src="{{asset('backend/assets/vendor/jqury/jqury.js')}}"></script>
-
+    @yield('swiper-js')
 </body>
 
 </html>

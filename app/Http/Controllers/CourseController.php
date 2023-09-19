@@ -62,10 +62,11 @@ class CourseController extends Controller
         $course->department_id=$request->input('department_id');
 
         // indesrt image
-        $image=$request->file('image');
-        $namegen=$request->input('name').hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('images/course/'),$namegen);
-        $course->image=$namegen;
+    
+        $image = $request->file('image');
+        $name_gen =$request->input('name'). hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+        $image->move(public_path('images/course/'), $name_gen);
+        $course->image=$name_gen;
         $course->save();
 
      
@@ -128,10 +129,13 @@ class CourseController extends Controller
 
             ]);
             unlink('images/course/'.$course->image);
-            $image=$request->file('image');
-            $namegen=$request->input('name').hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('images/course/'),$namegen);
-            $course->image=$namegen;
+
+            $image = $request->file('image');
+            $name_gen =$request->input('name'). hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $image->move(public_path('images/course/'), $name_gen);
+            $course->image=$name_gen;
+
+    
         }
       
         $course->save();
@@ -145,9 +149,16 @@ class CourseController extends Controller
     {
         //
         $course=Course::find($id);
-        unlink('images/course/'.$course->image);
-        $course->delete();
-        return redirect()->back();
+        try {
+            unlink('images/course/'.$course->image);
+            $course->delete();
+            return redirect()->back();
+    
+        } catch (\Exception $th) {
+            $course->delete();
+            return redirect()->back();
+        }
+        
 
     }
 }

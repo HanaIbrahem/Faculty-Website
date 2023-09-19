@@ -129,10 +129,9 @@ Route::middleware('web')->group(function (){
     Route::get('/research/download/{id}',[FrontendController::class,'download'])->name('forntend.research_download');
     Route::get('/contact',[FrontendController::class,'contact'])->name('forntend.contact');
     Route::get('/about',[FrontendController::class,'about'])->name('forntend.about');
-
+    Route::get('/course/{id}',[FrontendController::class,'course'])->name('forntend.course');
+    Route::get('/teacher/{id}',[FrontendController::class,'teacher'])->name('forntend.teacher');
     Route::post('/contact/store',[FrontendController::class,'contactstore'])->name('contact.store');
-
-
 
 });
 

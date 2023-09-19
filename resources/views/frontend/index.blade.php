@@ -8,6 +8,10 @@
 
 @extends('frontend.layout.master')
 
+@section('swiper-css')
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/swiper-bundle.min.css') }}">
+@endsection
+
 @section('main')
     {{-- Headre  --}}
     <<header class="position-relative">
@@ -106,33 +110,44 @@
                         </div>
                     </div>
                     <div class="row mt-5">
-                       
-                        @foreach ($staff as $item)
-                        <div class="col-lg-3 col-12 col-md-6 mb-lg-0 mb-2">
-                            <div class="card shadow-lg">
-                                <div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">
-                                    <a class="d-block blur-shadow-image">
-                                        <img src="{{asset('images/staff/'.$item->image)}}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
-                                    </a>
-                                    {{-- <div class="colored-shadow" style="background-image: url(&quot;https://images.unsplash.com/photo-1536321115970-5dfa13356211?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=934&amp;q=80&quot;);">
-                                    </div> --}}
+                        <div class="slide-container swiper" data-aos="fade-up">
+                            <div class="slide-content">
+                              <div class="card-wrapper swiper-wrapper">
+
+                                @foreach ($staff as $item)
+                                <div class="col-lg-3 col-12 col-md-6 mb-lg-0 mb-2 card swiper-slide">
+                                    <div class="card shadow-lg">
+                                        <div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">
+                                            <a class="d-block blur-shadow-image">
+                                                <img src="{{asset('images/staff/'.$item->image)}}"  alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
+                                            </a>
+                                            {{-- <div class="colored-shadow" style="background-image: url(&quot;https://images.unsplash.com/photo-1536321115970-5dfa13356211?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=934&amp;q=80&quot;);">
+                                            </div> --}}
+                                        </div>
+                                        <div class="card-body text-center bg-white border-radius-lg p-3 pt-0">
+                                            <h5 class="mt-3 mb-1 d-md-block d-none">{{$item->{"name$loc"} }}</h5>
+                                            <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-dark mt-3">{{$item->{"name$loc"} }}
+                                            </p>
+                                            <p class="mb-0 text-xs font-weight-bolder text-info text-gradient text-uppercase">
+                                                {{$item->{"rool$loc"} }}</p>
+                    
+                                            <p>
+                                                {{$item->{"description$loc"} }}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body text-center bg-white border-radius-lg p-3 pt-0">
-                                    <h5 class="mt-3 mb-1 d-md-block d-none">{{$item->{"name$loc"} }}</h5>
-                                    <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-dark mt-3">{{$item->{"name$loc"} }}
-                                    </p>
-                                    <p class="mb-0 text-xs font-weight-bolder text-info text-gradient text-uppercase">
-                                        {{$item->{"rool$loc"} }}</p>
-            
-                                    <p>
-                                        {{$item->{"description$loc"} }}
-                                    </p>
-                                </div>
+                                @endforeach            
+                              </div>
+                            </div>
+                
+                
+                            <div class="text-center">
+                              <div class="swiper-button-next swiper-navBtn"></div>
+                              <div class="swiper-button-prev swiper-navBtn"></div>
+                              <div class="swiper-pagination"></div>
                             </div>
                         </div>
-                        @endforeach
-                        
-                        
                     </div>
                  
                 </div>
@@ -143,3 +158,7 @@
         </div>
     @endsection
     
+    @section('swiper-js')
+        <script src="{{asset('frontend/assets/js/cardslider/swiper-bundle.min.js')}}"></script>
+        <script src="{{asset('frontend/assets/js/script.js')}}"></script>
+    @endsection

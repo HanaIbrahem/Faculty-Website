@@ -29,11 +29,17 @@
     <div class="page-header w-100 " >
         <div class="container py-5">
             <div class="row">
+               
                 <div class="col-lg-6 d-flex justify-content-center flex-column order-lg-1">
 
                     <div class="card card-body d-flex justify-content-center shadow-lg p-5 blur align-items-center">
                        
                         <h3 class="text-center">{{__('message.contact')}}</h3>
+                        @if(session('message'))
+                        <div class="alert alert-success text-white ">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                         @if (count($errors))
                         <div class="alert text-danger">
                             @foreach ($errors->all() as $error )

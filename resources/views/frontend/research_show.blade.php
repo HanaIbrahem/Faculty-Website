@@ -144,7 +144,7 @@
                             </div>
                         
                             <div class="card-body pt-1">
-                                <p>{!! Str::limit($research->{"description$loc"},200) !!}</p>
+                                <p>{!! $research->{"description$loc"} !!}</p>
                             </div>
                         </div>
                         
