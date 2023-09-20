@@ -65,5 +65,51 @@
         </div>
 
     </section>
+
+    <section class="py-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-9 text-center mx-auto">
+                    <h3 class="mb-1">{{__('message.related_course')}}</h3>
+                 
+                </div>
+                <div class="row g-4 g-xl-5 slider-container d-flex justify-content-center">
+                    @foreach ($relatedcourse as $item)
+                        <div class="col-lg-3 col-sm-6 col-md-4 mx-auto mb-4 text-start">
+                            <div class="card shadow-lg mt-4 h-100">
+                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                    <a class="d-block blur-shadow-image">
+                                        <img style="width:100%; height:200px"
+                                             src="{{ asset('images/course/'.$item->image) }}"
+                                             alt="{{ $item->name }}"
+                                             class="img-fluid shadow border-radius-lg">
+                                    </a>
+                                </div>
+                                <div class="card-body text-center d-flex flex-column">
+
+                                  
+                                    @if ($loc=='_ku')
+                                    <p class="text-dark">ئاست{{$item->type}}: یەکە{{$item->cts }}:</p>
+
+                                    @else
+                                    <p class="text-dark">Level:{{$item->type}}  CTS:{{$item->cts }}</p>
+
+                                    @endif
+                                    <h4 class="flex-grow-1">
+                                        <a class="text-dark"
+                                            href="{{ route('forntend.course', $item->id) }}">
+                                            {{ $item->{"name$loc"} }}
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
 @endsection
 

@@ -58,13 +58,13 @@ class FrontendController extends Controller
     ->select('*')
     ->orderBy('updated_at')
     ->where('department_id', $department->id)
-    ->paginate(4, ['*'], 'teacher_page'); // Added 'teacher_page' as the pagination name
+    ->paginate(8, ['*'], 'teacher_page'); // Added 'teacher_page' as the pagination name
 
      $courses = DB::table('courses')
     ->select('*')
     ->orderBy('updated_at')
     ->where('department_id', $department->id)
-    ->paginate(4, ['*'], 'course_page'); // Added 'course_page' as the pagination name
+    ->paginate(8, ['*'], 'course_page'); // Added 'course_page' as the pagination name
 
      return view('frontend.department', compact('department', 'teacher', 'courses'));
 
@@ -80,7 +80,12 @@ class FrontendController extends Controller
         
         $teacher=Teacher::find($id);
         $departmentId=$teacher->department_id;
-        $relatedteacher=DB::table('teachers')->select('*')->where('department_id',$departmentId)->orderBy('updated_at')->get();
+        $relatedteacher=DB::table('teachers')->select('*')
+        ->where('department_id',$departmentId)
+        ->where('id', '!=', $id)
+        ->orderBy('created_at')
+        ->limit(4)->get();
+
         return view('frontend.teacher',compact('teacher','relatedteacher'));
     }
 
@@ -93,7 +98,10 @@ class FrontendController extends Controller
 
         $course=Course::find($id);
         $departmentId=$course->department_id;
-        $relatedcourse=DB::table('courses')->select('*')->where('department_id',$departmentId)->orderBy('updated_at')->get();
+        $relatedcourse=DB::table('courses')->select('*')
+        ->where('department_id',$departmentId)
+        ->where('id', '!=', $id)
+        ->orderBy('created_at')->limit(4)->get();
         return view('frontend.course',compact('course','relatedcourse'));
         
     }

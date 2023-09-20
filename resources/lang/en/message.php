@@ -39,4 +39,10 @@ return [
     'research_header'=>'Faculty of scinece researchs',
     'research_letter'=>'Explore cutting-edge studies and stay updated with the latest research findings in various fields',
     'contact_header'=>'For further questions, including partnership opportunities, please email help@soran.edu.iqs.com or contact using our contact for',
+
+    //teachers page
+
+    'related_techer'=>'See other teachers',
+    'related_course'=>'See other courses',
+
 ];
