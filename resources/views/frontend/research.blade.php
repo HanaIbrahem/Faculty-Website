@@ -8,7 +8,7 @@
 @endphp
 @section('main')
     <header>
-        <div class="page-header min-vh-50" style="background-image: url('{{ asset('images/department/Biology1774650001858003.jpg') }}')" loading="lazy">
+        <div class="page-header min-vh-50" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container">
                 <div class="row">
@@ -41,13 +41,13 @@
 
 
 
-                        <div class="input-group input-group-dynamic mb-4" style="width:100%">
+                        {{-- <div class="input-group input-group-dynamic mb-4" style="width:100%">
                             <form action="" method="post">
                                 @csrf
                                 <input class="form-control" placeholder="{{__('message.search')}}" id="search-input" type="text"
                                     name="search">
                             </form>
-                        </div>
+                        </div> --}}
                         <h3 class="sidebar-title">
                             @if ($loc=='_ku')
                                         
@@ -63,7 +63,7 @@
                                 @foreach ($research_count as $catygory)
                                     <li style="list-style: none">
                                         <a
-                                            href="">
+                                            href="{{route('forntend.research_catygory',$catygory->department->id)}}">
                                             {{ $catygory->department->{"name$loc"} }}
                                              <span class="hilite text-info">({{ $catygory->count }})</span>
                                         </a>
@@ -79,22 +79,16 @@
                 <div class="col-lg-8 order-md-1">
 
                     
-                    {{-- <section class="mt-5">
+                    
+                    <section class="mt-md-7">
                         <h3 class="fs-4"> 
-                            Discover Reseearchs
+                        {{__('message.discover_rese')}}
                         </h3>
-                        <div class="input-group input-group-dynamic">
-                            <form action="" method="post">
-                                @csrf
-
-                                <input class="input-group form-control"    placeholder="{{__('message.search')}}" id="search-input" type="text"
-                                    name="search">
-                            </form>
-                        </div>
-                    </section> --}}
-                    <section class="mt-5 pt-lg-5">
+                       
+                    </section>
+                    <section class="pt-lg-5">
                         @foreach ($research as $item )
-                        <div class="row mb-3">
+                        <div class="row mb-3 bg-dark">
                             <div class="card">
         
                                 <div class="card-header pb-1 mb-1">

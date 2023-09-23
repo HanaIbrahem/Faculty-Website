@@ -124,8 +124,10 @@ Route::middleware('web')->group(function (){
 
     Route::get('/',[FrontendController::class,'index'])->name('frontend.index');
     Route::get('/department/{id}',[FrontendController::class,'department'])->name('frontend.department');
+    Route::get('/department/{id}/filter-courses/{type}',[FrontendController::class,'filterCourses'])->name('frontend.department_f');
     Route::get('/research',[FrontendController::class,'research'])->name('forntend.research');
     Route::get('/research/{id}',[FrontendController::class,'research_show'])->name('forntend.research_show');
+    Route::get('/research/Categorie/{id}',[FrontendController::class,'research_catygory'])->name('forntend.research_catygory');
     Route::get('/research/download/{id}',[FrontendController::class,'download'])->name('forntend.research_download');
     Route::get('/contact',[FrontendController::class,'contact'])->name('forntend.contact');
     Route::get('/about',[FrontendController::class,'about'])->name('forntend.about');

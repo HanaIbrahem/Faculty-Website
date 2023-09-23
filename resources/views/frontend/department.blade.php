@@ -75,22 +75,47 @@
                                 {{__('message.course_header')}}
                             </p>
                         </div>
+
                     </div>
+                    <div class="row">
+                        <div class="col-sm-4 m-0 p-1 d-flex align-items-center">
+                            <i class="ms-3 material-icons text-gradient text-dark text-2xl fa fa-filter"></i>
+                           
+
+                            <ul class=" mt-3 ms-2 list-unstyled">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link mb-0 px-0 py-1 show" id="dropdownMenuPages5" data-bs-toggle="dropdown" aria-expanded="true" aria-selected="false" tabindex="-1" role="tab">
+                                        Level
+                                        <img src="{{asset('frontend/assets/img/down-arrow-dark.svg')}}" class="arrow ms-auto ms-md-2">
+                                    </a>
+                                
+                                    <div class="dropdown-menu dropdown-menu-animation dropdown-md p-3 border-radius-lg mt-0 mt-lg-3 show" aria-labelledby="dropdownMenuPages5" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(469.6px, -40px, 0px);" data-popper-placement="top-start">
+                                        <div class="d-lg-block">
+                                          <p class="text-sm m-0 p-0"><a href="{{route('frontend.department_f', ['id' => $department->id, 'type' => 'bachelor'])}}">Bechelor</a></p>
+                                          <p class="text-sm m-0 p-0"><a href="{{route('frontend.department_f', ['id' => $department->id, 'type' => 'high'])}}">High Education</a></p>
+                                        </div>   
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+
                     <div class="row g-4 g-xl-5 slider-container d-flex justify-content-center">
                         @foreach ($courses as $item)
-                            <div class="col-lg-3 col-sm-6 col-md-4 mx-auto mb-4 text-start">
+                            <div class="col-lg-4 col-sm-6 col-md-6 mx-auto mb-4 text-start">
                                 <div class="card shadow-lg mt-4 h-100">
-                                    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                        <a class="d-block blur-shadow-image">
-                                            <img style="width:100%; height:200px"
-                                                 src="{{ asset('images/course/'.$item->image) }}"
-                                                 alt="{{ $item->name }}"
-                                                 class="img-fluid shadow border-radius-lg">
-                                        </a>
-                                    </div>
+                                    
                                     <div class="card-body text-center d-flex flex-column">
 
                                       
+                                        
+                                        <h4 class="flex-grow-1">
+                                            <a class="text-dark"
+                                                href="{{ route('forntend.course', $item->id) }}">
+                                                {{ $item->{"name$loc"} }}
+                                            </a>
+                                        </h4>
                                         @if ($loc=='_ku')
                                         <p class="text-dark">ئاست{{$item->type}}: یەکە{{$item->cts }}:</p>
 
@@ -98,12 +123,6 @@
                                         <p class="text-dark">Level:{{$item->type}}  CTS:{{$item->cts }}</p>
 
                                         @endif
-                                        <h4 class="flex-grow-1">
-                                            <a class="text-dark"
-                                                href="{{ route('forntend.course', $item->id) }}">
-                                                {{ $item->{"name$loc"} }}
-                                            </a>
-                                        </h4>
                                     </div>
                                 </div>
                             </div>
@@ -169,5 +188,9 @@
 
         </div>
         
+
+        
          
         @endsection
+
+        

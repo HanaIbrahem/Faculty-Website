@@ -85,7 +85,7 @@ class ReserrchController extends Controller
 
         // for image upload
         $image = $request->file('image');
-        $name_gen = $request->input('name').hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
         $image->move(public_path('images/research/'), $name_gen);
         $research->image =$name_gen;
 
@@ -93,7 +93,7 @@ class ReserrchController extends Controller
 
         // for PDF or DOC file upload
         $file = $request->file('file');
-        $file_name = $request->input('name') . '_' . time() . '.' . $file->getClientOriginalExtension();
+        $file_name = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/files/research', $file_name);
         $research->file = $file_name;
 
@@ -162,7 +162,7 @@ class ReserrchController extends Controller
             unlink('images/research/'.$research->image);
 
             $image = $request->file('image');
-            $name_gen = $request->input('name').time().'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $name_gen = time().'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
             $image->move(public_path('images/research/'), $name_gen);
             $research->image =$name_gen;
         }

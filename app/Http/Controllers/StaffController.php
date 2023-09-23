@@ -53,7 +53,7 @@ class StaffController extends Controller
         $staff->rool_ku=$request->input('rool_ku');
 
         $image=$request->file('image');
-        $namegen=$request->input('name').hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        $namegen=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         $image->move(public_path('images/staff/'),$namegen);
         $staff->image=$namegen;
 
@@ -112,7 +112,7 @@ class StaffController extends Controller
             ]);
             unlink('images/staff/'.$staff->image);
             $image=$request->file('image');
-            $namegen=$request->input('name').hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            $namegen=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             $image->move(public_path('images/staff/'),$namegen);
             $staff->image=$namegen;
         }

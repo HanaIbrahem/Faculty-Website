@@ -32,18 +32,18 @@
                             <input type="hidden" value="{{$department->id}}" name="department_id">
                             <div class="form-group mb-3 mt-3">
                                 <label for="">Name</label><span class="text-danger fs-4">*</span>
-                                <input class="form-control " value="" name="name" type="text" placeholder="">
+                                <input class="form-control " required value="" name="name" type="text" placeholder="">
                             </div>
 
                             <div class="form-group mb-3 mt-3">
                                 <label for="">Name Kurdish</label><span class="text-danger fs-4">*</span>
-                                <input class="form-control " value="" dir="rtl" name="name_ku" type="text" placeholder="">
+                                <input class="form-control " required value="" dir="rtl" name="name_ku" type="text" placeholder="">
                             </div>
 
 
                             <div class="form-group mb-3">
                                 <label for="">Image</label>
-                                <input class="form-control" type="file" name="image" placeholder="Default input"
+                                <input class="form-control" type="file" required name="image" placeholder="Default input"
                                     id="uploadInput" accept="image/*">
 
                             </div>
@@ -66,12 +66,13 @@
 
                             <div class="form-group mb-3 mt-3">
                                 <label for="">CTS Number</label><span class="text-danger fs-4">*</span>
-                                <input class="form-control "  value="" name="cts" type="text" placeholder="">
+                                <input class="form-control "  value="" name="cts" min="1" max="15" type="number" placeholder="">
                             </div>
 
                             <div class="form-group mb-3 mt-3">
                                 <label for="">Level</label><span class="text-danger fs-4">*</span>
-                                <select class="form-control input-group" name="type" id="">
+                                <select class="form-control input-group" required name="type" id="">
+                                    <option class="mb-2 form-control" value="doctoral">Doctoral</option>
                                     <option class="mb-2 form-control" value="master">Master</option>
                                     <option selected class="mb-2 form-control" value="bachelor">Bachelor</option>
                                     <option class="mb-2 form-control" value="diploma">Diploma</option>
@@ -80,13 +81,13 @@
 
                             <div class="form-group mt-6 mb-3">
                                 <label for="">Description </label><span class="text-danger fs-4">*</span>
-                                <textarea id="elm1" name="description">
+                                <textarea id="elm1" required name="description">
                             </textarea>
                             </div>
 
                             <div class="form-group mt-6 mb-3">
                                 <label for="">Description Kurdish</label><span class="text-danger fs-4">*</span>
-                                <textarea id="elm1_ku" name="description_ku">
+                                <textarea id="elm1_ku" required name="description_ku">
                             </textarea>
                             </div>
 

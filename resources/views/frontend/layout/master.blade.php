@@ -40,7 +40,7 @@
     <title>{{ $faculty->{"title$loc"}  }}</title>
 </head>
 
-<body class="index-page ">
+<body class="index-page bg-gray-200">
     @include('frontend.layout.header')
  
     @yield('main')

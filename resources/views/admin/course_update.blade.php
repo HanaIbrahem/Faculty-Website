@@ -37,7 +37,7 @@
 
                             <div class="form-group mb-3 mt-3">
                                 <label for="">Name Kurdish</label><span class="text-danger fs-4">*</span>
-                                <input class="form-control " dir="rtl" value="{{$course->name_ku}}"  name="name_ku" type="text" placeholder="">
+                                <input class="form-control "  dir="rtl" value="{{$course->name_ku}}"  name="name_ku" type="text" placeholder="">
                             </div>
 
 
@@ -72,7 +72,8 @@
                             <div class="form-group mb-3 mt-3">
                                 <label for="">Level</label><span class="text-danger fs-4">*</span>
 
-                                <select class="form-control input-group" name="type" id="">
+                                <select class="form-control input-group" name="type" id="">                            
+                                    <option class="mb-2 form-control" value="doctoral"{{ $course->type == 'doctoral' ? 'selected' : '' }}>Doctoral</option>
                                     <option class="mb-2 form-control" value="master" {{ $course->type == 'master' ? 'selected' : '' }}>Master</option>
                                     <option class="mb-2 form-control" value="bachelor" {{ $course->type == 'bachelor' ? 'selected' : '' }}>Bachelor</option>
                                     <option class="mb-2 form-control" value="diploma" {{ $course->type == 'diploma' ? 'selected' : '' }}>Diploma</option>

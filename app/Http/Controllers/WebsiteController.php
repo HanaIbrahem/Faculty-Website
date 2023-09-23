@@ -85,7 +85,7 @@ class WebsiteController extends Controller
     
 
             $image = $request->file('image');
-            $name_gen = $request->name.hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $name_gen =hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
             $save_url = $name_gen;
 
             $image->move(public_path('images/'), $name_gen);
@@ -166,7 +166,7 @@ class WebsiteController extends Controller
     
 
             $image = $request->file('image');
-            $name_gen = $faculty->name.(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
             $save_url = $name_gen;
 
             $image->move(public_path('images/'), $name_gen);

@@ -65,11 +65,11 @@
 
                             <div class="form-group mb-3 mt-3">
                                 <label for="">Name</label><span class="text-danger fs-4">*</span>
-                                <input class="form-control " value="" name="name" type="text" placeholder="">
+                                <input class="form-control " required value="" name="name" type="text" placeholder="">
                             </div>
                             <div class="form-group mb-3 mt-3">
                                 <label for="">Name Kurdish</label><span class="text-danger fs-4">*</span>
-                                <input class="form-control " dir="rtl" value="" name="name_ku" type="text" placeholder="">
+                                <input class="form-control " required dir="rtl" value="" name="name_ku" type="text" placeholder="">
                             </div>
 
                             <div class="form-group mb-3">

@@ -62,13 +62,7 @@
 
 
 
-                    <div class="input-group input-group-dynamic mb-4" style="width:100%">
-                        <form action="" method="post">
-                            @csrf
-                            <input class="form-control" placeholder="{{__('message.search')}}" id="search-input" type="text"
-                                name="search">
-                        </form>
-                    </div>
+
                     <h3 class="sidebar-title">
                         @if ($loc=='_ku')
                                     
@@ -171,13 +165,6 @@
 
 
 
-                    <div class="input-group input-group-dynamic mb-4" style="width:100%">
-                        <form action="" method="post">
-                            @csrf
-                            <input class="form-control" placeholder="{{__('message.search')}}" id="search-input" type="text"
-                                name="search">
-                        </form>
-                    </div>
                     <h3 class="sidebar-title">
                         @if ($loc=='_ku')
                                     

@@ -23,6 +23,7 @@ return [
     //index page
     'staff_header'=>'بنیاتنانی داهاتوو',
     'staff_header-t'=>'ستافی فاکەڵتی',
+    'index_header'=>'زانکۆی سۆران فاکەڵتی زانست',
     // Add more translation strings here
     'fuculty_info_h'=>'زانکۆی سۆران فاکەڵتی زانست',
     'updated_at'=>'نوێ کراوەتەوە لە',
@@ -36,6 +37,7 @@ return [
     'research_header'=>'توێژینەوەکانی فاکەڵتی زانست',
     'research_letter'=>'لێکۆڵینەوە پێشکەوتووەکان بکە و لە نوێترین دەرئەنجامەکانی توێژینەوەکان لە بوارە جیاوازەکاندا ئاگاداربە',
 
+    'discover_rese'=>'توێژینەوەکان بدۆزەوە',
     //teachers page
     'related_techer'=>' ماموستای زیاتر ببینە',
 

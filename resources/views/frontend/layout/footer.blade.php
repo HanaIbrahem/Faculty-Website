@@ -23,8 +23,7 @@
             <span class="text-lg fab fa-facebook" aria-hidden="true"></span>
           </a>
           <a href="https://twitter.com/SoranUniversity" target="_blank" class="text-secondary me-xl-4 me-3">
-            <span class="text-lg fab fa-twitter" aria-hidden="true"></span>
-          </a>
+            <span class="text-lg fab fa-square-x-twitter" aria-hidden="true"></span>
 
           <a href="https://www.linkedin.com/company/soranuniversity" target="_blank" class="text-secondary me-xl-4 me-3">
             <span class="text-lg fab fa-linkedin" aria-hidden="true"></span>

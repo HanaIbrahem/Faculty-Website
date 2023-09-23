@@ -22,7 +22,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6 text-center mx-auto mt-n7">
                         <h1 class="text-white fadeIn2 fadeInBottom">
-                            Soran University faculty of Sience
+                            {{__('message.index_header')}}
                         </h1>
                         <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-8">
                             Stay connected for life to our University community.
@@ -119,7 +119,9 @@
                                     <div class="card shadow-lg">
                                         <div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">
                                             <a class="d-block blur-shadow-image">
-                                                <img src="{{asset('images/staff/'.$item->image)}}"  alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
+                                                <img src="{{asset('images/staff/'.$item->image)}}" 
+                                                 alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" 
+                                                 loading="lazy" style="width: 300px;height:350px">
                                             </a>
                                             {{-- <div class="colored-shadow" style="background-image: url(&quot;https://images.unsplash.com/photo-1536321115970-5dfa13356211?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=934&amp;q=80&quot;);">
                                             </div> --}}

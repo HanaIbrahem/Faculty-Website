@@ -61,7 +61,6 @@
                                             <th>No</th>
                                             <th>Name</th>
                                             <th>Image</th>
-                                            <th>Description</th>
                                             <th>Department</th>
                                             <th>Created</th>
                                             <th>Updated</th>
@@ -77,8 +76,7 @@
                                                 <p><a href="{{route('teacher.show',$item->id)}}">{{$item->name_ku}}</a></p>
                                                 </td>
                                                 <td><img src="{{asset('images/teacher/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
-                                                <td>{!!$item->description!!}
-                                                    <p>{!!$item->description_ku!!}</p></td>
+                                             
                                                 <td>{{$department->name}}</td>
                                                 <td ><small>{{$item->created_at}}</small></td>
                                                 <td><small>{{$item->updated_at}}</small></td>
