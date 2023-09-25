@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Models\Research;
@@ -31,10 +32,19 @@ class FrontendController extends Controller
     public function about()
     {
         //
-        return view('frontend.about');
+        $activity= Activity::latest()->paginate(8);
+        return view('frontend.about',compact('activity'));
 
     }
+    /**
+     * activity show
+     */
 
+     public function show($id)
+     {
+        $activity=Activity::find($id);
+        return view('frontend.activity',compact('activity'));
+     }
     /**
      * show contact page
      */

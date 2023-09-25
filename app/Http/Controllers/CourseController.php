@@ -64,7 +64,7 @@ class CourseController extends Controller
         // indesrt image
     
         $image = $request->file('image');
-        $name_gen =$request->input('name'). hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+        $name_gen =hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
         $image->move(public_path('images/course/'), $name_gen);
         $course->image=$name_gen;
         $course->save();
@@ -131,7 +131,7 @@ class CourseController extends Controller
             unlink('images/course/'.$course->image);
 
             $image = $request->file('image');
-            $name_gen =$request->input('name'). hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
+            $name_gen =hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
             $image->move(public_path('images/course/'), $name_gen);
             $course->image=$name_gen;
 

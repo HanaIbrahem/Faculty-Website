@@ -18,7 +18,7 @@ return [
     'welcome' => 'Welcome to our website!',
     'nav_home' => 'Home',
     'nav_contact' => 'Contact',
-    'nav_about' => 'About',
+    'nav_about' => 'Activity',
     'nav_news' => 'Research',
     'nav_department' => 'Departments',
     'd'=>'Dashboard',
@@ -45,5 +45,9 @@ return [
 
     'related_techer'=>'See other teachers',
     'related_course'=>'See other courses',
+
+    //Activity page
+
+    'activity_hader'=>'Faculty of Science Activites and Programs',
 
 ];

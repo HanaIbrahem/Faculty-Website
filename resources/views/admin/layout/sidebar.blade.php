@@ -110,6 +110,13 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{route('activity.index')}}">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Activity
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('department.index')}}">
                         <i class="fa-solid fa-school"></i>                        Department
                     </a>

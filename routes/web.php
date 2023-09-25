@@ -10,6 +10,7 @@ use App\Http\Controllers\ReserrchController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\ActivityController;
 
 // use app\Http\Controllers\FrontendController;
 
@@ -107,6 +108,16 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('staff/edit/{id}',[StaffController::class,'edit'])->name('staff.edit');
     Route::post('staff/update',[StaffController::class,'update'])->name('staff.update');
     Route::get('staff/destroy/{id}',[StaffController::class,'destroy'])->name('staff.destroy');
+    // Activity Controller 
+
+    Route::get('activity',[ActivityController::class,'index'])->name('activity.index');
+    Route::get('activity/create',[ActivityController::class,'create'])->name('activity.create');
+    Route::post('activity/store',[ActivityController::class,'store'])->name('activity.store');
+    Route::get('activity/edit/{id}',[ActivityController::class,'edit'])->name('activity.edit');
+    Route::post('activity/update',[ActivityController::class,'update'])->name('activity.update');
+    Route::get('activity/destroy/{id}',[ActivityController::class,'destroy'])->name('activity.destroy');
+    
+
 });
 
 // Supperadmin middleware
@@ -130,7 +141,8 @@ Route::middleware('web')->group(function (){
     Route::get('/research/Categorie/{id}',[FrontendController::class,'research_catygory'])->name('forntend.research_catygory');
     Route::get('/research/download/{id}',[FrontendController::class,'download'])->name('forntend.research_download');
     Route::get('/contact',[FrontendController::class,'contact'])->name('forntend.contact');
-    Route::get('/about',[FrontendController::class,'about'])->name('forntend.about');
+    Route::get('/activity',[FrontendController::class,'about'])->name('forntend.about');
+    Route::get('/activity/show/{id}',[FrontendController::class,'show'])->name('forntend.activity');
     Route::get('/course/{id}',[FrontendController::class,'course'])->name('forntend.course');
     Route::get('/teacher/{id}',[FrontendController::class,'teacher'])->name('forntend.teacher');
     Route::post('/contact/store',[FrontendController::class,'contactstore'])->name('contact.store');

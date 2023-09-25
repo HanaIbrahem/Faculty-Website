@@ -1,58 +1,115 @@
 @extends('frontend.layout.master')
 
-@section('main')
+@php
+    $loc = '';
+    if (Session::get('locale') == 'ku') {
+        $loc = '_ku';
+    }
+@endphp
 
-<header>
-    <div class="page-header min-vh-50" style="background-image: url('http://localhost/Alumni/public/upload/Untitled.jpg')" loading="lazy">
-        <span class="mask bg-gradient-dark"></span>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-white text-center">
-                    <h2 class="text-white">About Faculty Website</h2>
+@section('main')
+    <header>
+        <div class="page-header min-vh-50" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')"
+            loading="lazy">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-white text-center">
+                        <h2 class="text-white">{{__('message.activity_hader')}}</h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
+
     <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n5">
-            <section class="py-5 mt-2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 mx-auto text-center pb-4">
-                            <h4 class="text-gradient text-info">What we are do</h4>
-                            <h2>Turn your idea into a startup</h2>
-                            <p class="lead">We’re constantly trying to express ourselves and actualize our dreams. If you have the
-                                opportunity to play </p>
-                        </div>
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                      {{-- start foreach --}}
+                      @foreach ($activity as $item)
+                      <div class="row mb-5 p-4 shadow shadow-lg"data-aos="fade-left" data-aos-duration="1000">
+                          <div class="col-lg-6 justify-content-center d-flex flex-column">
+                              <div class="card">
+                                  <div class="d-block blur-shadow-image">
+                                      <img src="{{ asset('images/activity/' . $item->image) }}"
+                                          alt="img-blur-shadow-blog-2" class="img-fluid border-radius-lg"
+                                          loading="lazy">
+                                  </div>
+
+                              </div>
+                          </div>
+                          <div class="col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
+                              <h3 class="card-title">
+                                  <a href="{{ route('forntend.activity', $item->id) }}"
+                                      class="text-dark">{{ $item->{"name$loc"} }}</a>
+                              </h3>
+
+                              <div id="" class="d-flex">
+
+                                  <p class="author">
+                                      <span class="font-weight-bold text-warning">
+                                          @if ($loc == '_ku')
+                                              بەروار:
+                                          @else
+                                              Date:
+                                          @endif
+                                          {{ date('M j, Y', strtotime($item->date)) }}
+                                  </p>
+
+                              </div>
+
+                              <p class="card-description">
+                                  {!! Str::limit($item->{"description$loc"}, 200) !!}
+                                  <a href="{{ route('forntend.activity', $item->id) }}"
+                                      class="text-darker icon-move-right text-sm">
+                                      @if ($loc == '_ku')
+                                          زیاتر بخوێنەوە
+                                          <i class="fas fa-arrow-left text-xs ms-1" aria-hidden="true"></i>
+                                      @else
+                                          Read More
+                                          <i class="fas fa-arrow-right text-xs ms-1" aria-hidden="true"></i>
+                                      @endif
+                                  </a>
+                              </p>
+                              <p class="author">
+                                  <span class="font-weight-bold text-warning">
+                                      @if ($loc == '_ku')
+                                          بڵاوکراوەتەوە لە:
+                                      @else
+                                          Posted at:
+                                      @endif
+                                  </span></a>, {{ $item->created_at->format('M j, Y') }}
+
+                              </p>
+
+                          </div>
+
+
+
+
+
+                      </div>
+                  @endforeach
+
+                  {{-- end foreach --}}
+
+
+
+                    {{-- start pasgnination --}}
+
+                    <div class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%">
+                        {{ $activity->links('vendor.pagination.custom') }}
                     </div>
-                    <div class="row mt-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="p-3 text-center">
-                                <i class="material-icons text-gradient text-info text-5xl fa-solid fa-people-group"></i>
-                                <h5 class="mt-2">Our Teachers</h5>
-                                <p class="mb-0">We get insulted by others, lose trust for those others. We get back here to follow
-                                    my dreams</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="p-3 text-center">
-                                <i class="material-icons text-gradient text-info text-5xl fa fa-search"></i>
-                                <h5 class="mt-2">Search Course</h5>
-                                <p class="mb-0">We get insulted by others, lose trust for those others. We get back here to follow
-                                    my dreams</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mx-md-auto">
-                            <div class="p-3 text-center">
-                                <i class="material-icons text-gradient text-info text-5xl fa fa-sqer--info"></i>
-                                <h5 class="mt-2">Get Information</h5>
-                                <p class="mb-0">We get insulted by others, lose trust for those others. We get back here to follow
-                                    my dreams</p>
-                            </div>
-                        </div>
-                    </div>
+
+
+                    {{-- end pasigniation --}}
                 </div>
-            </section>
+            </div>
+
+        </div>
     </div>
-   
 @endsection

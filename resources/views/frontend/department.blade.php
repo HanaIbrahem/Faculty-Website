@@ -89,6 +89,8 @@
                                         <img src="{{asset('frontend/assets/img/down-arrow-dark.svg')}}" class="arrow ms-auto ms-md-2">
                                     </a>
                                 
+                                    
+
                                     <div class="dropdown-menu dropdown-menu-animation dropdown-md p-3 border-radius-lg mt-0 mt-lg-3 show" aria-labelledby="dropdownMenuPages5" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(469.6px, -40px, 0px);" data-popper-placement="top-start">
                                         <div class="d-lg-block">
                                           <p class="text-sm m-0 p-0"><a href="{{route('frontend.department_f', ['id' => $department->id, 'type' => 'bachelor'])}}">Bechelor</a></p>
@@ -97,6 +99,9 @@
                                     </div>
                                 </li>
                             </ul>
+
+                            
+
                         </div>
                         
                     </div>
@@ -190,7 +195,7 @@
         
 
         
-         
+        
         @endsection
 
         
