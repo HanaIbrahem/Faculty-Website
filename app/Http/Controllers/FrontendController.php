@@ -154,7 +154,7 @@ class FrontendController extends Controller
         $relatedcourse = DB::table('courses')->select('*')
             ->where('department_id', $departmentId)
             ->where('id', '!=', $id)
-            ->orderBy('created_at')->limit(4)->get();
+            ->orderBy('created_at')->limit(3)->get();
         return view('frontend.course', compact('course', 'relatedcourse'));
 
     }

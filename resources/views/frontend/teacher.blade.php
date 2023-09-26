@@ -7,7 +7,11 @@
     
 @endphp
 @section('main')
-    <section class="py-5 mb-md-5">
+
+
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n3 mb-4">
+    
+     <section class="py-5 mb-md-5">
         <div class="container">
             <div class="row border-radius-md pb-4 p-lg-3 mx-sm-0 mx-1 position-relative">
                 <div class="card card-plain card-blog mt-5">
@@ -73,4 +77,5 @@
             </div>
         </div>
     </section>
+</div>
 @endsection

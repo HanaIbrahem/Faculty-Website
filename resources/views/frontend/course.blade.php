@@ -10,6 +10,7 @@
 @endphp
 @section('main')
 
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n3 mb-4">
 
     <section class="py-5 mb-md-5">
         <div class="container">
@@ -75,35 +76,29 @@
                 </div>
                 <div class="row g-4 g-xl-5 slider-container d-flex justify-content-center">
                     @foreach ($relatedcourse as $item)
-                        <div class="col-lg-3 col-sm-6 col-md-4 mx-auto mb-4 text-start">
-                            <div class="card shadow-lg mt-4 h-100">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                    <a class="d-block blur-shadow-image">
-                                        <img style="width:100%; height:200px"
-                                             src="{{ asset('images/course/'.$item->image) }}"
-                                             alt="{{ $item->name }}"
-                                             class="img-fluid shadow border-radius-lg">
+                    <div class="col-lg-4 col-sm-6 col-md-6 mx-auto mb-4 text-start">
+                        <div class="card shadow-lg mt-4 h-100">
+                            
+                            <div class="card-body text-center d-flex flex-column">
+
+                              
+                                
+                                <h4 class="flex-grow-1">
+                                    <a class="text-dark"
+                                        href="{{ route('forntend.course', $item->id) }}">
+                                        {{ $item->{"name$loc"} }}
                                     </a>
-                                </div>
-                                <div class="card-body text-center d-flex flex-column">
+                                </h4>
+                                @if ($loc=='_ku')
+                                <p class="text-dark">ئاست{{$item->type}}: یەکە{{$item->cts }}:</p>
 
-                                  
-                                    @if ($loc=='_ku')
-                                    <p class="text-dark">ئاست{{$item->type}}: یەکە{{$item->cts }}:</p>
+                                @else
+                                <p class="text-dark">Level:{{$item->type}}  CTS:{{$item->cts }}</p>
 
-                                    @else
-                                    <p class="text-dark">Level:{{$item->type}}  CTS:{{$item->cts }}</p>
-
-                                    @endif
-                                    <h4 class="flex-grow-1">
-                                        <a class="text-dark"
-                                            href="{{ route('forntend.course', $item->id) }}">
-                                            {{ $item->{"name$loc"} }}
-                                        </a>
-                                    </h4>
-                                </div>
+                                @endif
                             </div>
                         </div>
+                    </div>
                     @endforeach
                 </div>
                 
@@ -111,5 +106,6 @@
             </div>
         </div>
     </section>
+</div>
 @endsection
 

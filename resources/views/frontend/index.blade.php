@@ -15,7 +15,7 @@
 @section('main')
     {{-- Headre  --}}
     <<header class="position-relative">
-        <div class="page-header min-vh-75 position-relative"
+        <div class="page-header min-vh-50 position-relative"
             style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}');" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">

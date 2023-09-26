@@ -40,7 +40,11 @@ return [
     'research_header'=>'Faculty of scinece researchs',
     'research_letter'=>'Explore cutting-edge studies and stay updated with the latest research findings in various fields',
     'contact_header'=>'For further questions, including partnership opportunities, please email help@soran.edu.iqs.com or contact using our contact for',
-'discover_rese'=>'Discover Reseearchs',
+    'discover_rese'=>'Discover Reseearchs',
+  
+    'contact_q'=>'How can we help you?',
+    'contact_p'=>'We always want to hear from you! Let us know if there is anything that we can help you with.',
+    
     //teachers page
 
     'related_techer'=>'See other teachers',

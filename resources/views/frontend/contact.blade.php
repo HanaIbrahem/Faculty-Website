@@ -1,21 +1,22 @@
-@extends('frontend.layout.master')
+ @extends('frontend.layout.master')
 
-@php
-    $loc='';
-    if (Session::get('locale') == 'ku') {
-       $loc='_ku';
-    } 
-@endphp
-@section('main')
-<header>
-    <div class="page-header min-vh-50" style="background-image: url('{{ asset('images/1773557744422857.png') }}')" loading="lazy">
-        <span class="mask bg-gradient-dark"></span>
+ @php
+     $loc = '';
+     if (Session::get('locale') == 'ku') {
+         $loc = '_ku';
+     }
+ @endphp
+ @section('main')
+ <header>
+    <div class="page-header min-vh-50" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')"
+        loading="lazy">
+        <span class="mask bg-gradient-primary"></span>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-white text-center">
-                    <h2 class="text-white">{{__('message.contact')}}</h2>
-                    <p>
-                        {{__('message.contact_header')}}
+                    <h2 class="text-white mb-3">{{__('message.contact_q')}}</h2>
+                    <p class="lead text-white mb-6">
+                       {{__('message.contact_p')}}
                     </p>
                 </div>
             </div>
@@ -23,35 +24,64 @@
     </div>
 </header>
 
-<div class="page-header">
-   
 
-    <div class="page-header w-100 " >
-        <div class="container py-5">
-            <div class="row">
-               
-                <div class="col-lg-6 d-flex justify-content-center flex-column order-lg-1">
-
-                    <div class="card card-body d-flex justify-content-center shadow-lg p-5 blur align-items-center">
-                       
-                        <h3 class="text-center">{{__('message.contact')}}</h3>
-                        @if(session('message'))
-                        <div class="alert alert-success text-white ">
-                            {{ session('message') }}
-                        </div>
+ <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6 mb-4">
+     <div class="container">
+         <div class="row mt-sm-0 mt-5">
+             <div class="col-lg-3 col-md-4 position-relative ms-lg-auto">
+                 <div class="p-3 text-center border-right-after">
+                     <i class="material-icons text-gradient text-info text-5xl mb-3 fa-solid fa-envelope"></i>
+                     <h6 class="mb-0">Email</h6>
+                     <p class="text-dark font-weight-normal">help@soran.edu.iqs.com</p>
+                 </div>
+             </div>
+             <div class="col-lg-3 col-md-4 position-relative">
+                 <div class="p-3 text-center border-right-after">
+                     <i class="material-icons text-gradient text-info text-5xl mb-3 fa fa-phone"></i>
+                     <h6 class="mb-0">Phone</h6>
+                     <p class="text-dark font-weight-normal"dir="ltr">+964(750) 000 0000</p>
+                 </div>
+             </div>
+             <div class="col-lg-3 col-md-4 me-lg-auto">
+                 <div class="p-3 text-center">
+                     <i class="material-icons text-gradient text-info text-5xl mb-3 fa-solid fa-address-book"></i>
+                     <h6 class="mb-0">Contact</h6>
+                     <p class="text-dark font-weight-normal">Andrew Samian</p>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <section class="py-md-7 py-3">
+         <div class="container">
+             <div class="row align-items-center">
+                 <div class="col-lg-8 col-10 mx-auto text-center">
+                     <div class="mb-md-5">
+                         <h3>{{__('message.contact')}}</h3>
+                        
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-lg-8 mx-auto">
+                    @if (session('message'))
+                    <script>
+                        window.alert("{{ session('message') }}");
+                    </script>
+            
+                @endif
+                    @if (count($errors))
+                    <div class="alert text-danger">
+                        @foreach ($errors->all() as $error)
+                            <p class="">{{$error}}</p>
+                        @endforeach
+                    </div>
+                        
                     @endif
-                        @if (count($errors))
-                        <div class="alert text-danger">
-                            @foreach ($errors->all() as $error )
-                                <p class="">{{$error}}</p>
-                            @endforeach
-                        </div>
-                            
-                        @endif
-                        <form action="{{route('contact.store')}}" dir="{{$loc=='_ku'?'rtl':'ltr'}}" id="myForm" method="post" >
+                     <div class="card card-plain">
+                         <form action="{{route('contact.store')}}" dir="{{$loc=='_ku'?'rtl':'ltr'}}" id="myForm" method="post" >
                             @csrf
                             @method('POST')
-                            <div class="card-body">
+                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group input-group input-group-static mb-4">
@@ -81,24 +111,18 @@
                                 <div class="row">
                                    
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn bg-gradient-dark w-100">{{__('message.send')}}</button>
+                                        <button type="submit" class="btn bg-gradient-primary w-100">{{__('message.send')}}</button>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-lg-2">
-                    
-                    <div class="position-relative w-100 h-100 rounded-3 z-index-0 d-none d-sm-none d-md-block"
-                         style="background-image: url('{{ asset('images/images.jpg') }}'); background-size: cover;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</div>
+                             </div>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+ </div>
+ 
 
 
 <script src="{{asset('backend/assets/vendor/jqury/jquery-3.6.0.min.js')}}"></script>

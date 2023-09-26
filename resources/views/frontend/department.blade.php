@@ -11,7 +11,7 @@
 
 @section('main')
     <<header class="position-relative">
-        <div class="page-header min-vh-75 position-relative"
+        <div class="page-header min-vh-50 position-relative"
             style="background-image: url('{{ asset('images/department/' . $department->image) }}');" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">
