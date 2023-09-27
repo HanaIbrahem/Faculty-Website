@@ -12,6 +12,9 @@ return [
     'message'=>'message',
     'send'=>'send',
 
+    'Level'=>'Level',
+    'bechelor'=>'Bechelor',
+    'high'=>'High Education',
     
     
     // navbar

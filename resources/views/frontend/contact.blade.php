@@ -8,12 +8,12 @@
  @endphp
  @section('main')
  <header>
-    <div class="page-header min-vh-50" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')"
+    <div class="page-header min-vh-75" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')"
         loading="lazy">
-        <span class="mask bg-gradient-primary"></span>
+        <span class="mask bg-gradient-dark"></span>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-white text-center">
+                <div class="col-lg-8 mx-auto text-white text-center py-5">
                     <h2 class="text-white mb-3">{{__('message.contact_q')}}</h2>
                     <p class="lead text-white mb-6">
                        {{__('message.contact_p')}}
@@ -26,7 +26,7 @@
 
 
  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6 mb-4">
-     <div class="container">
+     {{-- <div class="container">
          <div class="row mt-sm-0 mt-5">
              <div class="col-lg-3 col-md-4 position-relative ms-lg-auto">
                  <div class="p-3 text-center border-right-after">
@@ -50,7 +50,7 @@
                  </div>
              </div>
          </div>
-     </div>
+     </div> --}}
      <section class="py-md-7 py-3">
          <div class="container">
              <div class="row align-items-center">

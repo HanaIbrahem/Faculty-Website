@@ -20,7 +20,7 @@
                         <h1 class="text-white fadeIn2 fadeInBottom">
                             @if ($loc == '_ku')
                                 فاکەڵتی زانست بەشی
-                                {{ $department->name_ku }}
+                                {{ $department->name_ku }}  
                             @else
                                 Faculty of Science {{ $department->name }} Department
                             @endif
@@ -79,17 +79,36 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-4 m-0 p-1 d-flex align-items-center">
-                            <i class="ms-3 material-icons text-gradient text-dark text-2xl fa fa-filter"></i>
                            
+                            <div class="position-sticky top-1 z-index-1">
+                                <ul class="nav nav-pills nav-fill p-1" role="tablist">
+                                    <i class="ms-3 mt-2 me-1 material-icons text-gradient text-dark text-2xl fa fa-filter"></i>
 
-                            <ul class=" mt-3 ms-2 list-unstyled">
+                                 <li class="nav-item" >
+                                     <a class="nav-link mb-0 px-0" id="dropdownMenuPages5" data-bs-toggle="dropdown" aria-expanded="false">
+                                         {{__('message.Level')}}
+                                         <img src="{{ asset('frontend/assets/img/down-arrow-dark.svg') }}" class="arrow ms-auto ms-md-2">
+                                     </a>
+                                 
+                                     <div class="dropdown-menu dropdown-menu-animation dropdown-md border-radius-lg" aria-labelledby="dropdownMenuPages5" >
+                                         <div class="d-lg-block">
+                                            <p class="text-sm m-0 p-0"><a href="{{route('frontend.department_f', ['id' => $department->id, 'type' => 'bachelor'])}}">{{__('message.bechelor')}}</a></p>
+                                            <p class="text-sm m-0 p-0"><a href="{{route('frontend.department_f', ['id' => $department->id, 'type' => 'high'])}}">{{__('message.high')}}</a></p>
+                                         </div>
+                                         
+                                     </div>
+                                 </li>
+                               </ul>
+                            </div>
+
+                            {{-- <div class="pt-1 pb-5 position-sticky top-1 z-index-1 mt-3 mt-lg-5 ">
+                             <ul class=" mt-3 ms-2 list-unstyled">
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link mb-0 px-0 py-1 show" id="dropdownMenuPages5" data-bs-toggle="dropdown" aria-expanded="true" aria-selected="false" tabindex="-1" role="tab">
                                         Level
                                         <img src="{{asset('frontend/assets/img/down-arrow-dark.svg')}}" class="arrow ms-auto ms-md-2">
                                     </a>
                                 
-                                    
 
                                     <div class="dropdown-menu dropdown-menu-animation dropdown-md p-3 border-radius-lg mt-0 mt-lg-3 show" aria-labelledby="dropdownMenuPages5" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(469.6px, -40px, 0px);" data-popper-placement="top-start">
                                         <div class="d-lg-block">
@@ -98,8 +117,8 @@
                                         </div>   
                                     </div>
                                 </li>
-                            </ul>
-
+                             </ul>
+                            </div> --}}
                             
 
                         </div>
@@ -122,10 +141,11 @@
                                             </a>
                                         </h4>
                                         @if ($loc=='_ku')
-                                        <p class="text-dark">ئاست{{$item->type}}: یەکە{{$item->cts }}:</p>
+                                        <p class="text-dark">ئاست{{$item->type}}</p>
 
+                                        {{$item->id}}
                                         @else
-                                        <p class="text-dark">Level:{{$item->type}}  CTS:{{$item->cts }}</p>
+                                        <p class="text-dark">Level:{{$item->type}}</p>
 
                                         @endif
                                     </div>

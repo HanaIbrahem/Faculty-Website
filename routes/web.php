@@ -11,6 +11,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\AdmissionController;
 
 // use app\Http\Controllers\FrontendController;
 
@@ -117,6 +118,14 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::post('activity/update',[ActivityController::class,'update'])->name('activity.update');
     Route::get('activity/destroy/{id}',[ActivityController::class,'destroy'])->name('activity.destroy');
     
+    Route::get('admission',[AdmissionController::class,'index'])->name('admission.index');
+    Route::get('admission/create',[AdmissionController::class,'create'])->name('admission.create');
+    Route::get('admission/show/{id}',[AdmissionController::class,'show'])->name('admission.show');
+
+    Route::post('admission/store',[AdmissionController::class,'store'])->name('admission.store');
+    Route::get('admission/edit/{id}',[AdmissionController::class,'edit'])->name('admission.edit');
+    Route::post('admission/update',[AdmissionController::class,'update'])->name('admission.update');
+    Route::get('admission/destroy/{id}',[AdmissionController::class,'destroy'])->name('admission.destroy');
 
 });
 

@@ -45,9 +45,7 @@
                                                        {{ __('Log Out ') }}
                     </x-dropdown-link>
                 </form>
-                <p  class="p-0 m-0">
-                    hi {{auth()->user()->name}}
-                </p>
+                
             </div>
 
             <h6
@@ -77,7 +75,7 @@
             </ul>
 
             <h6
-                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-body-secondary text-uppercase">
                 <span>App</span>
                 {{-- <a class="link-secondary" href="#" aria-label="Add a new report">
                     <svg class="bi">
@@ -113,6 +111,12 @@
                     <a class="nav-link d-flex align-items-center gap-2" href="{{route('activity.index')}}">
                         <i class="fa-solid fa-user-plus"></i>
                         Activity
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="{{route('admission.index')}}">
+                        <i class="fa-solid fa-shop"></i>                        Admission
                     </a>
                 </li>
 
