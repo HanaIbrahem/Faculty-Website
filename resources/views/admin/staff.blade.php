@@ -1,5 +1,9 @@
 @extends('admin.layout.master')
 
+@section('datatablestyle')
+<link rel="stylesheet" href="{{ asset('backend/assets/vendor/datatables/css/jquery.dataTables.min.css') }}">
+@endsection
+
 @section('main')
 <section class="py-1">
     <div class="container">
@@ -8,46 +12,59 @@
                 <h6 class="text-gradient text-info text-uppercase">Our Staff</h6>
             </div>
         </div>
-        <div class="row mt-5">
-            @foreach ($staff as $item)
-            <div class="col-lg-3 col-12 col-md-6 mb-lg-0 mb-2">
-                <div class="card shadow-lg">
-                    <div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">
-                        <a class="d-block blur-shadow-image">
-                            <img src="{{asset('images/staff/'.$item->image)}}" alt="img-blur-shadow" class="img-fluid shadow border-radius-lg" loading="lazy">
-                        </a>
-                        {{-- <div class="colored-shadow" style="background-image: url(&quot;https://images.unsplash.com/photo-1536321115970-5dfa13356211?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=934&amp;q=80&quot;);">
-                        </div> --}}
-                    </div>
-                    <div class="card-body text-center bg-white border-radius-lg p-3 pt-0">
-                        <h5 class="mt-3 mb-1 d-md-block d-none">{{$item->name}}</h5>
-                        <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-dark mt-3">{{$item->name}}
-                        </p>
-                        <p class="mb-0 text-xs font-weight-bolder text-info text-gradient text-uppercase">
-                            {{$item->rool}}</p>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example3" class="display" style="min-width: 845px">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Rool</th>
+                            <th>Created</th>
+                            <th>Updated</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach ($staff as $item)
+                            <tr>
+                                <td>{{$i++}}</td>
+                                <td>{{$item->name}}
+                                <p>{{$item->name_ku}}</p></td>
+                                <td><img src="{{asset('images/staff/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
+                                
+                                <td>{{$item->description}}
+                                <p>{{$item->description_ku}}</p>
+                                </td>
+                                <td>{{$item->rool}}
+                                <p>{{$item->rool_ku}}</p></td>
+                                <td>{{$item->created_at->format('d-m-y')}}</td>
+                                <td>{{$item->updated_at->format('d-m-y')}}</td>
 
-                        <p>
-                            {{$item->description}}
-                        </p>
-                    </div>
-                    <div class="d-flex">
-                                        
-                        <div style="margin-right: 4px">
-                            <a href="{{route('staff.destroy',$item->id)}}" class="btn btn-danger shadow btn-xs sharp " id="delete"><i class="fa fa-trash"></i></a>
-                        </div>
+                                <td>
+                                    <div class="d-flex">
+                                    
+                                        <div style="margin-right: 4px">
+                                            <a href="{{route('staff.destroy',$item->id)}}" class="btn btn-danger shadow btn-xs sharp " id="delete"><i class="fa fa-trash"></i></a>
 
-                        <div class="">
-                            <a href="{{route('staff.edit',$item->id)}}" class="btn btn-warning shadow btn-xs sharp"><i class="fa fa-pen"></i></a>
-                        </div>
-                    </div>
-                </div>
+                                        </div>
+
+                                        <div >
+                                            <a href="{{route('staff.edit',$item->id)}}" class="btn btn-warning shadow btn-xs sharp"><i class="fa fa-pen"></i></a>
+
+                                        </div>
+                                    </div>												
+                                </td>	
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            @endforeach
-
-             <div class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%">
-        {{ $staff->links('vendor.pagination.custom') }}
-       </div>
         </div>
+      
         
     </div>
 </section>
@@ -171,6 +188,11 @@
 @section('switalertjs')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{asset('backend/assets/js/plugin/sweetalert.init.js')}}"></script>
+@endsection
+
+@section('datatablejs')
+<script src="{{ asset('backend/assets/vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/plugin/datatables.init.js') }}"></script>
 @endsection
 {{-- @section('textare')
     <script src="{{ asset('backend/assets/vendor/tinymce/tinymce.min.js') }}"></script>

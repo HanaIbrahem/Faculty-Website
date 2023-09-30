@@ -11,6 +11,7 @@ return [
     'email'=>'ئیمێڵ',
     'message'=>'نامە',
     'send'=>'ناردن',
+    'welcom'=>'بەخێربێن',
     
     'Level'=>'ئاست',
     'bechelor'=>'بەکەلۆریۆس',
