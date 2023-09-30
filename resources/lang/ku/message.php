@@ -23,6 +23,7 @@ return [
     'nav_news' => 'تویژینەوە',
     'nav_department' => 'بەشەکان',  
     'd'=>'داشبۆرد',
+    'admission'=>'یەکەکان',
     
     //index page
     'staff_header'=>'بنیاتنانی داهاتوو',
@@ -51,4 +52,7 @@ return [
 
     //Activity page
     'activity_hader'=>'چاڵاکی و پڕۆگراماکانی فاکەڵتی زانست',
+    'admisstion_heder'=>'یەکەکانی کارگێری فاکەڵتی زانست',
+    'admisstion_units'=>'لە یەکەکانمان بگەڕێ',
+
 ];

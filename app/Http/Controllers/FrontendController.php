@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\Admission;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Models\Research;
@@ -205,6 +206,27 @@ class FrontendController extends Controller
         return view('frontend.research_show', compact('research', 'research_count'));
     }
 
+    /**
+     * Admission
+     */
+
+    public function admission()
+    {
+
+        $admission=Admission::latest()->get();
+        return view('frontend.admission',compact('admission'));
+    }
+
+     /**
+     * Admission show
+     */
+
+     public function admission_show($id)
+     {
+ 
+         $admission=Admission::find($id);
+         return view('frontend.admission_show',compact('admission'));
+     }
     /**
      * download research
      */

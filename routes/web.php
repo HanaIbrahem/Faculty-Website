@@ -152,6 +152,10 @@ Route::middleware('web')->group(function (){
     Route::get('/contact',[FrontendController::class,'contact'])->name('forntend.contact');
     Route::get('/activity',[FrontendController::class,'about'])->name('forntend.about');
     Route::get('/activity/show/{id}',[FrontendController::class,'show'])->name('forntend.activity');
+
+    Route::get('/admission',[FrontendController::class,'admission'])->name('forntend.admission');
+    Route::get('/admission/show/{id}',[FrontendController::class,'admission_show'])->name('forntend.admission_show');
+
     Route::get('/course/{id}',[FrontendController::class,'course'])->name('forntend.course');
     Route::get('/teacher/{id}',[FrontendController::class,'teacher'])->name('forntend.teacher');
     Route::post('/contact/store',[FrontendController::class,'contactstore'])->name('contact.store');

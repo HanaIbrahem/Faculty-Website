@@ -101,6 +101,13 @@
                         {{ __('message.nav_about') }}
                     </a>
                 </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                        href="{{route('forntend.admission')}}" role="button">
+                        {{ __('message.admission') }}
+                    </a>
+                </li>
                 <li class="nav-item ">
                     <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
                         href="{{route('forntend.contact')}}" role="button">

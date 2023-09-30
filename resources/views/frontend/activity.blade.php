@@ -17,7 +17,7 @@
                     <div class="col-lg-8 mx-auto text-white text-center">
                         <h2 class="text-white">
                             @if ($loc == '_ku')
-                            زیاتر بخوێنەوە سەبەرات
+                زیاتر بخوێنەوە سەبارەت بە
                         @else
                         Read more about 
                         @endif
@@ -32,9 +32,9 @@
         <div class="container">
 
 
-            <div class="row mb-5 p-4">
+            <div class="row mb-5 pt-2 ps-1">
                 <div class="col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
-                    <h3 class="card-title">
+                    <h3 class="card-title p-3">
                         <a href="javascript:;" class="text-dark">{{$activity->{"name$loc"} }}</a>
     
                     </h3>

@@ -25,6 +25,7 @@ return [
     'nav_news' => 'Research',
     'nav_department' => 'Departments',
     'd'=>'Dashboard',
+    'admission'=>'Admission',
     
     // index page
     'index_header'=>'Soran University faculty of Sience',
@@ -56,5 +57,8 @@ return [
     //Activity page
 
     'activity_hader'=>'Faculty of Science Activites and Programs',
+    'admisstion_heder'=>'Faculty of Science Administrative Units',
+    'admisstion_units'=>'Explore Our Units',
+
 
 ];
