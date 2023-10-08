@@ -17,7 +17,8 @@ class TeacherController extends Controller
         //
         $i=1;
         $department=Department::all();
-        $teachers=Teacher::all();
+        $teachers=Teacher::orderBy('pin','desc')
+        ->orderBy('updated_at', 'desc')->get();
         return view('admin.teacher',compact('teachers','department','i'));
     }
 
@@ -87,6 +88,24 @@ class TeacherController extends Controller
         // ->get();
          $department=Department::find($teacher->department->id);
         return view('admin.teacher-show',compact('teacher','department'));
+    }
+    /**
+     * Pin Method
+     */
+
+    public function pin($id)
+    {
+        //
+        $teacher=Teacher::find($id);
+    
+        if ($teacher->pin=='no') {
+            $teacher->pin='yes';
+        }else{
+            $teacher->pin='no';
+        }
+
+        $teacher->save();
+        return redirect()->back();
     }
 
     /**

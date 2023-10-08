@@ -20,6 +20,7 @@
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Department</th>
+                                <th>Pin</th>
                                 <th>Created</th>
                                 <th>Updated</th>
                                 <th>Action</th>
@@ -35,6 +36,7 @@
                                     <td><img src="{{asset('images/teacher/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
                                     
                                     <td>{{$item->department->name}}</td>
+                                    <td>{{$item->pin}}</td>
                                     <td>{{$item->created_at->format('d-m-y')}}</td>
                                     <td>{{$item->updated_at->format('d-m-y')}}</td>
 
@@ -47,6 +49,12 @@
 
                                             <div >
                                                 <a href="{{route('teacher.edit',$item->id)}}" class="btn btn-warning shadow btn-xs sharp"><i class="fa fa-pen"></i></a>
+                                            </div>
+                                            <div style="margin-left: 4px">
+                                                <a href="{{route('teacher.pin',$item->id)}}" class="btn btn-info shadow btn-xs sharp " 
+                                                    data-is-pinned="{{$item->pin}}"
+                                                    id="pin"><i class="fa-solid fa-thumbtack"></i></a>
+    
                                             </div>
                                         </div>												
                                     </td>	

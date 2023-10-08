@@ -10,54 +10,54 @@
 
 
 @section('main')
-    <<header class="position-relative">
-        <div class="page-header min-vh-50 position-relative"
-            style="background-image: url('{{ asset('images/admission/' . $admission->image) }}');" loading="lazy">
-            <span class="mask bg-gradient-dark"></span>
-            <div class="container mt-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center mx-auto mt-n7">
-                        <h3 class="text-white fadeIn2 fadeInBottom">
-                            @if ($loc == '_ku')
-                                فاکەڵتی زانست  
-                                {{ $admission->name_ku }}
-                            @else
-                                Faculty of Science {{ $admission->name }} 
-                            @endif
-                        </h3>
-                        {{-- <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-8">
-                        Stay connected for life to our University community.
-                    </p> --}}
+    <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n3 mb-4">
+
+        <section class="py-5 mb-md-5">
+            <div class="container">
+                <div class="row border-radius-md pb-4 p-lg-3 mx-sm-0 mx-1 position-relative">
+                    <div class="card card-plain card-blog mt-5">
+                        <div class="row">
+
+                            <div class="col-lg-12 justify-content-center d-flex flex-column">
+                                <div class="card-image position-relative border-radius-lg cursor-pointer">
+                                    <div class="p-3">
+                                        <h3 class="text-dark">{{ $admission->{"name$loc"} }}</h3>
+
+                                    </div>
+                                    <div class="blur-shadow-image">
+                                        <img class="img-fluid border-radius-lg custom-imgcard"
+                                            src="{{ asset('images/admission/' . $admission->image) }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 my-auto ms-md-3 mt-md-auto mt-4">
+
+
+                                <div class="mt-3">
+                                    {!! $admission->{"description$loc"} !!}
+                                </div>
+
+
+
+                                <div>
+                                    <p class="p-3 author">
+                                        <span class="font-weight-bold text-warning">
+                                            @if ($loc == '_ku')
+                                                بڵاوکراوەتەوە لە:
+                                            @else
+                                                Posted at:
+                                            @endif
+                                        </span>{{ $admission->created_at->format('M j, Y') }}
+                                    </p>
+
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </header>
-
-
-        {{-- Body --}}
-        <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n5">
-            <section class="py-5 mt-2">
-                <div class="container">
-                    <div class="row" data-aos="zoom-in" data-aos-duration="1000">
-                        <div class="col-lg-8 ms-auto me-auto">
-                            <h3 class="title mb-4 text-center">
-                                @if ($loc == '_ku')
-                                    بەشی
-                                    {{ $admission->name_ku }}
-                                @else
-                                    Department
-                                    {{ $admission->name }}
-                                @endif
-                            </h3>
-                            <p class="text-dark">
-                                {!! $admission->{"description$loc"} !!}
-                            </p>
-                        </div>
-                    </div>
-
-            </section>
-
-        </div>
-@endsection
+        </section>
+    </div>
+    @endsection

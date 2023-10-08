@@ -75,6 +75,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     // Teacher Controller
     Route::get('/teacher',[TeacherController::class,'index'])->name('teacher.index');
     Route::get('/teacher/create/{id}',[TeacherController::class,'create'])->name('teacher.create');
+    Route::get('/teacher/pin/{id}',[TeacherController::class,'pin'])->name('teacher.pin');
+
     Route::post('/teacher/store',[TeacherController::class,'store'])->name('teacher.store');
     Route::get('/teacher/show/{id}',[TeacherController::class,'show'])->name('teacher.show');
     Route::get('/teacher/edit/{id}',[TeacherController::class,'edit'])->name('teacher.edit');
@@ -104,7 +106,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     //stuff Controller
     Route::get('staff',[StaffController::class,'index'])->name('staff.index');
     // Route::get('staff/show/{id}',[Staff::class,'show'])->name('staff.show');
-    Route::get('staff/{id}',[StaffController::class,'create'])->name('staff.create');
+    Route::get('staff/pin/{id}',[StaffController::class,'pin'])->name('staff.pin');
     Route::post('staff/store',[StaffController::class,'store'])->name('staff.store');
     Route::get('staff/edit/{id}',[StaffController::class,'edit'])->name('staff.edit');
     Route::post('staff/update',[StaffController::class,'update'])->name('staff.update');

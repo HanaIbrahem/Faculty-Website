@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('description')->nullable();
             $table->text('description_ku')->nullable()->charset('utf8mb4');
+            $table->enum('pin',['no','yes'])->default('no');
 
             // $table->string('cv');
             $table->unsignedBigInteger('department_id');

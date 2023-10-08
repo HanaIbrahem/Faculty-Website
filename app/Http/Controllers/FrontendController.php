@@ -23,7 +23,9 @@ class FrontendController extends Controller
     {
         //
         $department = Department::all();
-        $staff = Staff::latest()->get();
+        $staff = Staff::orderBy('pin', 'desc')
+        ->orderBy('updated_at', 'desc')
+        ->get();
         return view('frontend.index', compact('department', 'staff'));
     }
 
@@ -67,7 +69,8 @@ class FrontendController extends Controller
 
         $teacher = DB::table('teachers')
             ->select('*')
-            ->orderBy('updated_at')
+            ->orderBy('pin','desc')
+            ->orderBy('updated_at', 'desc')
             ->where('department_id', $department->id)
             ->paginate(8, ['*'], 'teacher_page'); // Added 'teacher_page' as the pagination name
 
@@ -92,7 +95,8 @@ class FrontendController extends Controller
 
         $teacher = DB::table('teachers')
             ->select('*')
-            ->orderBy('updated_at')
+            ->orderBy('pin','desc')
+            ->orderBy('updated_at', 'desc')
             ->where('department_id', $department->id)
             ->paginate(8, ['*'], 'teacher_page');
 

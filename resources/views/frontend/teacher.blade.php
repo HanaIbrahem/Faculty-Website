@@ -16,21 +16,33 @@
             <div class="row border-radius-md pb-4 p-lg-3 mx-sm-0 mx-1 position-relative">
                 <div class="card card-plain card-blog mt-5">
                     <div class="row">
-                        <div class="col-md-5">
+
+                        <div class="col-lg-12 justify-content-center d-flex flex-column">
                             <div class="card-image position-relative border-radius-lg cursor-pointer">
+                               
                                 <div class="blur-shadow-image">
-                                    <img class="card-img" src="{{ asset('images/teacher/' . $teacher->image) }}">
+                                    <img class="img-fluid border-radius-lg custom-imgcard" src="{{ asset('images/teacher/' . $teacher->image) }}">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 my-auto ms-md-3 mt-md-auto mt-4">
-                            <h3 class="text-dark">{{ $teacher->{"name$loc"} }}</h3>
+                        <div class="col-md-8 my-auto ms-md-3 mt-md-auto mt-4">
 
-                            <div>
+                            <div class="p-1">
+                                <h3 class="text-dark">{{$teacher->{"name$loc"} }}</h3>
+
+                            </div>
+
+                            <div class="mt-2 ">
                                 {!! $teacher->{"description$loc"} !!}
                             </div>
                             <div class="author">
-                                <p class="ps-1 text-dark mb-0">Updated at {{ $teacher->updated_at }}
+                                <p class="ps-1 text-dark mb-0">
+                                    @if ($loc=='_ku')
+                                        نوێکراوەتەوە لە:
+                                    @else
+                                    Updated at
+                                    @endif
+                                     {{ $teacher->updated_at->format('d/m/Y') }}
                                 </p>
                             </div>
                         </div>
@@ -48,31 +60,33 @@
                     <h3 class="mb-1">{{__('message.related_techer')}}</h3>
                  
                 </div>
-                <div class="row g-4 g-xl-5 slider-container d-flex mt-1 justify-content-center">
+                
+                <div class="row d-flex mt-1 justify-content-center mt-5">
                     @foreach ($relatedteacher as $item)
-                        <div class="col-lg-3 col-sm-6 col-md-4 mx-auto mb-4 text-start">
-                            <div class="card shadow-lg mt-4 h-100">
-                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                        <div class="col-lg-3 col-12 col-md-6 mb-5 ">
+                            <div class="card h-100 d-flex flex-column">
+                                <div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">
                                     <a class="d-block blur-shadow-image">
-                                        <img style="width:100%; height:200px"
-                                             src="{{ asset('images/teacher/'.$item->image) }}"
-                                             alt="{{ $item->name }}"
-                                             class="img-fluid shadow border-radius-lg">
+                                        <img src="{{ asset('images/teacher/' . $item->image) }}"
+                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg"
+                                            loading="lazy"
+                                            style="width:100%; height:220px;
+                                             object-fit: cover;"id="re">
                                     </a>
                                 </div>
-                                <div class="card-body text-center d-flex flex-column">
-                                    <h4 class="flex-grow-1">
-                                        <a class="text-dark"
-                                            href="{{ route('forntend.teacher', $item->id) }}">
-                                            {{ $item->{"name$loc"} }}
-                                        </a>
-                                    </h4>
+                                <div class="card-body text-center bg-white border-radius-lg p-3 pt-0 flex-grow-1">
+                                    <h5 class="mt-3 mb-1 d-md-block d-none">
+                                        <a href="{{route('forntend.teacher',$item->id)}}">{{ $item->{"name$loc"} }}</a>
+                                    </h5>
+                                    <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-dark mt-3">
+                                        <a href="{{route('forntend.teacher',$item->id)}}">{{ $item->{"name$loc"} }}
+                                        </a></p>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
-                
+
                 
             </div>
         </div>

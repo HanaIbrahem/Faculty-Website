@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('name_ku');
-            $table->text('description_ku');
+            $table->string('name_ku')->charset('utf8mb4');;
+            $table->text('description_ku')->charset('utf8mb4');;
             $table->unsignedBigInteger('department_id');
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->enum('type',['bachelor','doctoral','master','diploma']);

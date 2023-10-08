@@ -12,10 +12,11 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/swiper-bundle.min.css') }}">
 @endsection
 
+
 @section('main')
     {{-- Headre  --}}
     <<header class="position-relative">
-        <div class="page-header min-vh-50 position-relative"
+        <div class="page-header min-vh-75 position-relative"
             style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}');" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">
@@ -25,7 +26,7 @@
                             {{__('message.index_header')}}
                         </h1>
                         <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-8">
-                            Stay connected for life to our University community.
+                            {{__('message.welcome')}}
                         </p>
                     </div>
                 </div>
@@ -112,7 +113,7 @@
                  
                     <div class="row mt-5">
                         @foreach ($staff as $item)
-                            <div class="col-lg-3 col-12 col-md-6 mb-4">
+                            <div class="col-lg-3 col-12 col-md-6 mb-4 ">
                                 <div class="card h-100 d-flex flex-column">
                                     <div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">
                                         <a class="d-block blur-shadow-image">
@@ -120,7 +121,8 @@
                                                  alt="img-blur-shadow" 
                                                  class="img-fluid shadow border-radius-lg" 
                                                  loading="lazy"
-                                                 style="width:100%; height:220px">
+                                                 style="width:100%; height:220px;
+                                                 object-fit: cover;"id="re">
                                         </a>
                                     </div>
                                     <div class="card-body text-center bg-white border-radius-lg p-3 pt-0 flex-grow-1">

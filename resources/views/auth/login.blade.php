@@ -9,16 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/material-kit.css') }}">
-    <script src="{{asset('backend/assets/js/bootstrap.bundle.min.js')}}"></script>
     <link rel="icon" type="image/x-icon" href="{{ asset('images/' . $faculty->logo) }}">
     <title>{{ $faculty->title  }}</title>
 </head>
-<body>
+<body class="bg-light">
   <section class="container d-flex flex-column ">
     <div class="row align-items-center justify-content-center g-0 min-vh-100">
-        <div class="col-lg-5 col-md-8 py-6 py-xl-0">
+        <div class="col-lg-4 col-md-8 py-6 py-xl-0">
             <!-- Card -->
-            <div class="card shadow">
+            <div class="card shadow-lg rounded-5">
                
                 <!-- Card body -->
                 <div class="card-body p-4 text-center">
@@ -66,14 +65,7 @@
                             <input type="password" id="password" class="form-control" name="password" placeholder="Password" >
                         </div>
                         
-                        @if (Route::has('password.request'))
-{{--                        
-                        <div class="mb-3">
-                            <a class="underline text-sm  " href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
-                            </a>
-                        </div> --}}
-                         @endif
+                       
                         
                         <div class="text-center">
                             <!-- Button -->
@@ -93,6 +85,7 @@
 	<!-- Chart piety plugin files -->
 
     <script src="{{asset('backend/assets/vendor/jqury/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('backend/assets/js/bootstrap.bundle.min.js')}}"></script>
 
     <script src="{{asset('backend/assets/js/validate.js')}}"></script>
     <script type="text/javascript">
@@ -100,26 +93,26 @@
             $('#myForm').validate({
                 rules: {
 
-                password:{
-                     
-                      
-                      required : true,
-                    },email:{
+                email:{
                         required : true,
 
-                    }
+                    },password:{
+                     
+                      
+                     required : true,
+                   }
                 },
                 messages  :{
                    
     
 
-                    password:{
-                        required : 'Please Enter password',
-                    } 
-                    ,email:{
+                  
+                    email:{
                         required : 'Please Enter your Email',
 
-                    }
+                    },  password:{
+                        required : 'Please Enter password',
+                    } 
                 },
                 errorElement : 'span', 
                 errorPlacement: function (error,element) {

@@ -8,80 +8,62 @@
 @endphp
 
 @section('main')
-    <header>
-        <div class="page-header min-vh-50" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')"
-            loading="lazy">
-            <span class="mask bg-gradient-dark"></span>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-white text-center">
-                        <h2 class="text-white">
-                            @if ($loc == '_ku')
-                زیاتر بخوێنەوە سەبارەت بە
-                        @else
-                        Read more about 
-                        @endif
-                            {{$activity->{"name$loc"} }}</h2>
+
+<div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n3 mb-4">
+    <section class="py-5 mb-md-5">
+        <div class="container">
+            <div class="row border-radius-md pb-4 p-lg-3 mx-sm-0 mx-1 position-relative">
+                <div class="card card-plain card-blog mt-5">
+                    <div class="row">
+
+                        <div class="col-lg-12 justify-content-center d-flex flex-column">
+                            <div class="card-image position-relative border-radius-lg cursor-pointer">
+                                <div class="p-3">
+                                    <h3 class="text-dark">{{$activity->{"name$loc"} }}</h3>
+
+                                </div>
+                                <div class="blur-shadow-image">
+                                    <img class="img-fluid border-radius-lg custom-imgcard" src="{{asset('images/activity/'.$activity->image)}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 my-auto ms-md-3 mt-md-auto mt-4">
+
+                            <div  class="d-flex mt-4">
+                                <span class="text-info">
+                                    @if ($loc == '_ku')
+                                    بەروار:
+                                @else
+                                    Date:
+                                @endif
+                                </span>
+                                {{ date('M j, Y', strtotime($activity->date)) }}
+        
+                            
+                            </div>
+                           
+                             <div class="d-flex mt-4 card-description">
+                                {!! $activity->{"description$loc"} !!}
+                             </div>  
+                             
+                             <p class="author">
+                                <span class="font-weight-bold text-warning">
+                                    @if ($loc == '_ku')
+                                    بڵاوکراوەتەوە لە:
+                                @else
+                                    Posted at:
+                                @endif
+                                </span>{{$activity->created_at->format('M j, Y')}}
+                            </p>
+
+                        </div>
+                    
                     </div>
                 </div>
             </div>
         </div>
-    </header>
 
-    <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n5">
-        <div class="container">
+    </section>
+</div>
 
-
-            <div class="row mb-5 pt-2 ps-1">
-                <div class="col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
-                    <h3 class="card-title p-3">
-                        <a href="javascript:;" class="text-dark">{{$activity->{"name$loc"} }}</a>
-    
-                    </h3>
-                </div>
-    
-                <div class="col-lg-8 justify-content-center d-flex flex-column">
-                    <div class="card">
-                        <div class="d-block blur-shadow-image">
-                            <img src="{{asset('images/activity/'.$activity->image)}}" alt="img-blur-shadow-blog-2" class="img-fluid border-radius-lg" loading="lazy">
-                        </div>
-    
-                    </div>
-    
-                </div>
-                <div class="col-lg-6 justify-content-center d-flex flex-column pl-lg-5 pt-lg-0 pt-3">
-                   
-    
-                    <div  class="d-flex mt-4">
-                        <span class="text-info">
-                            @if ($loc == '_ku')
-                            بەروار:
-                        @else
-                            Date:
-                        @endif
-                        </span>
-                        {{ date('M j, Y', strtotime($activity->date)) }}
-
-                    
-                    </div>
-    
-                    <div  class="d-flex mt-4 card-description">
-                       {!! $activity->{"description$loc"} !!}
-
-                    </div>
-                    <p class="author">
-                        <span class="font-weight-bold text-warning">
-                            @if ($loc == '_ku')
-                            بڵاوکراوەتەوە لە:
-                        @else
-                            Posted at:
-                        @endif
-                        </span>{{$activity->created_at->format('M j, Y')}}
-                    </p>
-    
-                </div>
-          </div>
-
-        </div>
-    </div>
 @endsection

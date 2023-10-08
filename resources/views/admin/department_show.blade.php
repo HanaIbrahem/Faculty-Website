@@ -62,6 +62,7 @@
                                             <th>Name</th>
                                             <th>Image</th>
                                             <th>Department</th>
+                                            <th>Pins</th>
                                             <th>Created</th>
                                             <th>Updated</th>
                                             <th>Action</th>
@@ -78,8 +79,13 @@
                                                 <td><img src="{{asset('images/teacher/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
                                              
                                                 <td>{{$department->name}}</td>
-                                                <td ><small>{{$item->created_at}}</small></td>
-                                                <td><small>{{$item->updated_at}}</small></td>
+                                                <td>{{$item->pin}}</td>
+                                                <td ><small>
+                                                    {{ date('M j, Y', strtotime($item->created_at)) }}
+
+                                                </small></td>
+                                                <td><small>
+                                                    {{ date('M j, Y', strtotime($item->updated_at)) }}</small></td>
             
                                                 <td>
                                                     <div class="d-flex">
@@ -90,6 +96,12 @@
             
                                                         <div >
                                                             <a href="{{route('teacher.edit',$item->id)}}" class="btn btn-warning shadow btn-xs sharp"><i class="fa fa-pen"></i></a>
+                                                        </div>
+                                                        <div style="margin-left: 4px">
+                                                            <a href="{{route('teacher.pin',$item->id)}}" class="btn btn-info shadow btn-xs sharp " 
+                                                                data-is-pinned="{{$item->pin}}"
+                                                                id="pin"><i class="fa-solid fa-thumbtack"></i></a>
+                
                                                         </div>
                                                     </div>												
                                                 </td>	

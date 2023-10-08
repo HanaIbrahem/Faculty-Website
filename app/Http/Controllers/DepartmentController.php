@@ -75,9 +75,12 @@ class DepartmentController extends Controller
         $departmentId = $id; // Replace 1 with the desired department_id
 
         $teachers = DB::table('teachers')
-            ->select('*')
-            ->where('department_id', $departmentId)
-            ->get();
+        ->select('*')
+        ->where('department_id', $departmentId)
+        ->orderBy('pin','desc')
+        ->orderBy('updated_at', 'desc')
+        ->get();
+       
         $course=DB::table('courses')->select('*')->where('department_id',$departmentId)->orderBy('updated_at')->get();
         $department=Department::find($id);
         return view('admin.department_show',compact('department','teachers','course'));

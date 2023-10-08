@@ -17,15 +17,19 @@
             <div class="row border-radius-md pb-4 p-lg-3 mx-sm-0 mx-1 position-relative">
                 <div class="card card-plain card-blog mt-5">
                     <div class="row">
-                        <div class="col-md-5 ">
+
+                        <div class="col-lg-12 justify-content-center d-flex flex-column">
                             <div class="card-image position-relative border-radius-lg cursor-pointer">
+                                <div class="p-3">
+                                    <h3 class="text-dark">{{$course->{"name$loc"} }}</h3>
+
+                                </div>
                                 <div class="blur-shadow-image">
-                                    <img class="card-img" src="{{asset('images/course/'.$course->image)}}">
+                                    <img class="img-fluid border-radius-lg custom-imgcard" src="{{asset('images/course/'.$course->image)}}">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 my-auto ms-md-3 mt-md-auto mt-4">
-                            <h3 class="text-dark">{{$course->{"name$loc"} }}</h3>
+                        <div class="col-md-8 my-auto ms-md-3 mt-md-auto mt-4">
 
                            
                             <div>
@@ -87,10 +91,11 @@
                                     </a>
                                 </h4>
                                 @if ($loc=='_ku')
-                                <p class="text-dark">ئاست{{$item->type}}: یەکە{{$item->cts }}:</p>
+                                <p class="text-dark">ئاست{{$item->type}}</p>
 
+                                {{$item->id}}
                                 @else
-                                <p class="text-dark">Level:{{$item->type}}  CTS:{{$item->cts }}</p>
+                                <p class="text-dark">Level:{{$item->type}}</p>
 
                                 @endif
                             </div>

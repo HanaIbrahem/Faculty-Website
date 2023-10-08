@@ -22,6 +22,7 @@
                             <th>Image</th>
                             <th>Description</th>
                             <th>Rool</th>
+                            <th>PIn</th>
                             <th>Created</th>
                             <th>Updated</th>
                             <th>Action</th>
@@ -41,6 +42,7 @@
                                 </td>
                                 <td>{{$item->rool}}
                                 <p>{{$item->rool_ku}}</p></td>
+                                <td>{{$item->pin}}</td>
                                 <td>{{$item->created_at->format('d-m-y')}}</td>
                                 <td>{{$item->updated_at->format('d-m-y')}}</td>
 
@@ -54,6 +56,12 @@
 
                                         <div >
                                             <a href="{{route('staff.edit',$item->id)}}" class="btn btn-warning shadow btn-xs sharp"><i class="fa fa-pen"></i></a>
+
+                                        </div>
+                                        <div style="margin-left: 4px">
+                                            <a href="{{route('staff.pin',$item->id)}}" class="btn btn-info shadow btn-xs sharp " 
+                                                data-is-pinned="{{$item->pin}}"
+                                                id="pin"><i class="fa-solid fa-thumbtack"></i></a>
 
                                         </div>
                                     </div>												

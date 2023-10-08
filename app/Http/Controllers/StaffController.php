@@ -14,7 +14,10 @@ class StaffController extends Controller
     public function index()
     {
         //
-        $staff=Staff::all();
+
+        $staff = Staff::orderBy('pin', 'desc')
+              ->orderBy('updated_at', 'desc')
+              ->get();
 
         $i=1;
 
@@ -24,9 +27,19 @@ class StaffController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function pin($id)
     {
         //
+        $stuf=Staff::find($id);
+    
+        if ($stuf->pin=='no') {
+            $stuf->pin='yes';
+        }else{
+            $stuf->pin='no';
+        }
+
+        $stuf->save();
+        return redirect()->back();
     }
 
     /**
