@@ -64,10 +64,6 @@
                             </div>
 
 
-                            <div class="form-group mb-3 mt-3">
-                                <label for="">CTS Number</label><span class="text-danger fs-4">*</span>
-                                <input class="form-control "  value="" name="cts" min="1" max="15" type="number" placeholder="">
-                            </div>
 
                             <div class="form-group mb-3 mt-3">
                                 <label for="">Level</label><span class="text-danger fs-4">*</span>

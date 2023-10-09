@@ -74,8 +74,6 @@
                 {{ session('message') }}
                 
             </div>
-            
-    
         @endif
             <div class="basic-form">
                 <form method="POST" action="{{route('user-reset')}}">

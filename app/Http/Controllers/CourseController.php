@@ -45,7 +45,6 @@ class CourseController extends Controller
                 'image'=>['required',File::image()],
                 'name_ku'=>'required|string|max:200',
                 'description_ku'=>'required|string',
-                'cts'=>'required',
                 'department_id'=>'exists:departments,id|required',
                 'type'=>'required',
 
@@ -57,7 +56,6 @@ class CourseController extends Controller
         $course->name_ku=$request->input('name_ku');
         $course->description=$request->input('description');
         $course->description_ku=$request->input('description_ku');
-        $course->cts=$request->input('cts');
         $course->type=$request->input('type');
         $course->department_id=$request->input('department_id');
 
@@ -71,6 +69,7 @@ class CourseController extends Controller
 
      
 
+    
         return redirect()->back();
     }
 
@@ -108,7 +107,6 @@ class CourseController extends Controller
                 'description'=>'required|string',
                 'name_ku'=>'required|string|max:200',
                 'description_ku'=>'required|string',
-                'cts'=>'required',
                 'type'=>'required',
 
             ]
@@ -119,7 +117,6 @@ class CourseController extends Controller
         $course->name_ku=$request->input('name_ku');
         $course->description=$request->input('description');
         $course->description_ku=$request->input('description_ku');
-        $course->cts=$request->input('cts');
         $course->type=$request->input('type');
 
         // indesrt image

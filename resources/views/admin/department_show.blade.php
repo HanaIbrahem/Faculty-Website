@@ -148,7 +148,6 @@
                                             <th>No</th>
                                             <th>Name</th>
                                             <th>Image</th>
-                                            <th>CTS</th>
                                             <th>Level</th>
                                             <th>Created</th>
                                             <th>Action</th>
@@ -162,7 +161,6 @@
                                                 <td><a href="{{route('course.show',$item->id)}}">{{$item->name}}</a>
                                                 <p><a href="{{route('course.show',$item->id)}}">{{$item->name_ku}}</a></p></td>
                                                 <td><img src="{{asset('images/course/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
-                                                <td>{{$item->cts}}</td>
                                                 <td>{{$item->type}}</td>
                                                 <td>{{$item->created_at}}</td>
             

@@ -64,10 +64,7 @@
                             </div>
 
 
-                            <div class="form-group mb-3 mt-3">
-                                <label for="">CTS Number</label><span class="text-danger fs-4">*</span>
-                                <input class="form-control "  value="{{$course->cts}}" name="cts" type="text" placeholder="">
-                            </div>
+                            
 
                             <div class="form-group mb-3 mt-3">
                                 <label for="">Level</label><span class="text-danger fs-4">*</span>

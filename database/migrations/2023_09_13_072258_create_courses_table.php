@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
             $table->enum('type',['bachelor','doctoral','master','diploma']);
             $table->string('image');
-            $table->string('cts');
             $table->timestamps();
 
             

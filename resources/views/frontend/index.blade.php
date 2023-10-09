@@ -128,7 +128,7 @@
                                     <div class="card-body text-center bg-white border-radius-lg p-3 pt-0 flex-grow-1">
                                         <h5 class="mt-3 mb-1 d-md-block d-none">{{ $item->{"name$loc"} }}</h5>
                                         <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-dark mt-3">{{ $item->{"name$loc"} }}</p>
-                                        <p class="mb-0 text-xs font-weight-bolder text-info text-gradient text-uppercase">{{ $item->{"rool$loc"} }}</p>
+                                        <p class="mb-0 text-info text-gradient">{{ $item->{"rool$loc"} }}</p>
                                         <p>{{ $item->{"description$loc"} }}</p>
                                     </div>
                                 </div>

@@ -20,7 +20,6 @@
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Department</th>
-                                <th>CTS</th>
                                 <th>Level</th>
                                 <th>Created</th>
                                 <th>Updated</th>
@@ -37,7 +36,6 @@
                                     <td><img src="{{asset('images/course/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
                                     
                                     <td>{{$item->department->name}}</td>
-                                    <td>{{$item->cts}}</td>
                                     <td>{{$item->type}}</td>
                                     <td>{{$item->created_at->format('d-m-y')}}</td>
                                     <td>{{$item->updated_at->format('d-m-y')}}</td>
