@@ -41,7 +41,7 @@
                                             <div class="d-flex">
                                                 @if ($item->role =='admin')
                                                 <a href="{{route('User-delete',$item->id)}}" class="btn btn-danger shadow btn-xs sharp" id="delete"><i class="fa fa-trash"></i></a>
-                                                    {{-- <a href="{{route('User-edit',$item->id)}}" class="btn btn-info shadow btn-xs sharp ms-2" ><i class="fa fa-pen"></i></a> --}}
+                                                <a href="{{route('User-edit',$item->id)}}" class="btn btn-info shadow btn-xs sharp ms-2" ><i class="fa fa-pen"></i></a>
                                                 @endif
                                             </div>												
                                         </td>	
@@ -78,7 +78,7 @@
                             <div class="form-group mb-3 mt-2 ">
                                 <x-input-label for="email" :value="__('Email')" />
                                 <x-text-input id="email" class="mt-1 block w-full form-control input-rounded" type="email" name="email" :value="old('email')" required autocomplete="username" />
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                             </div>
                     
                             <!-- Password -->
@@ -90,7 +90,7 @@
                                                 name="password"
                                                 required autocomplete="new-password" />
                     
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger" />
                             </div>
                     
                             <!-- Confirm Password -->
@@ -101,7 +101,7 @@
                                                 type="password"
                                                 name="password_confirmation" required autocomplete="new-password" />
                     
-                                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-danger" />
                             </div>
                     
                             <div class="form-group mb-3 mt-2 ">    

@@ -8,8 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+
 
 class ProfileController extends Controller
 {
@@ -72,28 +74,53 @@ class ProfileController extends Controller
         return view('admin.profile.admin_edit', compact('user'));
     }
 
-    // public function UserUpdate(Request $request)
-    // {
-    //     dd($request->all());
+    public function UserUpdate(Request $request)
+    {
+        // dd($request->all());
 
-    //     $request->validate(
-    //         [
-    //             'name' => 'required|string|max:200',
-    //             'email' => 'required|string|email',
-    //         ]
+        $request->validate(
+            [
+                
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            ]
 
-    //     );
-    //     $user = User::find($request->id);
-    //     $user->name = $request->input('name');
-    //     $user->email = $request->input('email');
+        );
+        $user = User::find($request->id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
 
-    //     $user->password = Hash::make($request->password);
+        // $user->password = Hash::make($request->password);
 
-    //     $user->save();
-    //     return redirect()->back();
+        $user->save();
+        return redirect()->back();
 
 
-    // }
+    }
+
+    public function ResetPassword(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate(
+            [
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+
+            ]
+
+        );
+        $user = User::find($request->id);
+
+        $pass=Hash::make($request->password);
+        $user->password = $pass;
+
+        // $user->password = Hash::make($request->password);
+
+        $user->save();
+        return redirect()->back()->with('message', 'Password updated successfully!');
+
+
+    }
     /**
      * Delete the user's account.
      */

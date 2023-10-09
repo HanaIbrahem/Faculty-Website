@@ -54,7 +54,6 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-   
     // website setup routes
     Route::get('/faculty',[WebsiteController::class,'edit'])->name('faculty');
     Route::post('/faculty/update',[WebsiteController::class,'update'])->name('faculty.update');
@@ -135,10 +134,11 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 Route::middleware('superadmin')->prefix('dashboard')->group(function () {
     Route::get('/Users',[ProfileController::class,'UsersList'])->name('Users-list');
     Route::get('/user/{id}',[ProfileController::class,'UserDelete'])->name('User-delete');
+    Route::get('/user/edit/{id}',[ProfileController::class,'UserEdit'])->name('User-edit');
+    Route::post('/user/update',[ProfileController::class,'UserUpdate'])->name('User-update');
+    Route::post('/user/reset',[ProfileController::class,'ResetPassword'])->name('user-reset');
 
-    // Route::get('/user/edit/{id}',[ProfileController::class,'UserEdit'])->name('User-edit');
-    // Route::post('/user/update',[ProfileController::class,'UserUpdate'])->name('User-update');
-
+    
 
 });
 
