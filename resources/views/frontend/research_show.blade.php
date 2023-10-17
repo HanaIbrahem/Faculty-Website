@@ -28,7 +28,7 @@
 
 </style>
 <header>
-    <div class="page-header min-vh-50" style="background-image: url('{{ asset('images/research/'.$research->image) }}')" loading="lazy">
+    <div class="page-header min-vh-75" style="background-image: url('{{ asset('images/research/'.$research->image) }}')" loading="lazy">
         <span class="mask bg-gradient-dark"></span>
         <div class="container">
             <div class="row">
@@ -42,7 +42,7 @@
 
 
 <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n3 mb-4">
-    <div class="container ">
+    <div class="container my-4 my-sm-0 px-0 px-sm-3">
         <div class="row">
                 
             <div class="col-lg-4 ml-auto order-sm-2 disappear-on-small-screen">

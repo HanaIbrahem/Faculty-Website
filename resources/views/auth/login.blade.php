@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/material-kit.css') }}">
+    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="{{ asset('images/' . $faculty->logo) }}">
     <title>{{ $faculty->title  }}</title>
 </head>
@@ -62,15 +63,22 @@
                         <!-- Password -->
                         <div class="mb-3 input-group form-group input-group-outline my-3">
                             {{-- <label for="password" class="form-label">Password</label> --}}
-                            <input type="password" id="password" class="form-control" name="password" placeholder="Password" >
+                            <input type="password" id="password" class="form-control"
+                             name="password" placeholder="Password" >
+
                         </div>
+                        <div class="text-start m-0 mb-2 p-0">
+                            <input type="checkbox" id="showPassword"> Show Password
+
+                        </div>
+
                         
                        
                         
                         <div class="text-center">
                             <!-- Button -->
-                            <div class="d-grid" style="width: 30%">
-                                <button type="submit" class="rounded btn btn-primary">Login
+                            <div class="d-grid" style="width:50%">
+                                <button type="submit" class="rounded btn btn bg-gradient-primary">Login
                                 </button>
                             </div>
                         </div>
@@ -80,7 +88,7 @@
             </div>
         </div>
     </div>
-</section>    
+  </section>    
 
 	<!-- Chart piety plugin files -->
 
@@ -88,6 +96,17 @@
     <script src="{{asset('backend/assets/js/bootstrap.bundle.min.js')}}"></script>
 
     <script src="{{asset('backend/assets/js/validate.js')}}"></script>
+    
+    <script>
+        document.getElementById('showPassword').addEventListener('change', function() {
+            var passwordField = document.getElementById('password');
+            if (this.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+    </script>
     <script type="text/javascript">
         $(document).ready(function (){
             $('#myForm').validate({

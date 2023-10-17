@@ -37,7 +37,7 @@
         {{-- Body --}}
         <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n5">
             <section>
-                <div class="container">
+                <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row border-radius-md pb-4 p-lg-3 mx-sm-0 mx-1 position-relative">
                         <div class="card card-plain card-blog mt-5">
                             <div class="row">
@@ -68,9 +68,9 @@
 
             <!-- -------   START CONTENT 1 - title & description and 6 IMAGES   -------- -->
             <section class="py-5 ">
-                <div class="container">
+                <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row">
-                        <div class="col-8 mx-auto text-center mb-5">
+                        <div class="col-12 mx-auto text-center mb-5">
                             <h2>{{ __('message.department_index_header') }} </h2>
 
                         </div>
@@ -103,9 +103,9 @@
             <!-- -------   END CONTENT 1 - title & description and 6 IMAGES   -------- -->
 
             <section class="py-5">
-                <div class="container">
+                <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row">
-                        <div class="col-md-8 mx-auto text-center">
+                        <div class="col-md-12 mx-auto text-center">
                             <h6 class="text-gradient text-info text-uppercase">{{__('message.staff_header-t')}}</h6>
                             <h2>{{__('message.staff_header')}}</h2>
                         </div>

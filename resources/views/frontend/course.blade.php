@@ -13,7 +13,7 @@
 <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n3 mb-4">
 
     <section class="py-5 mb-md-5">
-        <div class="container">
+        <div class="container my-4 my-sm-0 px-0 px-sm-3">
             <div class="row border-radius-md pb-4 p-lg-3 mx-sm-0 mx-1 position-relative">
                 <div class="card card-plain card-blog mt-5">
                     <div class="row">
@@ -48,7 +48,8 @@
                                  {{ $course->department->name }}
                                  Department
                                  <br>
-                                 {{$course->type}}
+                                 Level:{{$course->type}}
+
                                  @endif
                                  </p>
      
@@ -69,7 +70,7 @@
     </section>
 
     <section class="py-1">
-        <div class="container">
+        <div class="container my-4 my-sm-0 px-0 px-sm-3">
             <div class="row">
                 <div class="col-9 text-center mx-auto">
                     <h3 class="mb-1">{{__('message.related_course')}}</h3>

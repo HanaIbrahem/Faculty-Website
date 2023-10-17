@@ -37,7 +37,7 @@
         {{-- Body --}}
         <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n5">
             <section class="py-5 mt-2">
-                <div class="container">
+                <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row" data-aos="zoom-in" data-aos-duration="1000">
                         <div class="col-lg-8 ms-auto me-auto">
                             <h3 class="title mb-4 text-center">
@@ -59,7 +59,7 @@
 
 
             <section class="features-3 py-4">
-                <div class="container">
+                <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row text-center justify-content-center">
                         <div class="col-lg-6">
                             <span class="badge rounded-pill bg-primary  mb-2">
@@ -168,7 +168,7 @@
             </section>
 
             <section class="py-2">
-                <div class="container">
+                <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row">
                         <div class="col-9 text-center mx-auto">
                             <h3 class="mb-1">

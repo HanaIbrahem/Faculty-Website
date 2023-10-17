@@ -15,7 +15,7 @@
 @section('main')
     {{-- Headre  --}}
     <<header class="position-relative">
-        <div class="page-header min-vh-50 position-relative"
+        <div class="page-header min-vh-75 position-relative"
             style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}');" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">
@@ -32,7 +32,7 @@
     </header>
     
     <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n5">
-        <div class="container">
+        <div class="container my-4 my-sm-0 px-0 px-sm-3">
 
 
             <div class="row mb-5">
@@ -51,7 +51,7 @@
                 
                      <div class="row g-4 g-xl-5 mt-2 slider-container d-flex justify-content-center">
                         @foreach ($admission as $item)
-                            <div class="col-lg-4 col-sm-10 col-md-5 mx-auto">
+                            <div class="col-lg-4 col-sm-10 col-md-5 mx-auto mb-4">
                                 <div class="card shadow-lg mt-4" style="height: 100%; display: flex; flex-direction: column;">
                                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                         <a class="d-block blur-shadow-image">

@@ -52,7 +52,7 @@
          </div>
      </div> --}}
      <section class="py-md-7 py-3">
-         <div class="container">
+         <div class="container my-4 my-sm-0 px-0 px-sm-3 ">
              <div class="row align-items-center">
                  <div class="col-lg-8 col-10 mx-auto text-center">
                      <div class="mb-md-5">

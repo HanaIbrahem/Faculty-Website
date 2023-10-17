@@ -7,6 +7,7 @@
     
 @endphp
 @section('main')
+
     <header>
         <div class="page-header min-vh-75" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
@@ -22,7 +23,7 @@
 
 
     <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n3 mb-4">
-        <div class="container ">
+        <div class="container my-4 my-sm-0 px-0 px-sm-3">
             <div class="row">
                 <div class="col-lg-4 ml-auto order-md-2">
                     <div class="pt-1 pb-5 position-sticky top-1 mt-lg-5">
@@ -88,7 +89,7 @@
                     </section>
                     <section class="pt-lg-5">
                         @foreach ($research as $item )
-                        <div class="row mb-3 bg-dark">
+                        <div class="row mb-3">
                             <div class="card">
         
                                 <div class="card-header pb-1 mb-1">

@@ -9,7 +9,7 @@
 
 @section('main')
     <header>
-        <div class="page-header min-vh-50" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')"
+        <div class="page-header min-vh-75" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')"
             loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container">
@@ -23,7 +23,7 @@
     </header>
 
     <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n5">
-        <div class="container">
+        <div class="container my-4 my-sm-0 px-0 px-sm-3 ">
 
 
             <div class="row">
@@ -57,7 +57,7 @@
                                           @else
                                               Date:
                                           @endif
-                                          {{ date('M j, Y', strtotime($item->date)) }}
+                                          {{ date('d/m/y', strtotime($item->date)) }}
                                   </p>
 
                               </div>
@@ -82,7 +82,7 @@
                                       @else
                                           Posted at:
                                       @endif
-                                  </span></a>, {{ $item->created_at->format('M j, Y') }}
+                                  </span></a>, {{ $item->created_at->format('d/m/y') }}
 
                               </p>
 
