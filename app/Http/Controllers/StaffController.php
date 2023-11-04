@@ -83,6 +83,8 @@ class StaffController extends Controller
     public function show(string $id)
     {
         //
+        $staff= Staff::find($id);
+        return view('admin.staff_show',compact('staff'));
     }
 
     /**
@@ -126,7 +128,7 @@ class StaffController extends Controller
             $request->validate([
                 'image'=>['required',File::image()],
             ]);
-            unlink('images/staff/'.$staff->image);
+            // unlink('images/staff/'.$staff->image);
             $image=$request->file('image');
             $namegen=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             $image->move(public_path('images/staff/'),$namegen);
@@ -145,7 +147,7 @@ class StaffController extends Controller
     {
         //
         $staff=Staff::find($id);
-        unlink('images/staff/'.$staff->image);
+        // unlink('images/staff/'.$staff->image);
         $staff->delete();
 
         return redirect()->back();

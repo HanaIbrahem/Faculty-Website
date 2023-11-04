@@ -78,7 +78,7 @@ class WebsiteController extends Controller
 
             if ($faculty->logo != null) {
                 $img = 'images/'.$faculty->logo;
-                unlink($img);
+                // unlink($img);
 
             }
            
@@ -159,7 +159,7 @@ class WebsiteController extends Controller
 
             if ($faculty->image != null) {
                 $img = 'images/'.$faculty->image;
-                unlink($img);
+                // unlink($img);
 
             }
            

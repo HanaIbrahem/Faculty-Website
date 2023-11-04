@@ -112,7 +112,7 @@ class AdmissionController extends Controller
 
             if ($admission->image != null) {
                 $img = 'images/admission/'.$admission->image;
-                unlink($img);
+                // unlink($img);
 
             }
            
@@ -143,7 +143,7 @@ class AdmissionController extends Controller
         //
         $admission=Admission::find($id);
         
-        unlink('images/admission/'.$admission->image);
+        // unlink('images/admission/'.$admission->image);
         $admission->delete();
         return redirect()->back();
     }

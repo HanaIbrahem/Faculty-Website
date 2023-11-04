@@ -22,7 +22,6 @@
                                 <th>No</th>
                                 <th>Name</th>
                                 <th>Image</th>   
-                                <th>Description</th>                           
                                 <th>Created</th>
                                 <th>Updated</th>
                                 <th>Action</th>
@@ -34,14 +33,11 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>
-                                        {{$item->name}}
-                                        <p>{{$item->name_ku}}</p>
+                                        <a href="{{route('activity.show',$item->id)}}">{{$item->name}}</a>
+                                        <a href="{{route('activity.show',$item->id)}}"><p>{{$item->name_ku}}</p></a>                        
                                     </td>
                                     <td><img src="{{asset('images/activity/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
-                                    
-                                    <td>{!! $item->description !!} <br>
-                                        {!! $item->description_ku !!}
-                                    </td>
+                                
                     
                                     <td>{{$item->created_at->format('d-m-y')}}</td>
                                     <td>{{$item->updated_at->format('d-m-y')}}</td>

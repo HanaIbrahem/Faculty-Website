@@ -19,7 +19,10 @@
 
                         <div class="col-lg-12 justify-content-center d-flex flex-column">
                             <div class="card-image position-relative border-radius-lg cursor-pointer">
-                               
+                                <div class="p-1">
+                                    <h3 class="text-dark">{{$teacher->{"name$loc"} }}</h3>
+    
+                                </div>
                                 <div class="blur-shadow-image">
                                     <img class="img-fluid border-radius-lg custom-imgcard" src="{{ asset('images/teacher/' . $teacher->image) }}">
                                 </div>
@@ -27,10 +30,7 @@
                         </div>
                         <div class="col-md-8 my-auto ms-md-3 mt-md-auto mt-4">
 
-                            <div class="p-1">
-                                <h3 class="text-dark">{{$teacher->{"name$loc"} }}</h3>
-
-                            </div>
+                           
 
                             <div class="mt-2 ">
                                 {!! $teacher->{"description$loc"} !!}

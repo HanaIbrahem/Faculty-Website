@@ -87,6 +87,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('research',[ReserrchController::class,'index'])->name('research.index');
     Route::get('research/creat',[ReserrchController::class,'create'])->name('research.create');
     Route::post('research/store',[ReserrchController::class,'store'])->name('research.store');
+    Route::get('research/show/{id}',[ReserrchController::class,'show'])->name('research.show');
 
     Route::get('research/edit/{id}',[ReserrchController::class,'edit'])->name('research.edit');
     Route::get('research/delete/{id}',[ReserrchController::class,'destroy'])->name('research.destroy');
@@ -104,7 +105,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
     //stuff Controller
     Route::get('staff',[StaffController::class,'index'])->name('staff.index');
-    // Route::get('staff/show/{id}',[Staff::class,'show'])->name('staff.show');
+    Route::get('staff/show/{id}',[StaffController::class,'show'])->name('staff.show');
     Route::get('staff/pin/{id}',[StaffController::class,'pin'])->name('staff.pin');
     Route::post('staff/store',[StaffController::class,'store'])->name('staff.store');
     Route::get('staff/edit/{id}',[StaffController::class,'edit'])->name('staff.edit');
@@ -115,6 +116,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('activity',[ActivityController::class,'index'])->name('activity.index');
     Route::get('activity/create',[ActivityController::class,'create'])->name('activity.create');
     Route::post('activity/store',[ActivityController::class,'store'])->name('activity.store');
+    Route::get('activity/show/{id}',[ActivityController::class,'show'])->name('activity.show');
     Route::get('activity/edit/{id}',[ActivityController::class,'edit'])->name('activity.edit');
     Route::post('activity/update',[ActivityController::class,'update'])->name('activity.update');
     Route::get('activity/destroy/{id}',[ActivityController::class,'destroy'])->name('activity.destroy');
@@ -161,7 +163,17 @@ Route::middleware('web')->group(function (){
     Route::get('/course/{id}',[FrontendController::class,'course'])->name('forntend.course');
     Route::get('/teacher/{id}',[FrontendController::class,'teacher'])->name('forntend.teacher');
     Route::post('/contact/store',[FrontendController::class,'contactstore'])->name('contact.store');
+    // Route::get('test',[FrontendController::class,'course_test'])->name('forntend.test');
 
+
+    //pagination 
+    Route::get('get-more-users', [ FrontendController::class,'test'])->name('test_r');
+    Route::get('get-more-research', [ FrontendController::class,'getMoreResearch'])->name('more-research');
+    Route::get('get-more-admission', [ FrontendController::class,'getMoreAdmission'])->name('more-admission');
+    Route::get('get-more-activity', [ FrontendController::class,'getMoreActivity'])->name('more-activity');
+   
+    Route::get('get-more-teacher', [FrontendController::class, 'getMoreTeachers'])->name('more-teacher');
+    Route::get('get-more-course', [FrontendController::class, 'getMoreCourses'])->name('more-course');
 });
 
 require __DIR__.'/auth.php';

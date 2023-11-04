@@ -67,6 +67,8 @@ class ActivityController extends Controller
     public function show(string $id)
     {
         //
+        $activity=Activity::find($id);
+        return view('admin.activity_show',compact('activity'));
     }
 
     /**
@@ -108,7 +110,7 @@ class ActivityController extends Controller
 
             ]);
 
-            unlink('images/activity/'.$activity->image);
+            // unlink('images/activity/'.$activity->image);
             $name_gen =hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
             $image->move(public_path('images/activity/'), $name_gen);
             $activity->image=$name_gen;
@@ -129,7 +131,7 @@ class ActivityController extends Controller
         //
 
         $activity=Activity::find($id);
-        unlink('images/activity/'.$activity->image);
+        // unlink('images/activity/'.$activity->image);
         $activity->delete();
         return redirect()->back();
 

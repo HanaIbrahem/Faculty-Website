@@ -53,6 +53,8 @@
     <script src="{{asset('frontend/assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/core/bootstrap.min.js')}}"></script>
     @yield('swiper-js')
+    @stack('scripts')
+
 </body>
 
 </html>

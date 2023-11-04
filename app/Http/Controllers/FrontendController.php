@@ -24,8 +24,8 @@ class FrontendController extends Controller
         //
         $department = Department::all();
         $staff = Staff::orderBy('pin', 'desc')
-        ->orderBy('updated_at', 'desc')
-        ->get();
+            ->orderBy('updated_at', 'desc')
+            ->get();
         return view('frontend.index', compact('department', 'staff'));
     }
 
@@ -35,19 +35,19 @@ class FrontendController extends Controller
     public function about()
     {
         //
-        $activity= Activity::latest()->paginate(8);
-        return view('frontend.about',compact('activity'));
+        $activity = Activity::latest()->paginate(1);
+        return view('frontend.about', compact('activity'));
 
     }
     /**
      * activity show
      */
 
-     public function show($id)
-     {
-        $activity=Activity::find($id);
-        return view('frontend.activity',compact('activity'));
-     }
+    public function show($id)
+    {
+        $activity = Activity::find($id);
+        return view('frontend.activity', compact('activity'));
+    }
     /**
      * show contact page
      */
@@ -69,18 +69,18 @@ class FrontendController extends Controller
 
         $teacher = DB::table('teachers')
             ->select('*')
-            ->orderBy('pin','desc')
+            ->orderBy('pin', 'desc')
             ->orderBy('updated_at', 'desc')
             ->where('department_id', $department->id)
-            ->paginate(8, ['*'], 'teacher_page'); // Added 'teacher_page' as the pagination name
+            ->paginate(4,['*'], 'teacher_page'); // Added 'teacher_page' as the pagination name
 
         $courses = DB::table('courses')
             ->select('*')
             ->orderBy('updated_at')
             ->where('department_id', $department->id)
-            ->paginate(9, ['*'], 'course_page'); // Added 'course_page' as the pagination name
+            ->paginate(6,['*'], 'course_page'); // Added 'course_page' as the pagination name
 
-        return view('frontend.department', compact('department', 'teacher', 'courses'));
+        return view('frontend.department', compact('department', 'courses','teacher'));
 
 
     }
@@ -95,33 +95,33 @@ class FrontendController extends Controller
 
         $teacher = DB::table('teachers')
             ->select('*')
-            ->orderBy('pin','desc')
+            ->orderBy('pin', 'desc')
             ->orderBy('updated_at', 'desc')
             ->where('department_id', $department->id)
             ->paginate(8, ['*'], 'teacher_page');
 
-            
 
-            
-    
 
-        if ($type=='bachelor') {
+
+
+
+        if ($type == 'bachelor') {
             $selectedType = 'bachelor'; // Replace with the type you want to filter
             $courses = DB::table('courses')
-            ->select('*')
-            ->orderBy('updated_at')
-            ->where('department_id', $department->id)
-            ->where('type', $selectedType)
-            ->paginate(9, ['*'], 'course_page');
+                ->select('*')
+                ->orderBy('updated_at')
+                ->where('department_id', $department->id)
+                ->where('type', $selectedType)
+                ->paginate(9, ['*'], 'course_page');
 
-        }elseif ($type =='high') {
+        } elseif ($type == 'high') {
             $selectedType = 'bachelor'; // Replace with the type you want to filter
             $courses = DB::table('courses')
-            ->select('*')
-            ->orderBy('updated_at')
-            ->where('department_id', $department->id)
-            ->where('type','!=', $selectedType)
-            ->paginate(9, ['*'], 'course_page');
+                ->select('*')
+                ->orderBy('updated_at')
+                ->where('department_id', $department->id)
+                ->where('type', '!=', $selectedType)
+                ->paginate(9, ['*'], 'course_page');
         }
 
 
@@ -167,11 +167,12 @@ class FrontendController extends Controller
     /**
      * reserarch Method  
      */
-    public function research()
+    public function research(Request $request)
     {
         //
 
-        $research = Research::latest()->paginate(8);
+       
+        $research = Research::latest()->paginate(1);
 
         // catigory news
         $research_count = Research::select(DB::raw('department_id, COUNT(*) as count'))
@@ -179,7 +180,8 @@ class FrontendController extends Controller
             ->get();
 
 
-        return view('frontend.research', compact('research', 'research_count'));
+        $id=0;
+        return view('frontend.research', compact('research', 'research_count','id'));
     }
     /**
      * 
@@ -187,14 +189,14 @@ class FrontendController extends Controller
     public function research_catygory($id)
     {
 
-        $research = Research::latest()->where('department_id', $id)->paginate(8);
+        $research = Research::latest()->where('department_id', $id)->paginate(1);
 
         // catigory news
         $research_count = Research::select(DB::raw('department_id, COUNT(*) as count'))
             ->groupBy('department_id')
             ->get();
 
-        return view('frontend.research', compact('research', 'research_count'));
+        return view('frontend.research', compact('research', 'research_count','id'));
 
     }
     /**
@@ -217,20 +219,20 @@ class FrontendController extends Controller
     public function admission()
     {
 
-        $admission=Admission::latest()->get();
-        return view('frontend.admission',compact('admission'));
+        $admission = Admission::latest()->paginate(2);
+        return view('frontend.admission', compact('admission'));
     }
 
-     /**
+    /**
      * Admission show
      */
 
-     public function admission_show($id)
-     {
- 
-         $admission=Admission::find($id);
-         return view('frontend.admission_show',compact('admission'));
-     }
+    public function admission_show($id)
+    {
+
+        $admission = Admission::find($id);
+        return view('frontend.admission_show', compact('admission'));
+    }
     /**
      * download research
      */
@@ -273,5 +275,74 @@ class FrontendController extends Controller
     /**
      * contact delete
      */
+
+    public function course_test()
+    {
+        $courses = Course::latest()->paginate(10);
+        return view('frontend.course_test', compact('courses'));
+    }
+
+
+    // Pagination for models
+
+
+    //get more courses
+    public function getMoreTeachers(Request $request)
+    {
+        $teacher = DB::table('teachers')
+        ->select('*')
+        ->orderBy('pin', 'desc')
+        ->orderBy('updated_at', 'desc')
+        ->where('department_id', 5  )
+        ->paginate(4,['*'], 'teacher_page'); // Added 'teacher_page' as the pagination name
+
+   
+        return view('frontend.inc.teacher_data', compact('teacher'))->render();
+    }
+
+    public function getMoreCourses(Request $request)
+    {
+        $courses = DB::table('courses')
+        ->select('*')
+        ->orderBy('updated_at')
+        ->where('department_id', 5)
+        ->paginate(6,['*'], 'course_page'); 
+        // $teacher = Teacher::latest()->paginate(4);
+        // $courses = Course::latest()->paginate(6);
+        return view('frontend.inc.course_data', compact('courses'))->render();
+    }
+
+
+    //get more research
+    public function getMoreResearch(Request $request)
+    {
+        if ($request->ajax()) {
+
+            if ($request->input('department_id')==0){
+                $research = Research::latest()->paginate(1);
+
+            }
+            else{
+                $research = Research::latest()->where('department_id',$request->input('department_id') )->paginate(1);
+
+            }
+
+            return view('frontend.inc.research_data', compact('research'))->render();
+        }
+    }
+    //get more addmision
+    public function getMoreAdmission(Request $request)
+    {
+        $admission = Admission::latest()->paginate(2);
+
+        return view('frontend.inc.admission_data', compact('admission'))->render();
+    }
+
+    public function getMoreActivity(Request $request)
+    {
+        $activity = Activity::latest()->paginate(1);
+
+        return view('frontend.inc.activity_data', compact('activity'))->render();
+    }
 
 }

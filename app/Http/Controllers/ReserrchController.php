@@ -108,7 +108,8 @@ class ReserrchController extends Controller
     public function show(string $id)
     {
         //
-        
+        $research=Research::find($id);
+        return view('admin.research_show',compact('research'));
     }
 
     /**
@@ -159,7 +160,7 @@ class ReserrchController extends Controller
             $request->validate([
                 'image'=>['required',File::image()],
             ]);
-            unlink('images/research/'.$research->image);
+            // unlink('images/research/'.$research->image);
 
             $image = $request->file('image');
             $name_gen = time().'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
@@ -172,7 +173,7 @@ class ReserrchController extends Controller
             $request->validate([
                 'file' => 'required|mimes:pdf,doc,docx',
             ]);
-            unlink('storage/files/research/'.$research->file);
+            // unlink('storage/files/research/'.$research->file);
 
             $file = $request->file('file');
             $file_name = $request->input('name') . '_' . time() . '.' . $file->getClientOriginalExtension();
@@ -195,8 +196,8 @@ class ReserrchController extends Controller
         //
         $research = Research::find($id);
 
-        unlink('storage/files/research/'.$research->file);
-        unlink('images/research/'.$research->image);
+        // unlink('storage/files/research/'.$research->file);
+        // unlink('images/research/'.$research->image);
         $research->delete();
         return redirect()->back();
 

@@ -25,7 +25,6 @@
                                 <th>No</th>
                                 <th>Title</th>
                                 <th>Image</th>
-                                <th>Description</th>
                                 <th>Auther</th>
                                 <th>File</th>
                                 <th>Department</th>
@@ -40,12 +39,14 @@
                                 <tr>
                                     <td>{{$i++}}</td>
                                     <td>
-                                    {{$item->name}}
-                                    <p>{{$item->name_ku}}</p>
+                                    <a href="{{route('research.show',$item->id)}}">{{$item->name}}</a>
+                                    <a href="{{route('research.show',$item->id)}}"> <p>{{$item->name_ku}}</p></a>
+
+                                    
+                                   
                                     </td>
                                     <td><img src="{{asset('images/research/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
-                                    <td>{!!$item->description!!}
-                                    <p>{!!$item->description_ku!!}</p></td>
+                                    
                                     <td>{{$item->auther}}
                                     <p>{{$item->auther_ku}}</p>
                                     </td>

@@ -87,41 +87,10 @@
                         </h3>
                        
                     </section>
-                    <section class="pt-lg-5">
-                        @foreach ($research as $item )
-                        <div class="row mb-3">
-                            <div class="card">
-        
-                                <div class="card-header pb-1 mb-1">
-            
-                                    <h3 class="fs-5 text-dark">
-                                        <a href="{{route('forntend.research_show',$item->id)}}">{{$item->{"name$loc"} }}</a>
-                                    </h3>
-                                    <div>
-                                        @if ($loc=='_ku')
-                                        بەشی
-                                        {{ $item->department->name_ku }}
-
-                                        @else
-                                        {{ $item->department->name }}
-                                        Department
-                                        @endif
-                                    </div>
-                                </div>
-                                
-            
-                                <div class="card-body pt-1">
-            
-                                    <p>{!! Str::limit($item->{"description$loc"},200) !!}</p>
-                                    <p>{{ $item->created_at->format('d/m/y')}}</p>
-
-                                </div>
-            
-                            </div>
-                        </div>
-                        @endforeach
-                    </section>
                    
+                    <div id="research_data">
+                    @include('frontend.inc.research_data')
+                    </div>
                 </div>
                
 
@@ -129,7 +98,45 @@
         </div>
     </div>
 
-
+<input id="department_id" type="hidden" value="{{$id}}" name="id">
 
     
 @endsection
+@push('scripts')
+<script src="{{asset('backend/assets/vendor/jqury/jquery-3.6.0.min.js')}}"></script>
+
+  <script>
+    $(document).ready(function() {
+        $(document).on('click', '.pagination a', function(event) {
+          event.preventDefault();
+          var page = $(this).attr('href').split('page=')[1];
+          getMoreUsers(page);
+        });
+
+
+    });
+
+
+    function getMoreUsers(page) {
+
+      var search = $('#search').val();
+      var departmentId = $('#department_id').val(); // Assuming you have an input field with id 'department_id'
+
+
+
+      $.ajax({
+        type: "GET",
+        data: {
+          'search_query':search,
+          'department_id': departmentId,
+
+        },
+        url: "{{ route('more-research') }}" + "?page=" + page,
+        success:function(data) {
+          $('#research_data').html(data);
+        }
+      });
+    }
+  </script>
+
+  @endpush

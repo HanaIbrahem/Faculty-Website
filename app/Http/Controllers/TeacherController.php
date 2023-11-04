@@ -152,7 +152,7 @@ class TeacherController extends Controller
 
             if ($teacher->image != null) {
                 $img = 'images/teacher/'.$teacher->image;
-                unlink($img);
+                // unlink($img);
 
             }
         
@@ -175,7 +175,7 @@ class TeacherController extends Controller
         //
         $teacher=Teacher::find($id);
 
-        unlink('images/teacher/'.$teacher->image);
+        // unlink('images/teacher/'.$teacher->image);
 
         $teacher->delete();
         return redirect()->back();

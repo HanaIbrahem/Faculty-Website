@@ -20,7 +20,6 @@
                             <th>No</th>
                             <th>Name</th>
                             <th>Image</th>
-                            <th>Description</th>
                             <th>Rool</th>
                             <th>PIn</th>
                             <th>Created</th>
@@ -33,13 +32,14 @@
                         @foreach ($staff as $item)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td>{{$item->name}}
-                                <p>{{$item->name_ku}}</p></td>
+                                <td>
+                                    <a href="{{route('staff.show',$item->id)}}">{{$item->name}}</a>   
+                                    <a href="{{route('staff.show',$item->id)}}"> <p>{{$item->name_ku}}</p></a>
+
+                               </td>
                                 <td><img src="{{asset('images/staff/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>
                                 
-                                <td>{{$item->description}}
-                                <p>{{$item->description_ku}}</p>
-                                </td>
+                                
                                 <td>{{$item->rool}}
                                 <p>{{$item->rool_ku}}</p></td>
                                 <td>{{$item->pin}}</td>

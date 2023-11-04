@@ -126,7 +126,7 @@ class DepartmentController extends Controller
 
             if ($department->image != null) {
                 $img = 'images/department/'.$department->image;
-                unlink($img);
+                // unlink($img);
 
             }
            
@@ -157,7 +157,7 @@ class DepartmentController extends Controller
         //
         $department=Department::find($id);
         
-        unlink('images/department/'.$department->image);
+        // unlink('images/department/'.$department->image);
         $department->delete();
         return redirect()->back();
     }

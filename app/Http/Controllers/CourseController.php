@@ -125,7 +125,7 @@ class CourseController extends Controller
                 'image'=>['required',File::image()],
 
             ]);
-            unlink('images/course/'.$course->image);
+            // unlink('images/course/'.$course->image);
 
             $image = $request->file('image');
             $name_gen =hexdec(uniqid()).'.'.$image->getClientOriginalExtension();  // 3434343443.jpg
@@ -147,7 +147,7 @@ class CourseController extends Controller
         //
         $course=Course::find($id);
         try {
-            unlink('images/course/'.$course->image);
+            // unlink('images/course/'.$course->image);
             $course->delete();
             return redirect()->back();
     
