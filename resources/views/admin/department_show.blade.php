@@ -1,6 +1,7 @@
 @extends('admin.layout.master')
 @php
     $i=1;
+    $ii=1;
 @endphp
 
 @section('datatablestyle')
@@ -157,7 +158,7 @@
                                         
                                         @foreach ($course as $item)
                                             <tr>
-                                                <td>{{$i++}}</td>
+                                                <td>{{$ii++}}</td>
                                                 <td><a href="{{route('course.show',$item->id)}}">{{$item->name}}</a>
                                                 <p><a href="{{route('course.show',$item->id)}}">{{$item->name_ku}}</a></p></td>
                                                 <td><img src="{{asset('images/course/'.$item->image)}}" style="max-width:150px;max-height: 150px" class="img" alt=""></td>

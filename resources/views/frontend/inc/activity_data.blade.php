@@ -10,7 +10,7 @@
 
     {{-- start foreach --}}
     @foreach ($activity as $item)
-    <div class="row mb-5 p-4 shadow shadow-lg"data-aos="fade-left" data-aos-duration="1000">
+    <div class="row mb-5 m-md-4 p-2 shadow shadow-lg"data-aos="fade-left" data-aos-duration="1000">
         <div class="col-lg-6 justify-content-center d-flex flex-column">
             <div class="card">
                 <div class="d-block blur-shadow-image">
@@ -80,8 +80,8 @@
 
   {{-- start pasgnination --}}
 
-  <div class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%">
-      {{ $activity->links('vendor.pagination.custom') }}
+  <div class="pagination pagination-primary pagination-wrap mt-4 ms-0 me-0 ps-sm-0 pe-sm-0" >
+      {{ $activity->onEachSide(1)->links('vendor.pagination.custom') }}
   </div>
 
 

@@ -42,6 +42,26 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group mb-3">
+                            <label for="">Cover Image</label><span class="text-danger fs-4">*</span>
+                            <input class="form-control" type="file" name="cover" placeholder="Default input" id="iii" accept="image/*">
+
+                        </div>
+
+                        {{-- cover image--}}
+                        <div class="form-group mb-5">
+
+
+                            <div class="col-xl-6" style=" max-width:200px;
+                            max-height: 200px;
+                            margin-top: 10px;">
+                                <div class="card mb-3">
+                                    <img class="img-fluid" style="width: 100%;height:100%" id="ppp" src="{{asset('images/'.$faculty->cover)}}"  alt="Image Preview">
+
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="form-group mt-6 mb-3">
                             <label for="">Description </label><span class="text-danger fs-4">*</span>
@@ -84,6 +104,24 @@ uploadInput.addEventListener('change', function() {
     imagePreview.src = '#';
   }
 });
+
+
+const uInput = document.getElementById('iii'); 
+const iPreview = document.getElementById('ppp'); 
+
+uInput.addEventListener('change', function() { 
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      iPreview.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    iPreview.src = '#'; 
+  }
+});
+
 
 </script>
 @endsection

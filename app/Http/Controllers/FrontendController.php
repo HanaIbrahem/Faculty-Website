@@ -16,9 +16,6 @@ use DB;
 
 class FrontendController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         //
@@ -35,7 +32,7 @@ class FrontendController extends Controller
     public function about()
     {
         //
-        $activity = Activity::latest()->paginate(1);
+        $activity = Activity::latest()->paginate(8);
         return view('frontend.about', compact('activity'));
 
     }
@@ -72,15 +69,16 @@ class FrontendController extends Controller
             ->orderBy('pin', 'desc')
             ->orderBy('updated_at', 'desc')
             ->where('department_id', $department->id)
-            ->paginate(4,['*'], 'teacher_page'); // Added 'teacher_page' as the pagination name
+            ->paginate(12); // Added 'teacher_page' as the pagination name
 
         $courses = DB::table('courses')
             ->select('*')
             ->orderBy('updated_at')
             ->where('department_id', $department->id)
-            ->paginate(6,['*'], 'course_page'); // Added 'course_page' as the pagination name
+            ->paginate(9); 
 
-        return view('frontend.department', compact('department', 'courses','teacher'));
+        $type="all";
+        return view('frontend.department', compact('department', 'courses','teacher','type'));
 
 
     }
@@ -98,7 +96,7 @@ class FrontendController extends Controller
             ->orderBy('pin', 'desc')
             ->orderBy('updated_at', 'desc')
             ->where('department_id', $department->id)
-            ->paginate(8, ['*'], 'teacher_page');
+            ->paginate(12);
 
 
 
@@ -112,7 +110,7 @@ class FrontendController extends Controller
                 ->orderBy('updated_at')
                 ->where('department_id', $department->id)
                 ->where('type', $selectedType)
-                ->paginate(9, ['*'], 'course_page');
+                ->paginate(9);
 
         } elseif ($type == 'high') {
             $selectedType = 'bachelor'; // Replace with the type you want to filter
@@ -121,11 +119,11 @@ class FrontendController extends Controller
                 ->orderBy('updated_at')
                 ->where('department_id', $department->id)
                 ->where('type', '!=', $selectedType)
-                ->paginate(9, ['*'], 'course_page');
+                ->paginate(9);
         }
 
 
-        return view('frontend.department', compact('department', 'teacher', 'courses'));
+        return view('frontend.department', compact('department', 'teacher', 'courses','type'));
     }
 
 
@@ -172,7 +170,7 @@ class FrontendController extends Controller
         //
 
        
-        $research = Research::latest()->paginate(1);
+        $research = Research::latest()->paginate(10);
 
         // catigory news
         $research_count = Research::select(DB::raw('department_id, COUNT(*) as count'))
@@ -189,7 +187,7 @@ class FrontendController extends Controller
     public function research_catygory($id)
     {
 
-        $research = Research::latest()->where('department_id', $id)->paginate(1);
+        $research = Research::latest()->where('department_id', $id)->paginate(10);
 
         // catigory news
         $research_count = Research::select(DB::raw('department_id, COUNT(*) as count'))
@@ -219,7 +217,7 @@ class FrontendController extends Controller
     public function admission()
     {
 
-        $admission = Admission::latest()->paginate(2);
+        $admission = Admission::latest()->paginate(9);
         return view('frontend.admission', compact('admission'));
     }
 
@@ -276,11 +274,7 @@ class FrontendController extends Controller
      * contact delete
      */
 
-    public function course_test()
-    {
-        $courses = Course::latest()->paginate(10);
-        return view('frontend.course_test', compact('courses'));
-    }
+    
 
 
     // Pagination for models
@@ -293,8 +287,8 @@ class FrontendController extends Controller
         ->select('*')
         ->orderBy('pin', 'desc')
         ->orderBy('updated_at', 'desc')
-        ->where('department_id', 5  )
-        ->paginate(4,['*'], 'teacher_page'); // Added 'teacher_page' as the pagination name
+        ->where('department_id', $request->input('department_id') )
+        ->paginate(12); // Added 'teacher_page' as the pagination name
 
    
         return view('frontend.inc.teacher_data', compact('teacher'))->render();
@@ -302,13 +296,44 @@ class FrontendController extends Controller
 
     public function getMoreCourses(Request $request)
     {
-        $courses = DB::table('courses')
-        ->select('*')
-        ->orderBy('updated_at')
-        ->where('department_id', 5)
-        ->paginate(6,['*'], 'course_page'); 
-        // $teacher = Teacher::latest()->paginate(4);
-        // $courses = Course::latest()->paginate(6);
+        if ($request->input('type')=='all'){
+
+            $courses = DB::table('courses')
+            ->select('*')
+            ->orderBy('updated_at')
+            ->where('department_id', $request->input('department_id') )
+            ->paginate(9); 
+        }
+        else {
+            $type=$request->input('type');
+        
+            if ($type == 'bachelor') {
+                $selectedType = 'bachelor';
+
+                $courses = DB::table('courses')
+                ->select('*')
+                ->orderBy('updated_at')
+                ->where('department_id', $request->input('department_id') )
+                ->where('type', $selectedType)
+                ->paginate(9);
+            }
+
+            elseif ($type == 'high') {
+                $selectedType = 'bachelor';
+
+                $courses = DB::table('courses')
+                ->select('*')
+                ->orderBy('updated_at')
+                ->where('department_id', $request->input('department_id') )
+                ->where('type', '!=', $selectedType)
+
+                ->paginate(9);
+            }
+
+
+        
+        }
+     
         return view('frontend.inc.course_data', compact('courses'))->render();
     }
 
@@ -319,11 +344,11 @@ class FrontendController extends Controller
         if ($request->ajax()) {
 
             if ($request->input('department_id')==0){
-                $research = Research::latest()->paginate(1);
+                $research = Research::latest()->paginate(10);
 
             }
             else{
-                $research = Research::latest()->where('department_id',$request->input('department_id') )->paginate(1);
+                $research = Research::latest()->where('department_id',$request->input('department_id') )->paginate(10);
 
             }
 
@@ -333,14 +358,14 @@ class FrontendController extends Controller
     //get more addmision
     public function getMoreAdmission(Request $request)
     {
-        $admission = Admission::latest()->paginate(2);
+        $admission = Admission::latest()->paginate(9);
 
         return view('frontend.inc.admission_data', compact('admission'))->render();
     }
 
     public function getMoreActivity(Request $request)
     {
-        $activity = Activity::latest()->paginate(1);
+        $activity = Activity::latest()->paginate(8);
 
         return view('frontend.inc.activity_data', compact('activity'))->render();
     }

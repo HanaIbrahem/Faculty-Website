@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title_ku')->default('فاکەڵتی زانست')->charset('utf8mb4');
             
             $table->string('image')->nullable();
+            $table->string('cover')->nullable();
             $table->string('logo')->nullable();
             $table->longText('description')->default('about faculty of Scince');
             $table->longText('description_ku')->default('دەربارەی فاکەڵتی زانست')->charset('utf8mb4');

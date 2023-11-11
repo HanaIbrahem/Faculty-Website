@@ -4,6 +4,8 @@
     if (Session::get('locale') == 'ku') {
         $loc = '_ku';
     }
+    $faculty = \App\Models\Faculty::find(1);
+
 @endphp
 
 @extends('frontend.layout.master')
@@ -17,7 +19,7 @@
     {{-- Headre  --}}
     <<header class="position-relative">
         <div class="page-header min-vh-75 position-relative"
-            style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}');" loading="lazy">
+            style="background-image: url('{{ asset('images/'.$faculty->cover) }}');" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">
                 <div class="row justify-content-center">

@@ -18,7 +18,7 @@
 
                         <div class="col-lg-12 justify-content-center d-flex flex-column">
                             <div class="card-image position-relative border-radius-lg cursor-pointer">
-                                <div class="p-3">
+                                <div class="p-1">
                                     <h3 class="text-dark">{{$activity->{"name$loc"} }}</h3>
 
                                 </div>
@@ -53,7 +53,7 @@
                                 @else
                                     Posted at:
                                 @endif
-                                </span>{{$activity->created_at->format('M j, Y')}}
+                                </span>{{$activity->created_at->format('d/m/y')}}
                             </p>
 
                         </div>

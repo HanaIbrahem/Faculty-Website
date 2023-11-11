@@ -174,6 +174,21 @@ class WebsiteController extends Controller
             $faculty->image=$save_url;
         }
 
+        // for uploading cover image 
+        if ($request->hasFile('cover')) {
+
+
+            $request->validate([
+                'cover' => ['required', File::image()],
+            
+            ]);
+            $cover = $request->file('cover');
+            $name_gen = hexdec(uniqid()).'.'.$cover->getClientOriginalExtension();  // 3434343443.jpg
+            $save_url = $name_gen;
+            $cover->move(public_path('images/'), $name_gen);
+
+            $faculty->cover=$save_url;
+        }
         // Save the changes
         $faculty->save();
 

@@ -32,8 +32,9 @@
     @endforeach
 </div>
 
- <!-- pagination start -->
-<div id="teacher" class="pagination pagination-primary m-4 pagination-wrap"  >
-   {{ $teacher->links('vendor.pagination.custom', ['paginator' => $teacher]) }}
- </div>
+ <!-- pagination start --> <!-- For Course Pagination -->
+ <div class="teacher-pagination pagination pagination-primary pagination-wrap mt-4 ms-0 me-0 ps-sm-0 pe-sm-0">
+    {{ $teacher->onEachSide(1)->links('vendor.pagination.custom') }}
+</div>
+
 <!-- pagination end -->

@@ -33,7 +33,8 @@
 </div>
 
 <!-- For Course Pagination -->
-<div id="course" class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%" >
-    {{ $courses->links('vendor.pagination.custom', ['paginator' => $courses]) }}
+<div id="pagination-container" class="course-pagination pagination pagination-primary m-4 pagination-wrap ms-0 me-0 ps-sm-0 pe-sm-0">
+    {{ $courses->onEachSide(1)->links('vendor.pagination.custom', ['paginator' => $courses]) }}
 </div>
+
 {{-- {{ $courses->links('vendor.pagination.custom') }} --}}

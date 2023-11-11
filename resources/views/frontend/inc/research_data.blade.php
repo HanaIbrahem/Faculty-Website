@@ -41,8 +41,8 @@
     @endforeach
 </section>
  <!-- For Course Pagination -->
- <div class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%">
-    {{ $research->links('vendor.pagination.custom') }}
+ <div class="pagination pagination-primary mt-4 ms-0 me-0 ps-sm-0 pe-sm-0 pagination-wrap" >
+    {{ $research->onEachSide(1)->links('vendor.pagination.custom') }}
 </div>
 
     

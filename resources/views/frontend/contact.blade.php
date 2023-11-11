@@ -5,10 +5,13 @@
      if (Session::get('locale') == 'ku') {
          $loc = '_ku';
      }
+
+     $faculty = \App\Models\Faculty::find(1);
+
  @endphp
  @section('main')
  <header>
-    <div class="page-header min-vh-75" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')"
+    <div class="page-header min-vh-75" style="background-image: url('{{ asset('images/'.$faculty->cover) }}')"
         loading="lazy">
         <span class="mask bg-gradient-dark"></span>
         <div class="container">

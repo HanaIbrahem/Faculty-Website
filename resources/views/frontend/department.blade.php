@@ -19,10 +19,9 @@
                     <div class="col-lg-6 text-center mx-auto mt-n7">
                         <h1 class="text-white fadeIn2 fadeInBottom">
                             @if ($loc == '_ku')
-                                فاکەڵتی زانست بەشی
                                 {{ $department->name_ku }}
                             @else
-                                Faculty of Science {{ $department->name }} Department
+                                 {{ $department->name }} 
                             @endif
                         </h1>
                         {{-- <p class="lead mb-5 fadeIn3 fadeInBottom text-white opacity-8">
@@ -133,37 +132,11 @@
 
                     </div>
 
-                    <div class="row g-4 g-xl-5 slider-container d-flex justify-content-center">
-                        @foreach ($courses as $item)
-                            <div class="col-lg-4 col-sm-6 col-md-6 mx-auto mb-4 text-start">
-                                <div class="card shadow-lg mt-4 h-100">
-
-                                    <div class="card-body text-center d-flex flex-column">
-
-
-
-                                        <h4 class="flex-grow-1">
-                                            <a class="text-dark" href="{{ route('forntend.course', $item->id) }}">
-                                                {{ $item->{"name$loc"} }}
-                                            </a>
-                                        </h4>
-                                        @if ($loc == '_ku')
-                                            <p class="text-dark">ئاست{{ $item->type }}</p>
-
-                                            {{ $item->id }}
-                                        @else
-                                            <p class="text-dark">Level:{{ $item->type }}</p>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                    <div id="course-container">
+                        @include('frontend.inc.course_data')
                     </div>
 
-                    <!-- For Course Pagination -->
-                    <div class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%">
-                        {{ $courses->links('vendor.pagination.custom', ['paginator' => $courses]) }}
-                    </div>
+
                 </div>
             </section>
 
@@ -183,42 +156,80 @@
                         </div>
 
 
-                        <div class="row d-flex mt-1 justify-content-center mt-5">
-                            @foreach ($teacher as $item)
-                                <div class="col-lg-3 col-12 col-md-6 mb-5 ">
-                                    <div class="card h-100 d-flex flex-column">
-                                        <div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">
-                                            <a class="d-block blur-shadow-image">
-                                                <img src="{{ asset('images/teacher/' . $item->image) }}"
-                                                    alt="img-blur-shadow" class="img-fluid shadow border-radius-lg"
-                                                    loading="lazy"
-                                                    style="width:100%; height:220px;
-                                                     object-fit: cover;"id="re">
-                                            </a>
-                                        </div>
-                                        <div class="card-body text-center bg-white border-radius-lg p-3 pt-0 flex-grow-1">
-                                            <h5 class="mt-3 mb-1 d-md-block d-none">
-                                                <a href="{{route('forntend.teacher',$item->id)}}">{{ $item->{"name$loc"} }}</a>
-                                            </h5>
-                                            <p class="mb-1 d-md-none d-block text-sm font-weight-bold text-dark mt-3">
-                                                <a href="{{route('forntend.teacher',$item->id)}}">{{ $item->{"name$loc"} }}
-                                                </a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
+                       
+                        <div id="teacher-container">
+                            @include('frontend.inc.teacher_data')
                         </div>
-
+                     
 
                     </div>
-                    <!-- pagination start -->
-                    <div class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%">
-                        {{ $teacher->links('vendor.pagination.custom', ['paginator' => $teacher, 'id' => 'coursesection']) }}
-                    </div>
-                    <!-- pagination end -->
+                    
                 </div>
             </section>
 
 
         </div>
+        
+
+        <input type="hidden" value="{{$department->id}}" id="department_id" name="id">
+        <input type="hidden" value="{{$type}}" id="type" name="type">
+
     @endsection
+
+
+    @push('scripts')
+    <script src="{{ asset('backend/assets/vendor/jqury/jquery-3.6.0.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', '.teacher-pagination a', function(event) {
+                event.preventDefault();
+                var page = $(this).attr('href').split('page=')[1];
+                getMoreTeachers(page);
+            });
+
+            $(document).on('click', '.course-pagination a', function(event) {
+                event.preventDefault();
+                var page = $(this).attr('href').split('page=')[1];
+                getMoreCourses(page);
+            });
+        });
+
+        function getMoreTeachers(page) {
+            var search = $('#search').val();
+            var departmentId = $('#department_id').val();
+
+            $.ajax({
+                type: "GET",
+                data: {
+                    'search_query': search,
+                    'department_id': departmentId,
+
+                },
+                url: "{{ route('more-teacher') }}" + "?page=" + page,
+                success: function(data) {
+                    $('#teacher-container').html(data);
+                }
+            });
+        }
+
+        function getMoreCourses(page) {
+            var search = $('#search').val();
+            var departmentId = $('#department_id').val();
+            var coursetype = $('#type').val();
+
+            $.ajax({
+                type: "GET",
+                data: {
+                    'search_query': search,
+                    'department_id': departmentId,
+                    'type': coursetype,
+                },
+                url: "{{ route('more-course') }}" + "?page=" + page,
+                success: function(data) {
+                    $('#course-container').html(data);
+                }
+            });
+        }
+    </script>
+@endpush

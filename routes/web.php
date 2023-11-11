@@ -55,11 +55,7 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // website setup routes
-    Route::get('/faculty',[WebsiteController::class,'edit'])->name('faculty');
-    Route::post('/faculty/update',[WebsiteController::class,'update'])->name('faculty.update');
-    Route::get('/website',[WebsiteController::class,'index'])->name('website');
-    Route::post('/website/update',[WebsiteController::class,'store'])->name('website.update');
-
+    
     Route::get('/contact/{id}',[WebsiteController::class,'contactdelete'])->name('contact.destroy');
 
     // Department Controller
@@ -140,7 +136,11 @@ Route::middleware('superadmin')->prefix('dashboard')->group(function () {
     Route::post('/user/update',[ProfileController::class,'UserUpdate'])->name('User-update');
     Route::post('/user/reset',[ProfileController::class,'ResetPassword'])->name('user-reset');
 
-    
+    Route::get('/faculty',[WebsiteController::class,'edit'])->name('faculty');
+    Route::post('/faculty/update',[WebsiteController::class,'update'])->name('faculty.update');
+    Route::get('/website',[WebsiteController::class,'index'])->name('website');
+    Route::post('/website/update',[WebsiteController::class,'store'])->name('website.update');
+
 
 });
 
@@ -163,11 +163,8 @@ Route::middleware('web')->group(function (){
     Route::get('/course/{id}',[FrontendController::class,'course'])->name('forntend.course');
     Route::get('/teacher/{id}',[FrontendController::class,'teacher'])->name('forntend.teacher');
     Route::post('/contact/store',[FrontendController::class,'contactstore'])->name('contact.store');
-    // Route::get('test',[FrontendController::class,'course_test'])->name('forntend.test');
-
 
     //pagination 
-    Route::get('get-more-users', [ FrontendController::class,'test'])->name('test_r');
     Route::get('get-more-research', [ FrontendController::class,'getMoreResearch'])->name('more-research');
     Route::get('get-more-admission', [ FrontendController::class,'getMoreAdmission'])->name('more-admission');
     Route::get('get-more-activity', [ FrontendController::class,'getMoreActivity'])->name('more-activity');

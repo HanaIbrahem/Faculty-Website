@@ -28,6 +28,6 @@
 </div>
 
  <!-- For Course Pagination -->
- <div id="ad" class="pagination pagination-primary m-4 pagination-wrap" style="margin-left:10%">
-    {{ $admission->links('vendor.pagination.custom') }}
+ <div id="ad" class="pagination pagination-primary m-4 pagination-wrap mt-4 ms-0 me-0 ps-sm-0 pe-sm-0">
+    {{ $admission->onEachSide(1)->links('vendor.pagination.custom') }}
 </div>

@@ -83,6 +83,8 @@ class ProfileController extends Controller
                 
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+                'role' => ['required', 'string', 'max:255'],
+
             ]
 
         );
@@ -90,6 +92,7 @@ class ProfileController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
 
+        $user->role = $request->input('role');
         // $user->password = Hash::make($request->password);
 
         $user->save();

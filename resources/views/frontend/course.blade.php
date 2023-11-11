@@ -36,7 +36,6 @@
                                 <p class="fw-bold">
                                  @if ($loc=='_ku')
      
-                                 بەشی
      
                                  {{ $course->department->name_ku }}
      
@@ -46,7 +45,6 @@
                                
                                  @else
                                  {{ $course->department->name }}
-                                 Department
                                  <br>
                                  Level:{{$course->type}}
 
@@ -94,7 +92,6 @@
                                 @if ($loc=='_ku')
                                 <p class="text-dark">ئاست{{$item->type}}</p>
 
-                                {{$item->id}}
                                 @else
                                 <p class="text-dark">Level:{{$item->type}}</p>
 

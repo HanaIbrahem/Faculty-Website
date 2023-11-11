@@ -5,15 +5,17 @@
         $loc='_ku';
     }
     
+    $faculty = \App\Models\Faculty::find(1);
+
 @endphp
 @section('main')
 
     <header>
-        <div class="page-header min-vh-75" style="background-image: url('{{ asset('frontend/assets/img/cover.png') }}')" loading="lazy">
+        <div class="page-header min-vh-75" style="background-image: url('{{ asset('images/'.$faculty->cover) }}')" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 mx-auto text-white text-center">
+                    <div class="col-lg-6 mx-auto text-white text-center">
                         <h2 class="text-white">{{__('message.research_header')}}</h2>
                     </div>
                 </div>

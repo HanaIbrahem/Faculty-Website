@@ -27,6 +27,16 @@
                         <input value="{{$user->email}}" id="email" class="mt-1 block w-full form-control input-rounded" type="email" name="email" :value="old('email')" required autocomplete="username" />
                         <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                     </div>
+
+
+                    <div class="form-group mb-3 mt-2">
+                        <label for="">Role</label>
+                        <select class="form-control input-group" name="role" id="">
+                            <option class="mb-2 form-control" {{$user->role =='admin' ? 'selected':''}} value="admin">Admin</option>
+                            <option class="mb-2 form-control" {{$user->role =='superadmin'?'selected':''}} value="superadmin">Superadmin</option>
+                        </select>
+                       
+                    </div>
             
                     <!-- Password -->
                     {{-- <div class="form-group mb-3 mt-2 ">
