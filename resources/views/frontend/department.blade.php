@@ -15,7 +15,7 @@
             style="background-image: url('{{ asset('images/department/' . $department->image) }}');" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center" data-aos="fade-down">
                     <div class="col-lg-6 text-center mx-auto mt-n7">
                         <h1 class="text-white fadeIn2 fadeInBottom">
                             @if ($loc == '_ku')
@@ -37,9 +37,9 @@
         <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n5">
             <section class="py-5 mt-2">
                 <div class="container my-4 my-sm-0 px-0 px-sm-3">
-                    <div class="row" data-aos="zoom-in" data-aos-duration="1000">
+                    <div class="row" >
                         <div class="col-lg-8 ms-auto me-auto">
-                            <h3 class="title mb-4 text-center">
+                            <h3 class="title mb-4 text-center" data-aos="zoom-in" >
                                 @if ($loc == '_ku')
                                     بەشی
                                     {{ $department->name_ku }}
@@ -69,7 +69,7 @@
                                 @endif
 
                             </span>
-                            <h2>{{ __('message.course_header1') }} </h2>
+                            <h2  data-aos="zoom-in" >{{ __('message.course_header1') }} </h2>
                             <p>
                                 {{ __('message.course_header') }}
                             </p>
@@ -144,7 +144,7 @@
                 <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row">
                         <div class="col-9 text-center mx-auto">
-                            <h3 class="mb-1">
+                            <h3 class="mb-1" data-aos="zoom-in" >
                                 @if ($loc == '_ku')
                                     مامۆستایانی بەشی
                                     {{ $department->name_ku }}

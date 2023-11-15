@@ -10,7 +10,7 @@
 
     {{-- start foreach --}}
     @foreach ($activity as $item)
-    <div class="row mb-5 m-md-4 p-2 shadow shadow-lg"data-aos="fade-left" data-aos-duration="1000">
+    <div class="row mb-5 m-md-4 p-2 shadow shadow-lg"    data-aos-duration="1000">
         <div class="col-lg-6 justify-content-center d-flex flex-column">
             <div class="card">
                 <div class="d-block blur-shadow-image">

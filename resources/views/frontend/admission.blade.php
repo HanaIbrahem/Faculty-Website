@@ -22,7 +22,7 @@
             style="background-image: url('{{ asset('images/'.$faculty->cover) }}');" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center"data-aos="zoom-in" >
                     <div class="col-lg-6 text-center mx-auto mt-n7">
                         <h2 class="text-white fadeIn2 fadeInBottom">
                             {{__('message.admisstion_heder')}}

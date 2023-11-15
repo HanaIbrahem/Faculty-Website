@@ -22,7 +22,7 @@
             style="background-image: url('{{ asset('images/'.$faculty->cover) }}');" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container mt-5">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center" data-aos="zoom-in" >
                     <div class="col-lg-6 text-center mx-auto mt-n7">
                         <h1 class="text-white fadeIn2 fadeInBottom">
                             {{__('message.index_header')}}
@@ -41,7 +41,7 @@
             <section>
                 <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row border-radius-md pb-4 p-lg-3 mx-sm-0 mx-1 position-relative">
-                        <div class="card card-plain card-blog mt-5">
+                        <div class="card card-plain card-blog mt-5" >
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="card-image position-relative border-radius-lg cursor-pointer">
@@ -72,7 +72,7 @@
             <section class="py-5 ">
                 <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row">
-                        <div class="col-12 mx-auto text-center mb-5">
+                        <div class="col-12 mx-auto text-center mb-5" data-aos="zoom-in" >
                             <h2>{{ __('message.department_index_header') }} </h2>
 
                         </div>
@@ -108,8 +108,8 @@
                 <div class="container my-4 my-sm-0 px-0 px-sm-3">
                     <div class="row">
                         <div class="col-md-12 mx-auto text-center">
-                            <h6 class="text-gradient text-info text-uppercase">{{__('message.staff_header-t')}}</h6>
-                            <h2>{{__('message.staff_header')}}</h2>
+                            <h6 class="text-gradient text-info text-uppercase" >{{__('message.staff_header-t')}}</h6>
+                            <h2 data-aos="zoom-in" >{{__('message.staff_header')}}</h2>
                         </div>
                     </div>
                  

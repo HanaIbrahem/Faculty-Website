@@ -15,7 +15,7 @@
         loading="lazy">
         <span class="mask bg-gradient-dark"></span>
         <div class="container">
-            <div class="row">
+            <div class="row"  data-aos="zoom-in" >
                 <div class="col-lg-8 mx-auto text-white text-center py-5">
                     <h2 class="text-white mb-3">{{__('message.contact_q')}}</h2>
                     <p class="lead text-white mb-6">
@@ -54,12 +54,12 @@
              </div>
          </div>
      </div> --}}
-     <section class="py-md-7 py-3">
+     <section class="py-md-7 py-3" >
          <div class="container my-4 my-sm-0 px-0 px-sm-3 ">
              <div class="row align-items-center">
                  <div class="col-lg-8 col-10 mx-auto text-center">
                      <div class="mb-md-5">
-                         <h3>{{__('message.contact')}}</h3>
+                         <h3 data-aos="zoom-in" >{{__('message.contact')}}</h3>
                         
                      </div>
                  </div>
@@ -89,14 +89,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group input-group input-group-static mb-4">
                                             <label>{{__('message.first_name')}}</label>
-                                            <input class="form-control" placeholder="" aria-label="First Name..."
+                                            <input class="form-control bg-light" placeholder="" aria-label="First Name..."
                                                 type="text" id="name" name="name">
                                         </div>
                                     </div>
                                     <div class="col-md-6 ps-2">
                                         <div class="input-group form-group input-group-static">
                                             <label>{{__('message.last_name')}}</label>
-                                            <input type="text" class="form-control" 
+                                            <input type="text" class="form-control bg-light" 
                                                 aria-label="Last Name..."  name="lname">
                                         </div>
                                     </div>
@@ -104,12 +104,12 @@
                                 <div class="mb-4">
                                     <div class="input-group form-group input-group-static">
                                         <label>{{__('message.email')}}</label>
-                                        <input type="email"  name="email" class="form-control">
+                                        <input type="email"  name="email" class="form-control bg-light">
                                     </div>
                                 </div>
                                 <div class="input-group form-group input-group-static mb-4">
                                     <label>{{__('message.message')}}</label>
-                                    <textarea name="message"  name="message" class="form-control" id="message" rows="4"></textarea>
+                                    <textarea name="message"  name="message" class="form-control bg-light" id="message" rows="4"></textarea>
                                 </div>
                                 <div class="row">
                                    

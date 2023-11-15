@@ -14,7 +14,7 @@
         <div class="page-header min-vh-75" style="background-image: url('{{ asset('images/'.$faculty->cover) }}')" loading="lazy">
             <span class="mask bg-gradient-dark"></span>
             <div class="container">
-                <div class="row">
+                <div class="row" data-aos="zoom-in" >
                     <div class="col-lg-6 mx-auto text-white text-center">
                         <h2 class="text-white">{{__('message.research_header')}}</h2>
                     </div>

@@ -35,8 +35,10 @@
     <link rel="stylesheet" href="{{asset('backend/assets/fonts/css/all.min.css')}}">
     {{-- <script src="https://kit.fontawesome.com/8b87d80512.js" crossorigin="anonymous"></script> --}}
 
+    <link rel="stylesheet" href="{{asset('frontend/assets/vendor/aos/aos.css')}}">
 
     <link rel="icon" type="image/x-icon" href="{{ asset('images/' . $faculty->logo) }}">
+
     <title>{{ $faculty->{"title$loc"}  }}</title>
 </head>
 
@@ -52,6 +54,13 @@
     {{-- required scrypts --}}
     <script src="{{asset('frontend/assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('frontend/assets/js/core/bootstrap.min.js')}}"></script>
+    <script src="{{asset('frontend/assets/vendor/aos/aos.js')}}"></script>
+    <script>
+        AOS.init({
+          duration: 3000,
+          once: true,
+        });
+      </script>
     @yield('swiper-js')
     @stack('scripts')
 
