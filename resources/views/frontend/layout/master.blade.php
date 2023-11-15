@@ -57,7 +57,7 @@
     <script src="{{asset('frontend/assets/vendor/aos/aos.js')}}"></script>
     <script>
         AOS.init({
-          duration: 3000,
+          duration: 2000,
           once: true,
         });
       </script>

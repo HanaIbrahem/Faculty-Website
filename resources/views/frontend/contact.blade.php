@@ -107,7 +107,7 @@
                                         <input type="email"  name="email" class="form-control bg-light">
                                     </div>
                                 </div>
-                                <div class="input-group form-group input-group-static mb-4">
+                                <div class="input-group for m-group input-group-static mb-4">
                                     <label>{{__('message.message')}}</label>
                                     <textarea name="message"  name="message" class="form-control bg-light" id="message" rows="4"></textarea>
                                 </div>

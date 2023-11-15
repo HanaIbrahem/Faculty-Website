@@ -11,7 +11,7 @@
         <div class="col-lg-3 col-12 col-md-6 mb-5 ">
             <div class="card h-100 d-flex flex-column">
                 <div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">
-                    <a class="d-block blur-shadow-image">
+                    <a class="d-block blur-shadow-image" href="{{route('forntend.teacher',$item->id)}}">
                         <img src="{{ asset('images/teacher/' . $item->image) }}"
                             alt="img-blur-shadow" class="img-fluid shadow border-radius-lg"
                             loading="lazy"
