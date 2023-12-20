@@ -10,7 +10,7 @@
             <div class="card shadow-lg mt-4" style="height: 100%; display: flex; flex-direction: column;">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <a class="d-block blur-shadow-image">
-                        <img style="width:100%; height:200px"
+                        <img style="width:100%; height:250px;object-fit: contain;"
                             src="{{ asset('images/admission/' . $item->image) }}"
                             alt="{{ $item->name }}" class="img-fluid shadow border-radius-lg ">
                     </a>

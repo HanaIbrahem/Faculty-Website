@@ -124,7 +124,7 @@
                                                  class="img-fluid shadow border-radius-lg" 
                                                  loading="lazy"
                                                  style="width:100%; height:220px;
-                                                 object-fit: cover;"id="re">
+                                                 object-fit: contain;"id="re">
                                         </a>
                                     </div>
                                     <div class="card-body text-center bg-white border-radius-lg p-3 pt-0 flex-grow-1">

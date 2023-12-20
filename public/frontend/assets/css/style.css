@@ -148,11 +148,14 @@
 
 
 .custom-imgcard {
-  max-width: 600px;
-  max-height: 450px;
-  width: auto;
-  height: auto;
+  max-width: 420px;
+  max-height: 400px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
+
+
 
 @media (max-width: 768px) {
   .custom-imgcard {
@@ -167,6 +170,16 @@
   flex-wrap: wrap;
   justify-content: center; /* Adjust as needed */
 }
+
+/* image card responsive */
+
+.responsive-image-1 {
+  width:100%;
+  height:220px; 
+  object-fit: contain;
+}
+
+
 
 
  

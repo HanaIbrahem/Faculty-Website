@@ -154,9 +154,6 @@
                             </h3>
                             <p class="mb-1">{{ __('message.department_teacher') }}</p>
                         </div>
-
-
-                       
                         <div id="teacher-container">
                             @include('frontend.inc.teacher_data')
                         </div>

@@ -28,7 +28,7 @@
     @else
 
     @endif
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/material-kit.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css') }}">
     @yield('swiper-css')
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <!-- Font ausom link -->

@@ -13,10 +13,9 @@
                 <div class="card-header mt-n4 mx-3 p-0 bg-transparent position-relative z-index-2">
                     <a class="d-block blur-shadow-image" href="{{route('forntend.teacher',$item->id)}}">
                         <img src="{{ asset('images/teacher/' . $item->image) }}"
-                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg"
+                            alt="img-blur-shadow" class="img-fluid shadow border-radius-lg responsive-image-1"
                             loading="lazy"
-                            style="width:100%; height:220px;
-                             object-fit: cover;"id="re">
+                            id="re">
                     </a>
                 </div>
                 <div class="card-body text-center bg-white border-radius-lg p-3 pt-0 flex-grow-1">
